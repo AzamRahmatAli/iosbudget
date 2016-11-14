@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15A284" minimumToolsVersion="Automatic">
+    <entity name="AccountTable" representedClassName=".AccountTable" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="accountType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountTypeTable" inverseName="account" inverseEntity="AccountTypeTable" syncable="YES"/>
+        <relationship name="expense" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExpenseTable" inverseName="account" inverseEntity="ExpenseTable" syncable="YES"/>
+        <relationship name="income" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IncomeTable" inverseName="account" inverseEntity="IncomeTable" syncable="YES"/>
+        <relationship name="transferFrom" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransferTable" inverseName="toAccount" inverseEntity="TransferTable" syncable="YES"/>
+        <relationship name="transferTo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransferTable" inverseName="fromAccount" inverseEntity="TransferTable" syncable="YES"/>
+    </entity>
+    <entity name="AccountTypeTable" representedClassName=".AccountTypeTable" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AccountTable" inverseName="accountType" inverseEntity="AccountTable" syncable="YES"/>
+    </entity>
+    <entity name="CategoryTable" representedClassName=".CategoryTable" syncable="YES">
+        <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subcategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubCategoryTable" inverseName="category" inverseEntity="SubCategoryTable" syncable="YES"/>
+    </entity>
+    <entity name="ExpenseTable" representedClassName=".ExpenseTable" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reciept" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountTable" inverseName="expense" inverseEntity="AccountTable" syncable="YES"/>
+        <relationship name="subCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SubCategoryTable" inverseName="expense" inverseEntity="SubCategoryTable" syncable="YES"/>
+    </entity>
+    <entity name="IncomeTable" representedClassName=".IncomeTable" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountTable" inverseName="income" inverseEntity="AccountTable" syncable="YES"/>
+    </entity>
+    <entity name="Other" representedClassName=".Other" syncable="YES">
+        <attribute name="currencyCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currencySymbol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lockOn" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="oneBudget" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SubCategoryTable" representedClassName=".SubCategoryTable" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryTable" inverseName="subcategory" inverseEntity="CategoryTable" syncable="YES"/>
+        <relationship name="expense" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ExpenseTable" inverseName="subCategory" inverseEntity="ExpenseTable" syncable="YES"/>
+    </entity>
+    <entity name="TransferTable" representedClassName=".TransferTable" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="transferAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="fromAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountTable" inverseName="transferTo" inverseEntity="AccountTable" syncable="YES"/>
+        <relationship name="toAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountTable" inverseName="transferFrom" inverseEntity="AccountTable" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AccountTable" positionX="421" positionY="170" width="128" height="178"/>
+        <element name="AccountTypeTable" positionX="261" positionY="108" width="128" height="73"/>
+        <element name="CategoryTable" positionX="432" positionY="18" width="128" height="88"/>
+        <element name="ExpenseTable" positionX="-36" positionY="71" width="128" height="133"/>
+        <element name="IncomeTable" positionX="-36" positionY="222" width="128" height="118"/>
+        <element name="Other" positionX="108" positionY="252" width="128" height="133"/>
+        <element name="SubCategoryTable" positionX="234" positionY="-63" width="128" height="118"/>
+        <element name="TransferTable" positionX="36" positionY="252" width="128" height="103"/>
+    </elements>
+</model>

@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F770B52B1DD33D8F00013B87 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4E71DD33D8F00013B87 /* AccountsViewController.swift */; };
+		F770B52C1DD33D8F00013B87 /* AccountTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4E81DD33D8F00013B87 /* AccountTable.swift */; };
+		F770B52D1DD33D8F00013B87 /* AccountTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4E91DD33D8F00013B87 /* AccountTable+CoreDataProperties.swift */; };
+		F770B52E1DD33D8F00013B87 /* AccountTypeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4EA1DD33D8F00013B87 /* AccountTypeTable.swift */; };
+		F770B52F1DD33D8F00013B87 /* AccountTypeTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4EB1DD33D8F00013B87 /* AccountTypeTable+CoreDataProperties.swift */; };
+		F770B5301DD33D8F00013B87 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4EC1DD33D8F00013B87 /* AddAccountViewController.swift */; };
+		F770B5311DD33D8F00013B87 /* AddBudgetCGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4ED1DD33D8F00013B87 /* AddBudgetCGViewController.swift */; };
+		F770B5321DD33D8F00013B87 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4EE1DD33D8F00013B87 /* AddExpenseViewController.swift */; };
+		F770B5331DD33D8F00013B87 /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4EF1DD33D8F00013B87 /* AddIncomeViewController.swift */; };
+		F770B5341DD33D8F00013B87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4F01DD33D8F00013B87 /* AppDelegate.swift */; };
+		F770B5351DD33D8F00013B87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F770B4F11DD33D8F00013B87 /* Assets.xcassets */; };
+		F770B5361DD33D8F00013B87 /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4F21DD33D8F00013B87 /* Backup.swift */; };
+		F770B5371DD33D8F00013B87 /* BackupRestoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4F31DD33D8F00013B87 /* BackupRestoreViewController.swift */; };
+		F770B5391DD33D8F00013B87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F770B4F71DD33D8F00013B87 /* Main.storyboard */; };
+		F770B53A1DD33D8F00013B87 /* BasicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4F91DD33D8F00013B87 /* BasicData.swift */; };
+		F770B53B1DD33D8F00013B87 /* budget.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F770B4FA1DD33D8F00013B87 /* budget.xcdatamodeld */; };
+		F770B53C1DD33D8F00013B87 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4FC1DD33D8F00013B87 /* BudgetViewController.swift */; };
+		F770B53D1DD33D8F00013B87 /* CategoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4FD1DD33D8F00013B87 /* CategoryTable.swift */; };
+		F770B53E1DD33D8F00013B87 /* CategoryTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4FE1DD33D8F00013B87 /* CategoryTable+CoreDataProperties.swift */; };
+		F770B53F1DD33D8F00013B87 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4FF1DD33D8F00013B87 /* Currency.swift */; };
+		F770B5401DD33D8F00013B87 /* CurrencyPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5001DD33D8F00013B87 /* CurrencyPickerTableViewController.swift */; };
+		F770B5411DD33D8F00013B87 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5011DD33D8F00013B87 /* CustomCollectionViewCell.swift */; };
+		F770B5421DD33D8F00013B87 /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5021DD33D8F00013B87 /* customTableViewCell.swift */; };
+		F770B5431DD33D8F00013B87 /* datePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5031DD33D8F00013B87 /* datePickerViewController.swift */; };
+		F770B5441DD33D8F00013B87 /* EmailBackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5041DD33D8F00013B87 /* EmailBackupViewController.swift */; };
+		F770B5451DD33D8F00013B87 /* ExpenseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5051DD33D8F00013B87 /* ExpenseTable.swift */; };
+		F770B5461DD33D8F00013B87 /* ExpenseTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5061DD33D8F00013B87 /* ExpenseTable+CoreDataProperties.swift */; };
+		F770B5471DD33D8F00013B87 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5071DD33D8F00013B87 /* ExpenseViewController.swift */; };
+		F770B5481DD33D8F00013B87 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5081DD33D8F00013B87 /* Helper.swift */; };
+		F770B5491DD33D8F00013B87 /* IncomeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5091DD33D8F00013B87 /* IncomeTable.swift */; };
+		F770B54A1DD33D8F00013B87 /* IncomeTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B50A1DD33D8F00013B87 /* IncomeTable+CoreDataProperties.swift */; };
+		F770B54B1DD33D8F00013B87 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B50B1DD33D8F00013B87 /* IncomeViewController.swift */; };
+		F770B54D1DD33D8F00013B87 /* LockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B50D1DD33D8F00013B87 /* LockViewController.swift */; };
+		F770B54E1DD33D8F00013B87 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B50E1DD33D8F00013B87 /* MenuTableViewController.swift */; };
+		F770B5511DD33D8F00013B87 /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5131DD33D8F00013B87 /* NSDateExtension.swift */; };
+		F770B5521DD33D8F00013B87 /* OneBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5141DD33D8F00013B87 /* OneBudgetViewController.swift */; };
+		F770B5531DD33D8F00013B87 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5151DD33D8F00013B87 /* Other.swift */; };
+		F770B5541DD33D8F00013B87 /* Other+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5161DD33D8F00013B87 /* Other+CoreDataProperties.swift */; };
+		F770B5551DD33D8F00013B87 /* ParentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5171DD33D8F00013B87 /* ParentTableViewCell.swift */; };
+		F770B5561DD33D8F00013B87 /* PasswordSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5181DD33D8F00013B87 /* PasswordSetupViewController.swift */; };
+		F770B5571DD33D8F00013B87 /* PickIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5191DD33D8F00013B87 /* PickIconViewController.swift */; };
+		F770B5581DD33D8F00013B87 /* QuickSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B51A1DD33D8F00013B87 /* QuickSummaryViewController.swift */; };
+		F770B5591DD33D8F00013B87 /* Restore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B51B1DD33D8F00013B87 /* Restore.swift */; };
+		F770B55A1DD33D8F00013B87 /* SCBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B51C1DD33D8F00013B87 /* SCBudgetViewController.swift */; };
+		F770B55B1DD33D8F00013B87 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B51D1DD33D8F00013B87 /* SearchTableViewController.swift */; };
+		F770B55C1DD33D8F00013B87 /* SetBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B51E1DD33D8F00013B87 /* SetBudgetViewController.swift */; };
+		F770B55D1DD33D8F00013B87 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B51F1DD33D8F00013B87 /* SettingTableViewController.swift */; };
+		F770B55E1DD33D8F00013B87 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5201DD33D8F00013B87 /* Strings.swift */; };
+		F770B55F1DD33D8F00013B87 /* SubCategoryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5211DD33D8F00013B87 /* SubCategoryTable.swift */; };
+		F770B5601DD33D8F00013B87 /* SubCategoryTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5221DD33D8F00013B87 /* SubCategoryTable+CoreDataProperties.swift */; };
+		F770B5621DD33D8F00013B87 /* TableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5251DD33D8F00013B87 /* TableSectionHeader.swift */; };
+		F770B5631DD33D8F00013B87 /* TableSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F770B5261DD33D8F00013B87 /* TableSectionHeader.xib */; };
+		F770B5641DD33D8F00013B87 /* TransferTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5271DD33D8F00013B87 /* TransferTable.swift */; };
+		F770B5651DD33D8F00013B87 /* TransferTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5281DD33D8F00013B87 /* TransferTable+CoreDataProperties.swift */; };
+		F770B5661DD33D8F00013B87 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5291DD33D8F00013B87 /* TransferViewController.swift */; };
+		F770B5671DD33D8F00013B87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B52A1DD33D8F00013B87 /* ViewController.swift */; };
+		F770B57A1DD3436200013B87 /* mybudget.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F770B5791DD3436200013B87 /* mybudget.entitlements */; };
+		F770B57C1DD3437400013B87 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F770B57B1DD3437400013B87 /* Info.plist */; };
+		F770B5821DD3449300013B87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F770B5811DD3449300013B87 /* LaunchScreen.storyboard */; };
+		F770B58A1DD345EB00013B87 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770B5891DD345EB00013B87 /* SWRevealViewController.m */; };
+		F7E6AE5F1DD311B200DC11E3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F770B4E71DD33D8F00013B87 /* AccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
+		F770B4E81DD33D8F00013B87 /* AccountTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTable.swift; sourceTree = "<group>"; };
+		F770B4E91DD33D8F00013B87 /* AccountTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F770B4EA1DD33D8F00013B87 /* AccountTypeTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTypeTable.swift; sourceTree = "<group>"; };
+		F770B4EB1DD33D8F00013B87 /* AccountTypeTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountTypeTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F770B4EC1DD33D8F00013B87 /* AddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
+		F770B4ED1DD33D8F00013B87 /* AddBudgetCGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBudgetCGViewController.swift; sourceTree = "<group>"; };
+		F770B4EE1DD33D8F00013B87 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		F770B4EF1DD33D8F00013B87 /* AddIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddIncomeViewController.swift; sourceTree = "<group>"; };
+		F770B4F01DD33D8F00013B87 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F770B4F11DD33D8F00013B87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F770B4F21DD33D8F00013B87 /* Backup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
+		F770B4F31DD33D8F00013B87 /* BackupRestoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupRestoreViewController.swift; sourceTree = "<group>"; };
+		F770B4F81DD33D8F00013B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		F770B4F91DD33D8F00013B87 /* BasicData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicData.swift; sourceTree = "<group>"; };
+		F770B4FB1DD33D8F00013B87 /* budget.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = budget.xcdatamodel; sourceTree = "<group>"; };
+		F770B4FC1DD33D8F00013B87 /* BudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		F770B4FD1DD33D8F00013B87 /* CategoryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTable.swift; sourceTree = "<group>"; };
+		F770B4FE1DD33D8F00013B87 /* CategoryTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CategoryTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F770B4FF1DD33D8F00013B87 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		F770B5001DD33D8F00013B87 /* CurrencyPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyPickerTableViewController.swift; sourceTree = "<group>"; };
+		F770B5011DD33D8F00013B87 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		F770B5021DD33D8F00013B87 /* customTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
+		F770B5031DD33D8F00013B87 /* datePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerViewController.swift; sourceTree = "<group>"; };
+		F770B5041DD33D8F00013B87 /* EmailBackupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailBackupViewController.swift; sourceTree = "<group>"; };
+		F770B5051DD33D8F00013B87 /* ExpenseTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTable.swift; sourceTree = "<group>"; };
+		F770B5061DD33D8F00013B87 /* ExpenseTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExpenseTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F770B5071DD33D8F00013B87 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
+		F770B5081DD33D8F00013B87 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		F770B5091DD33D8F00013B87 /* IncomeTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeTable.swift; sourceTree = "<group>"; };
+		F770B50A1DD33D8F00013B87 /* IncomeTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IncomeTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F770B50B1DD33D8F00013B87 /* IncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
+		F770B50D1DD33D8F00013B87 /* LockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockViewController.swift; sourceTree = "<group>"; };
+		F770B50E1DD33D8F00013B87 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		F770B5131DD33D8F00013B87 /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		F770B5141DD33D8F00013B87 /* OneBudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneBudgetViewController.swift; sourceTree = "<group>"; };
+		F770B5151DD33D8F00013B87 /* Other.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
+		F770B5161DD33D8F00013B87 /* Other+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Other+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F770B5171DD33D8F00013B87 /* ParentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentTableViewCell.swift; sourceTree = "<group>"; };
+		F770B5181DD33D8F00013B87 /* PasswordSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordSetupViewController.swift; sourceTree = "<group>"; };
+		F770B5191DD33D8F00013B87 /* PickIconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickIconViewController.swift; sourceTree = "<group>"; };
+		F770B51A1DD33D8F00013B87 /* QuickSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSummaryViewController.swift; sourceTree = "<group>"; };
+		F770B51B1DD33D8F00013B87 /* Restore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restore.swift; sourceTree = "<group>"; };
+		F770B51C1DD33D8F00013B87 /* SCBudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCBudgetViewController.swift; sourceTree = "<group>"; };
+		F770B51D1DD33D8F00013B87 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		F770B51E1DD33D8F00013B87 /* SetBudgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetBudgetViewController.swift; sourceTree = "<group>"; };
+		F770B51F1DD33D8F00013B87 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		F770B5201DD33D8F00013B87 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		F770B5211DD33D8F00013B87 /* SubCategoryTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryTable.swift; sourceTree = "<group>"; };
+		F770B5221DD33D8F00013B87 /* SubCategoryTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubCategoryTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F770B5251DD33D8F00013B87 /* TableSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableSectionHeader.swift; sourceTree = "<group>"; };
+		F770B5261DD33D8F00013B87 /* TableSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableSectionHeader.xib; sourceTree = "<group>"; };
+		F770B5271DD33D8F00013B87 /* TransferTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferTable.swift; sourceTree = "<group>"; };
+		F770B5281DD33D8F00013B87 /* TransferTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransferTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F770B5291DD33D8F00013B87 /* TransferViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		F770B52A1DD33D8F00013B87 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F770B5791DD3436200013B87 /* mybudget.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = mybudget.entitlements; sourceTree = "<group>"; };
+		F770B57B1DD3437400013B87 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F770B5811DD3449300013B87 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F770B5881DD345EB00013B87 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		F770B5891DD345EB00013B87 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		F770B58B1DD3462300013B87 /* mybudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mybudget-Bridging-Header.h"; sourceTree = "<group>"; };
+		F7E6ADC11DD30E6F00DC11E3 /* mybudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mybudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7E6ADBE1DD30E6F00DC11E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7E6AE5F1DD311B200DC11E3 /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F770B56E1DD3403500013B87 /* slider */ = {
+			isa = PBXGroup;
+			children = (
+				F770B58B1DD3462300013B87 /* mybudget-Bridging-Header.h */,
+				F770B5881DD345EB00013B87 /* SWRevealViewController.h */,
+				F770B5891DD345EB00013B87 /* SWRevealViewController.m */,
+			);
+			name = slider;
+			sourceTree = "<group>";
+		};
+		F770B58C1DD3469A00013B87 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F770B4E71DD33D8F00013B87 /* AccountsViewController.swift */,
+				F770B4EC1DD33D8F00013B87 /* AddAccountViewController.swift */,
+				F770B4ED1DD33D8F00013B87 /* AddBudgetCGViewController.swift */,
+				F770B4EE1DD33D8F00013B87 /* AddExpenseViewController.swift */,
+				F770B4EF1DD33D8F00013B87 /* AddIncomeViewController.swift */,
+				F770B4F31DD33D8F00013B87 /* BackupRestoreViewController.swift */,
+				F770B4FC1DD33D8F00013B87 /* BudgetViewController.swift */,
+				F770B5001DD33D8F00013B87 /* CurrencyPickerTableViewController.swift */,
+				F770B5031DD33D8F00013B87 /* datePickerViewController.swift */,
+				F770B5041DD33D8F00013B87 /* EmailBackupViewController.swift */,
+				F770B5071DD33D8F00013B87 /* ExpenseViewController.swift */,
+				F770B50B1DD33D8F00013B87 /* IncomeViewController.swift */,
+				F770B50D1DD33D8F00013B87 /* LockViewController.swift */,
+				F770B50E1DD33D8F00013B87 /* MenuTableViewController.swift */,
+				F770B5141DD33D8F00013B87 /* OneBudgetViewController.swift */,
+				F770B5191DD33D8F00013B87 /* PickIconViewController.swift */,
+				F770B5181DD33D8F00013B87 /* PasswordSetupViewController.swift */,
+				F770B51A1DD33D8F00013B87 /* QuickSummaryViewController.swift */,
+				F770B51C1DD33D8F00013B87 /* SCBudgetViewController.swift */,
+				F770B51D1DD33D8F00013B87 /* SearchTableViewController.swift */,
+				F770B51E1DD33D8F00013B87 /* SetBudgetViewController.swift */,
+				F770B51F1DD33D8F00013B87 /* SettingTableViewController.swift */,
+				F770B5291DD33D8F00013B87 /* TransferViewController.swift */,
+				F770B52A1DD33D8F00013B87 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F770B58D1DD346EB00013B87 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F770B5051DD33D8F00013B87 /* ExpenseTable.swift */,
+				F770B4E81DD33D8F00013B87 /* AccountTable.swift */,
+				F770B4E91DD33D8F00013B87 /* AccountTable+CoreDataProperties.swift */,
+				F770B4EA1DD33D8F00013B87 /* AccountTypeTable.swift */,
+				F770B4EB1DD33D8F00013B87 /* AccountTypeTable+CoreDataProperties.swift */,
+				F770B4FD1DD33D8F00013B87 /* CategoryTable.swift */,
+				F770B4FE1DD33D8F00013B87 /* CategoryTable+CoreDataProperties.swift */,
+				F770B5061DD33D8F00013B87 /* ExpenseTable+CoreDataProperties.swift */,
+				F770B5091DD33D8F00013B87 /* IncomeTable.swift */,
+				F770B50A1DD33D8F00013B87 /* IncomeTable+CoreDataProperties.swift */,
+				F770B5161DD33D8F00013B87 /* Other+CoreDataProperties.swift */,
+				F770B5211DD33D8F00013B87 /* SubCategoryTable.swift */,
+				F770B5221DD33D8F00013B87 /* SubCategoryTable+CoreDataProperties.swift */,
+				F770B5271DD33D8F00013B87 /* TransferTable.swift */,
+				F770B5281DD33D8F00013B87 /* TransferTable+CoreDataProperties.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		F770B58E1DD3471C00013B87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F770B4F21DD33D8F00013B87 /* Backup.swift */,
+				F770B4F91DD33D8F00013B87 /* BasicData.swift */,
+				F770B4FF1DD33D8F00013B87 /* Currency.swift */,
+				F770B5081DD33D8F00013B87 /* Helper.swift */,
+				F770B5131DD33D8F00013B87 /* NSDateExtension.swift */,
+				F770B5151DD33D8F00013B87 /* Other.swift */,
+				F770B51B1DD33D8F00013B87 /* Restore.swift */,
+				F770B5201DD33D8F00013B87 /* Strings.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F770B58F1DD3475200013B87 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				F770B5011DD33D8F00013B87 /* CustomCollectionViewCell.swift */,
+				F770B5021DD33D8F00013B87 /* customTableViewCell.swift */,
+				F770B5171DD33D8F00013B87 /* ParentTableViewCell.swift */,
+				F770B5251DD33D8F00013B87 /* TableSectionHeader.swift */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
+		F775590E1DD34D24002C101A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F770B4F11DD33D8F00013B87 /* Assets.xcassets */,
+				F770B5791DD3436200013B87 /* mybudget.entitlements */,
+				F770B57B1DD3437400013B87 /* Info.plist */,
+				F770B4FA1DD33D8F00013B87 /* budget.xcdatamodeld */,
+				F770B4F71DD33D8F00013B87 /* Main.storyboard */,
+				F770B5811DD3449300013B87 /* LaunchScreen.storyboard */,
+				F770B5261DD33D8F00013B87 /* TableSectionHeader.xib */,
+				F770B4F01DD33D8F00013B87 /* AppDelegate.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		F7E6ADB81DD30E6F00DC11E3 = {
+			isa = PBXGroup;
+			children = (
+				F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */,
+				F7E6ADC31DD30E6F00DC11E3 /* mybudget */,
+				F7E6ADC21DD30E6F00DC11E3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F7E6ADC21DD30E6F00DC11E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7E6ADC11DD30E6F00DC11E3 /* mybudget.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7E6ADC31DD30E6F00DC11E3 /* mybudget */ = {
+			isa = PBXGroup;
+			children = (
+				F775590E1DD34D24002C101A /* Other */,
+				F770B58F1DD3475200013B87 /* CustomView */,
+				F770B58C1DD3469A00013B87 /* Controller */,
+				F770B58D1DD346EB00013B87 /* CoreData */,
+				F770B58E1DD3471C00013B87 /* Model */,
+				F770B56E1DD3403500013B87 /* slider */,
+			);
+			path = mybudget;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7E6ADC01DD30E6F00DC11E3 /* mybudget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7E6ADD61DD30E7000DC11E3 /* Build configuration list for PBXNativeTarget "mybudget" */;
+			buildPhases = (
+				F7E6ADBD1DD30E6F00DC11E3 /* Sources */,
+				F7E6ADBE1DD30E6F00DC11E3 /* Frameworks */,
+				F7E6ADBF1DD30E6F00DC11E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mybudget;
+			productName = mybudget;
+			productReference = F7E6ADC11DD30E6F00DC11E3 /* mybudget.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7E6ADB91DD30E6F00DC11E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Brainload Technologies";
+				TargetAttributes = {
+					F7E6ADC01DD30E6F00DC11E3 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 85GZ53PG6H;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = F7E6ADBC1DD30E6F00DC11E3 /* Build configuration list for PBXProject "mybudget" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F7E6ADB81DD30E6F00DC11E3;
+			productRefGroup = F7E6ADC21DD30E6F00DC11E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7E6ADC01DD30E6F00DC11E3 /* mybudget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7E6ADBF1DD30E6F00DC11E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F770B57A1DD3436200013B87 /* mybudget.entitlements in Resources */,
+				F770B5391DD33D8F00013B87 /* Main.storyboard in Resources */,
+				F770B5631DD33D8F00013B87 /* TableSectionHeader.xib in Resources */,
+				F770B5821DD3449300013B87 /* LaunchScreen.storyboard in Resources */,
+				F770B57C1DD3437400013B87 /* Info.plist in Resources */,
+				F770B5351DD33D8F00013B87 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7E6ADBD1DD30E6F00DC11E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F770B5581DD33D8F00013B87 /* QuickSummaryViewController.swift in Sources */,
+				F770B5621DD33D8F00013B87 /* TableSectionHeader.swift in Sources */,
+				F770B5521DD33D8F00013B87 /* OneBudgetViewController.swift in Sources */,
+				F770B5341DD33D8F00013B87 /* AppDelegate.swift in Sources */,
+				F770B5411DD33D8F00013B87 /* CustomCollectionViewCell.swift in Sources */,
+				F770B58A1DD345EB00013B87 /* SWRevealViewController.m in Sources */,
+				F770B54E1DD33D8F00013B87 /* MenuTableViewController.swift in Sources */,
+				F770B5371DD33D8F00013B87 /* BackupRestoreViewController.swift in Sources */,
+				F770B52F1DD33D8F00013B87 /* AccountTypeTable+CoreDataProperties.swift in Sources */,
+				F770B55A1DD33D8F00013B87 /* SCBudgetViewController.swift in Sources */,
+				F770B5421DD33D8F00013B87 /* customTableViewCell.swift in Sources */,
+				F770B5301DD33D8F00013B87 /* AddAccountViewController.swift in Sources */,
+				F770B52E1DD33D8F00013B87 /* AccountTypeTable.swift in Sources */,
+				F770B5641DD33D8F00013B87 /* TransferTable.swift in Sources */,
+				F770B52D1DD33D8F00013B87 /* AccountTable+CoreDataProperties.swift in Sources */,
+				F770B5541DD33D8F00013B87 /* Other+CoreDataProperties.swift in Sources */,
+				F770B5401DD33D8F00013B87 /* CurrencyPickerTableViewController.swift in Sources */,
+				F770B55F1DD33D8F00013B87 /* SubCategoryTable.swift in Sources */,
+				F770B5321DD33D8F00013B87 /* AddExpenseViewController.swift in Sources */,
+				F770B5431DD33D8F00013B87 /* datePickerViewController.swift in Sources */,
+				F770B5601DD33D8F00013B87 /* SubCategoryTable+CoreDataProperties.swift in Sources */,
+				F770B5651DD33D8F00013B87 /* TransferTable+CoreDataProperties.swift in Sources */,
+				F770B5551DD33D8F00013B87 /* ParentTableViewCell.swift in Sources */,
+				F770B5471DD33D8F00013B87 /* ExpenseViewController.swift in Sources */,
+				F770B5461DD33D8F00013B87 /* ExpenseTable+CoreDataProperties.swift in Sources */,
+				F770B55D1DD33D8F00013B87 /* SettingTableViewController.swift in Sources */,
+				F770B53B1DD33D8F00013B87 /* budget.xcdatamodeld in Sources */,
+				F770B5331DD33D8F00013B87 /* AddIncomeViewController.swift in Sources */,
+				F770B5511DD33D8F00013B87 /* NSDateExtension.swift in Sources */,
+				F770B5531DD33D8F00013B87 /* Other.swift in Sources */,
+				F770B5481DD33D8F00013B87 /* Helper.swift in Sources */,
+				F770B53A1DD33D8F00013B87 /* BasicData.swift in Sources */,
+				F770B53F1DD33D8F00013B87 /* Currency.swift in Sources */,
+				F770B5441DD33D8F00013B87 /* EmailBackupViewController.swift in Sources */,
+				F770B54A1DD33D8F00013B87 /* IncomeTable+CoreDataProperties.swift in Sources */,
+				F770B5571DD33D8F00013B87 /* PickIconViewController.swift in Sources */,
+				F770B5661DD33D8F00013B87 /* TransferViewController.swift in Sources */,
+				F770B53E1DD33D8F00013B87 /* CategoryTable+CoreDataProperties.swift in Sources */,
+				F770B52C1DD33D8F00013B87 /* AccountTable.swift in Sources */,
+				F770B52B1DD33D8F00013B87 /* AccountsViewController.swift in Sources */,
+				F770B5561DD33D8F00013B87 /* PasswordSetupViewController.swift in Sources */,
+				F770B55E1DD33D8F00013B87 /* Strings.swift in Sources */,
+				F770B5361DD33D8F00013B87 /* Backup.swift in Sources */,
+				F770B53D1DD33D8F00013B87 /* CategoryTable.swift in Sources */,
+				F770B5671DD33D8F00013B87 /* ViewController.swift in Sources */,
+				F770B55B1DD33D8F00013B87 /* SearchTableViewController.swift in Sources */,
+				F770B5311DD33D8F00013B87 /* AddBudgetCGViewController.swift in Sources */,
+				F770B54D1DD33D8F00013B87 /* LockViewController.swift in Sources */,
+				F770B5451DD33D8F00013B87 /* ExpenseTable.swift in Sources */,
+				F770B54B1DD33D8F00013B87 /* IncomeViewController.swift in Sources */,
+				F770B55C1DD33D8F00013B87 /* SetBudgetViewController.swift in Sources */,
+				F770B5591DD33D8F00013B87 /* Restore.swift in Sources */,
+				F770B53C1DD33D8F00013B87 /* BudgetViewController.swift in Sources */,
+				F770B5491DD33D8F00013B87 /* IncomeTable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F770B4F71DD33D8F00013B87 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F770B4F81DD33D8F00013B87 /* Base */,
+			);
+			name = Main.storyboard;
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F7E6ADD41DD30E7000DC11E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F7E6ADD51DD30E7000DC11E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7E6ADD71DD30E7000DC11E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = mybudget/mybudget.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				INFOPLIST_FILE = mybudget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brainload.mybudget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bf4c2a49-646f-4ab0-8b98-6a86b119be68";
+				SWIFT_OBJC_BRIDGING_HEADER = "mybudget-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F7E6ADD81DD30E7000DC11E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = mybudget/mybudget.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				INFOPLIST_FILE = mybudget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brainload.mybudget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "bf4c2a49-646f-4ab0-8b98-6a86b119be68";
+				SWIFT_OBJC_BRIDGING_HEADER = "mybudget-Bridging-Header.h";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7E6ADBC1DD30E6F00DC11E3 /* Build configuration list for PBXProject "mybudget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7E6ADD41DD30E7000DC11E3 /* Debug */,
+				F7E6ADD51DD30E7000DC11E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7E6ADD61DD30E7000DC11E3 /* Build configuration list for PBXNativeTarget "mybudget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7E6ADD71DD30E7000DC11E3 /* Debug */,
+				F7E6ADD81DD30E7000DC11E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F770B4FA1DD33D8F00013B87 /* budget.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F770B4FB1DD33D8F00013B87 /* budget.xcdatamodel */,
+			);
+			currentVersion = F770B4FB1DD33D8F00013B87 /* budget.xcdatamodel */;
+			path = budget.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F7E6ADB91DD30E6F00DC11E3 /* Project object */;
+}
