@@ -38,30 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    func checkAndDownloadBackupFile() -> Bool{
-        let iCloudDocumentsURL = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)?.URLByAppendingPathComponent("MBBackup")
-        if(iCloudDocumentsURL != nil){
-            let file = iCloudDocumentsURL!.URLByAppendingPathComponent("datafile.txt")
-            let filemanager = NSFileManager.defaultManager();
-            
-            if !filemanager.fileExistsAtPath(file.path!){
-                
-                if filemanager.isUbiquitousItemAtURL(file) {
-                    
-                    do {
-                        try filemanager.startDownloadingUbiquitousItemAtURL(file)
-                    } catch{
-                        print("Error while loading Backup File \(error)")
-                    }
-                }
-                return false
-            } else{
-                return true
-            }
-        }
-        return true
-    }
-    let notificationCenter = NSNotificationCenter.defaultCenter()
+       let notificationCenter = NSNotificationCenter.defaultCenter()
    /*
     
     // Remove observer:
@@ -103,7 +80,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         self.title = StringFor.name["appName"]!
         
-        let _ =  checkAndDownloadBackupFile()
+      
         // print(((self.view.frame.height  - 480 ) + 24 ) / 2)
         //bottomConstraint.constant = ((self.view.frame.height  - 480 ) + 24 ) / 2
         

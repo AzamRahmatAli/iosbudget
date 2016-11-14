@@ -11,7 +11,7 @@ import UIKit
 class BackupRestoreViewController: UITableViewController {
     // @IBOutlet weak var restore: UIButton!
     //@IBOutlet weak var backup: UIButton!
-    let date = String(NSDate()).componentsSeparatedByString(" ").first! + ".txt"
+    let date = String(NSDate()).componentsSeparatedByString(" ").first! + "-backup.txt"
     /*  let cloudDataManager : CloudDataManager = CloudDataManager()
      @IBAction func dl(sender: UIButton) {
      cloudDataManager.deleteFilesInDirectory(cloudDataManager.getDocumentDiretoryURL())
@@ -69,18 +69,28 @@ class BackupRestoreViewController: UITableViewController {
         {
             return backupFiles.count
         }
-        return 1
+        return 2
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.section == 0
         {
+            
+            if indexPath.row == 1
+            {
             let cellb = tableView.dequeueReusableCellWithIdentifier("cellb", forIndexPath: indexPath)
             cellb.detailTextLabel?.text = "Weekly"
             cellb.textLabel!.text = "Backup Frequency"
             
             return cellb
-            
+        }
+            else{
+                let cellbn = tableView.dequeueReusableCellWithIdentifier("cellbn", forIndexPath: indexPath)
+                
+                
+                return cellbn
+            }
+        
         }
         else{
             let cellr = tableView.dequeueReusableCellWithIdentifier("cellr", forIndexPath: indexPath)
@@ -112,7 +122,7 @@ class BackupRestoreViewController: UITableViewController {
     }
     func action(name : NSURL)
     {
-        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "", message: "Update receipt image from", preferredStyle: .ActionSheet)
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "", message: name.asFileName + " - data", preferredStyle: .ActionSheet)
         
         let saveActionButton: UIAlertAction = UIAlertAction(title: "Restore", style: .Default)
         { action -> Void in
@@ -134,6 +144,42 @@ class BackupRestoreViewController: UITableViewController {
         actionSheetControllerIOS8.addAction(cancelActionButton)
 
     }
+    func autoBackupAction()
+    {
+        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "", message: "Auto Backup", preferredStyle: .ActionSheet)
+        
+        let monthly: UIAlertAction = UIAlertAction(title: "Monthly", style: .Default)
+        { action -> Void in
+            
+        }
+        actionSheetControllerIOS8.addAction(monthly)
+        
+        let Weekly: UIAlertAction = UIAlertAction(title: "Weekly", style: .Default)
+        { action -> Void in
+            
+            
+        }
+        actionSheetControllerIOS8.addAction(Weekly)
+        let Daily: UIAlertAction = UIAlertAction(title: "Daily", style: .Default)
+        { action -> Void in
+           
+            
+        }
+        actionSheetControllerIOS8.addAction(Daily)
+        let OFF: UIAlertAction = UIAlertAction(title: "OFF", style: .Default)
+        { action -> Void in
+           
+            
+        }
+        actionSheetControllerIOS8.addAction(OFF)
+        self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
+        
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            
+        }
+        actionSheetControllerIOS8.addAction(cancelActionButton)
+        
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
@@ -141,14 +187,30 @@ class BackupRestoreViewController: UITableViewController {
         {
            action(backupFiles[indexPath.row])
         }
+        else if(indexPath.row == 0)
+        {
+            backupNow()
+        }
+        else  if(indexPath.row == 1)
+        {
+            autoBackupAction()
+        }
        
+        
+    }
+    
+        
+        
+        
         
         func backupNow()
         {
-            let iCloudDocumentsURL = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)?.URLByAppendingPathComponent("MBBackup")
+            
+           
             
             //is iCloud working?
-            if  iCloudDocumentsURL != nil {
+            if  isCloudEnabled() {
+                 let iCloudDocumentsURL = DocumentsDirectory.iCloudDocumentsURL
                 
                 //Create the Directory if it doesn't exist
                 if (!NSFileManager.defaultManager().fileExistsAtPath(iCloudDocumentsURL!.path!, isDirectory: nil)) {
@@ -162,66 +224,86 @@ class BackupRestoreViewController: UITableViewController {
                         error.description
                     }
                 }
-            } else {
-                //backupFile.hidden = false
-                //backupFile.text = "iCloud is NOT Active!"
-                return
-            }
-            
-            
-            
-            //Set up directorys
-            let localDocumentsURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: .UserDomainMask).last
-            
-            //Add txt file to my local folder
-            let myTextString = NSString(string: Backup.doBackup() ?? "")
-            let myLocalFile = localDocumentsURL!.URLByAppendingPathComponent(date)
-            do
-            {
                 
                 
-                try myTextString.writeToURL(myLocalFile, atomically: true, encoding: NSUTF8StringEncoding)
-            }
-            catch
-            {
                 
                 
-                print("Error saving to local DIR")
+                //Set up directorys
+               
                 
-            }
-            
-            
-            //If file exists on iCloud remove it
-            var isDir:ObjCBool = false
-            if (NSFileManager.defaultManager().fileExistsAtPath(iCloudDocumentsURL!.path!, isDirectory: &isDir)) {
+                //Add txt file to my local folder
+                let myTextString = NSString(string: Backup.doBackup() ?? "")
+                let myLocalFile = DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(date)
                 do
                 {
                     
                     
-                    try NSFileManager.defaultManager().removeItemAtURL(iCloudDocumentsURL!)
+                    try myTextString.writeToURL(myLocalFile, atomically: true, encoding: NSUTF8StringEncoding)
+                    moveFileToCloud()
+                    Helper.alertUser(self, title: "", message: "Backup complete")
                 }
-                catch let error as NSError
+                catch
                 {
-                    print(error.localizedDescription);
+                    
+                    
+                    print("Error saving to local DIR")
+                    
                 }
+                
+                
+                
+            } else {
+                Helper.alertUser(self, title: "", message: "You need to be signed into iCloud and have \"iCloud Drive\" set to ON. To chnge your settings, go to iPhone Setting > iCloud")
             }
-            do{
-                
-                
-                //copy from my local to iCloud
-                try NSFileManager.defaultManager().copyItemAtURL(localDocumentsURL!, toURL: iCloudDocumentsURL!)
-                
-                
-            }
-            catch let error as NSError
-            {
-                print(error.localizedDescription);
-            }
+            
             
 
         }
+ 
+    
+    struct DocumentsDirectory {
+        static let localDocumentsURL: NSURL? = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.DocumentDirectory, inDomains: .UserDomainMask).last! as NSURL
+        static let iCloudDocumentsURL: NSURL? = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)?.URLByAppendingPathComponent("MBBackup")
         
-    }/*
+    }
+    
+    func isCloudEnabled() -> Bool {
+        if DocumentsDirectory.iCloudDocumentsURL != nil { return true }
+        else { return false }
+    }
+    
+    // Move local files to iCloud
+    // iCloud will be cleared before any operation
+    // No data merging
+    
+    func moveFileToCloud() {
+       
+            deleteFilesInDirectory(DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(date)) // Clear destination
+            let fileManager = NSFileManager.defaultManager()
+        
+        
+                
+                do {
+                    try fileManager.setUbiquitous(true,
+                                                  itemAtURL: DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(date),
+                                                  destinationURL: DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(date))
+                    print("Moved to iCloud")
+                    loadFiles()
+                } catch let error as NSError {
+                    print("Failed to move file to Cloud : \(error)")
+                }
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if !isCloudEnabled()
+        {
+           Helper.alertUser(self, title: "", message: "You need to be signed into iCloud and have \"iCloud Drive\" set to ON. To chnge your settings, go to iPhone Setting > iCloud")
+        }
+    }
+    
+    /*
     @IBAction func sendMessage()
     {
         
@@ -343,7 +425,7 @@ class BackupRestoreViewController: UITableViewController {
     func loadFiles()
     {
         backupFiles = []
-        let iCloudDocumentsURL = NSFileManager.defaultManager().URLForUbiquityContainerIdentifier(nil)?.URLByAppendingPathComponent("MBBackup")
+        let iCloudDocumentsURL = DocumentsDirectory.iCloudDocumentsURL
         if  iCloudDocumentsURL != nil {
             
             
@@ -355,7 +437,7 @@ class BackupRestoreViewController: UITableViewController {
                 
                 for s in fileList {
                     print(s)
-                    if String(s).rangeOfString(".txt") != nil
+                    if String(s).rangeOfString("-backup.txt") != nil
                     {
                         
                         backupFiles.append(s)
@@ -414,12 +496,8 @@ class BackupRestoreViewController: UITableViewController {
                 
                 if filemanager.isUbiquitousItemAtURL(file) {
                     
-                    _ = UIAlertController(title: "Warning", message:  "iCloud is currently busy syncing the backup files. Please try again in a few minutes.", preferredStyle: UIAlertControllerStyle.Alert)
-                    
-                    
-                    _ = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                        print("OK")
-                    }
+                    Helper.alertUser(self, title: "Warning", message: "iCloud is currently busy syncing the backup files. Please try again in a few minutes")
+                   
                     
                     do {
                         try filemanager.startDownloadingUbiquitousItemAtURL(file)
@@ -464,8 +542,8 @@ class BackupRestoreViewController: UITableViewController {
 extension NSURL
 {
     var asFileName:String {
-        let indexa = String(self).endIndex.advancedBy(-14)
-        let indexb = String(self).endIndex.advancedBy(-5)
+        let indexa = String(self).endIndex.advancedBy(-21)
+        let indexb = String(self).endIndex.advancedBy(-12)
         
         return String(self)[indexa...indexb]
     }

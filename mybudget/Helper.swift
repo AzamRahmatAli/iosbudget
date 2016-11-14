@@ -36,7 +36,18 @@ struct  Helper {
     
     static var managedObjectContext: NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     
+    static func alertUser(controller : UIViewController, title: String, message : String)
+    {
+        let alertController = UIAlertController(title: title, message:  message, preferredStyle: UIAlertControllerStyle.Alert)
+        
     
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            print("OK")
+        }
+        alertController.addAction(okAction)
+       
+        controller.presentViewController(alertController, animated: true, completion: nil)
+    }
     
     static func getFormattedDate( date : NSDate ) -> String
     {
