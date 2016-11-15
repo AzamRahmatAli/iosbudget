@@ -29,7 +29,7 @@ struct  Helper {
     static var accountPicked = false
     
     static var lastBackupTime : NSDate? = nil
-    static var backupFrequency = "Weekly"
+    static var backupFrequency : autoBackupFrequency = autoBackupFrequency.Weekly
     
     static var pickedAccountData : AccountTable?
     static var bankIcon = "bank"
@@ -128,5 +128,11 @@ extension Float {
     
     
 }
-
+enum autoBackupFrequency : String{
+    case Weekly = "Weekly"
+    
+    case Monthly = "Monthly"
+    case Daily = "Daily"
+    case OFF = "OFF"
+}
 

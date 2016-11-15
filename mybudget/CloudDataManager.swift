@@ -7,10 +7,14 @@
 //
 
 import Foundation
+import CoreData
 
 
 class CloudDataManager {
-    
+    static var backupNowName : String
+    {
+        return String(NSDate()).componentsSeparatedByString(" ").first! + "-backup.txt"
+    }
     static let sharedInstance = CloudDataManager() // Singleton
     
     struct DocumentsDirectory {
@@ -57,31 +61,7 @@ class CloudDataManager {
         return false
     }
     
-    // Move local files to iCloud
-    // iCloud will be cleared before any operation
-    // No data merging
-    
-    class func moveFileToCloud(fileName: String) {
-        if isCloudEnabled() {
-            
-            if deleteFilesInDirectory(fileName) // Clear destination
-            {
-            let fileManager = NSFileManager.defaultManager()
-            let enumerator = fileManager.enumeratorAtPath(DocumentsDirectory.localDocumentsURL!.path!)
-            while let file = enumerator?.nextObject() as? String {
-                
-                do {
-                    try fileManager.setUbiquitous(true,
-                                                  itemAtURL: DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(file),
-                                                  destinationURL: DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(file))
-                    print("Moved to iCloud")
-                } catch let error as NSError {
-                    print("Failed to move file to Cloud : \(error)")
-                }
-            }
-        }
-        }
-    }
+
     
     // Move iCloud files to local directory
     // Local dir will be cleared
@@ -100,6 +80,7 @@ class CloudDataManager {
                                           itemAtURL: DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(name),
                                           destinationURL: DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(name))
             print("Moved to iCloud")
+            self.setLastBackupTime()
            return true
         } catch let error as NSError {
             print("Failed to move file to Cloud : \(error)")
@@ -109,7 +90,60 @@ class CloudDataManager {
         
     }
     
-    class func backupNow(name : String) -> Bool
+    
+
+    private class func timeAgoSinceDate(date:NSDate)  {
+        let calendar = NSCalendar.currentCalendar()
+        let now = NSDate()
+        let earliest = now.earlierDate(date)
+        let latest = (earliest == now) ? date : now
+        let components:NSDateComponents = calendar.components([NSCalendarUnit.Minute , NSCalendarUnit.Hour , NSCalendarUnit.Day , NSCalendarUnit.WeekOfYear , NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Second], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
+        
+        switch Helper.backupFrequency {
+        case .Daily:
+            if (components.day >= 1)
+            {
+                backupNow(backupNowName)
+            }
+        case .Monthly:
+            if (components.month >= 1)
+            {
+                backupNow(backupNowName)
+            }
+        case .Weekly:
+            if (components.weekOfYear >= 1)
+            {
+                backupNow(backupNowName)
+            }
+        default:
+            break
+            
+            
+        }
+ 
+        
+    
+    }
+
+    class func autoBackup()
+    {
+        if  isCloudEnabled() {
+        if let lastBackupDate = Helper.lastBackupTime
+        {
+            timeAgoSinceDate(lastBackupDate)
+           
+        }
+        else
+        {
+             backupNow(backupNowName)
+            
+              
+            
+        }
+        }
+    }
+    
+    class func backupNow(name : String) -> Bool?
     {
         
         
@@ -145,7 +179,8 @@ class CloudDataManager {
                 
                 
                 try myTextString.writeToURL(myLocalFile, atomically: true, encoding: NSUTF8StringEncoding)
-                return true
+                
+                return moveFileToCloud(name)
             }
             catch
             {
@@ -158,10 +193,54 @@ class CloudDataManager {
             
             
         }
+        else{
+            return nil
+        }
         return false
         
         
     }
+    private class func setLastBackupTime()
+    {
+    let request = NSFetchRequest(entityName: "Other")
     
     
+    
+    if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
+    {
+    
+    do{
+    
+    
+    let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
+    
+    queryResult.backupTime = NSDate()
+    
+    }
+    catch let error {
+    print("error : ", error)
+    }
+    
+    
+    
+    }
+    
+    else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
+    {
+    
+    
+    entity.backupTime = NSDate()
+    
+    }
+    do {
+    try Helper.managedObjectContext!.save()
+    Helper.lastBackupTime = NSDate()
+    } catch {
+    print("error")
+    }
+    }
+
+    
+
+
 }

@@ -11,7 +11,7 @@ import UIKit
 class BackupRestoreViewController: UITableViewController {
    
     
-    let date = String(NSDate()).componentsSeparatedByString(" ").first! + "-backup.txt"
+   
     
     
     var backupFiles : [String] = []
@@ -34,11 +34,14 @@ class BackupRestoreViewController: UITableViewController {
                 {
                     if Restore.restoreBackup(fileName)
                     {
-                        Helper.alertUser(self, title: "", message: "Backup has been restored successfully")
+                        Helper.alertUser(self, title: "", message: "Backup restored successfully")
                     }
                     else{
-                        Helper.alertUser(self, title: "", message: "Backup has been failed to restore, try later")
+                        Helper.alertUser(self, title: "", message: "Backup failed to restore, please try later")
                     }
+                }
+                else{
+                    Helper.alertUser(self, title: "", message: "Backup failed to restore, please try later")
                 }
                 
             }
@@ -72,7 +75,7 @@ class BackupRestoreViewController: UITableViewController {
             if indexPath.row == 1
             {
                 let cellb = tableView.dequeueReusableCellWithIdentifier("cellb", forIndexPath: indexPath)
-                cellb.detailTextLabel?.text = Helper.backupFrequency
+                cellb.detailTextLabel?.text = Helper.backupFrequency.rawValue
                 cellb.textLabel!.text = "Auto Backup"
                 
                 return cellb
@@ -116,6 +119,21 @@ class BackupRestoreViewController: UITableViewController {
             return ""
         }
     }
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String?
+    {
+        switch section
+        {
+        case 0:
+            if let date = Helper.lastBackupTime
+            {
+            return "Last backup: " + NSDate.timeAgoSinceDate(date, numericDates: false)
+            }
+            return ""
+        
+        default:
+            return ""
+        }
+    }
     
     
     
@@ -155,7 +173,8 @@ class BackupRestoreViewController: UITableViewController {
         
         let monthly: UIAlertAction = UIAlertAction(title: "Monthly", style: .Default)
         { action -> Void in
-            Helper.backupFrequency = "Monthly"
+            Helper.backupFrequency = .Monthly
+            CloudDataManager.autoBackup()
             self.tableView.reloadData()
         }
         actionSheetControllerIOS8.addAction(monthly)
@@ -163,21 +182,24 @@ class BackupRestoreViewController: UITableViewController {
         let Weekly: UIAlertAction = UIAlertAction(title: "Weekly", style: .Default)
         { action -> Void in
             
-            Helper.backupFrequency = "Weekly"
+            Helper.backupFrequency = .Weekly
+            CloudDataManager.autoBackup()
             self.tableView.reloadData()
         }
         actionSheetControllerIOS8.addAction(Weekly)
         let Daily: UIAlertAction = UIAlertAction(title: "Daily", style: .Default)
         { action -> Void in
             
-            Helper.backupFrequency = "Daily"
+            Helper.backupFrequency = .Daily
+            CloudDataManager.autoBackup()
             self.tableView.reloadData()
         }
         actionSheetControllerIOS8.addAction(Daily)
         let OFF: UIAlertAction = UIAlertAction(title: "OFF", style: .Default)
         { action -> Void in
             
-            Helper.backupFrequency = "OFF"
+            Helper.backupFrequency = .OFF
+            
             self.tableView.reloadData()
         }
         actionSheetControllerIOS8.addAction(OFF)
@@ -200,11 +222,12 @@ class BackupRestoreViewController: UITableViewController {
         }
         else if(indexPath.row == 0)
         {
-            if CloudDataManager.backupNow(date)
+            let name = CloudDataManager.backupNowName
+            if let value = CloudDataManager.backupNow(name)
             {
-                if CloudDataManager.moveFileToCloud(date)
-                {
-                    loadFiles()
+               if !value
+               {
+                Helper.alertUser(self, title: "", message: "Backup failed, please try later")
                 }
             }
             else{

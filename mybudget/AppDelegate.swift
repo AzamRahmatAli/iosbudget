@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
     }
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        product_id = "com.brainload.mybudget.iap"
+        /*product_id = "com.brainload.mybudget.iap"
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
         if (SKPaymentQueue.canMakePayments())
         {
@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
             print("Fetching Products");
         }else{
             print("can't make purchases");
-        }
+        }*/
         
         let request = NSFetchRequest(entityName: "Other")
         Helper.formatter.numberStyle = .CurrencyStyle
@@ -122,7 +122,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
                 Helper.formatter.currencyCode = currencyCode
                 Helper.formatter.currencySymbol = queryResult.currencySymbol
                 }
-                
+                if let date = queryResult.backupTime
+                {
+                    Helper.lastBackupTime = date
+                }
+                if let frequency = queryResult.backupFrequency
+                {
+                    Helper.backupFrequency = autoBackupFrequency(rawValue: frequency )!
+                }
             }
             catch let error {
                 print("error : ", error)
@@ -165,7 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
         self.window?.makeKeyAndVisible()
         }
     
-    
+        CloudDataManager.autoBackup()
         return true
     }
 
