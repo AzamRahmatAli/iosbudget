@@ -28,6 +28,9 @@ struct  Helper {
     static var pickAccount = false
     static var accountPicked = false
     
+    static var lastBackupTime : NSDate? = nil
+    static var backupFrequency = "Weekly"
+    
     static var pickedAccountData : AccountTable?
     static var bankIcon = "bank"
   

@@ -14,15 +14,15 @@ struct Restore
     
     
     
-    private static func restoreBackup(dir : NSURL)
+     static func restoreBackup(fileName : String) -> Bool
     {
         
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzzz"
-        
+        let dir = CloudDataManager.DocumentsDirectory.iCloudDocumentsURL!
         //if let dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
-        let path = dir.URLByAppendingPathComponent("2016-11-09.txt")
+        let path = dir.URLByAppendingPathComponent(fileName)
         do {
             let data = NSData(contentsOfURL : path) as NSData!
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
@@ -245,24 +245,25 @@ struct Restore
                     }
                 }
                 
-                
+                do {
+                    try Helper.managedObjectContext!.save()
+                    return true
+                    
+                } catch {
+                    print("error")
+                }
              
             }
             print(json)
             
-            do {
-                try Helper.managedObjectContext!.save()
-                
-                
-            } catch {
-                print("error")
-            }
+            
             
         }
         catch {/* error handling here */}
+        return false
     }
     
-    private static func clearCoreData()
+    private static func clearCoreData() -> Bool
     {
         let objectModel : NSManagedObjectModel? =  (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectModel
         
@@ -275,27 +276,34 @@ struct Restore
                 
             } catch {
                 print(error)
+                return false
             }
             
         }
+        return true
     }
     
-    static func clearCoreDataStore(dir : NSURL) {
-            clearCoreData()
+    static func clearCoreDataStore() -> Bool{
+            if clearCoreData()
+            {
         do {
             try Helper.managedObjectContext!.save()
-            restoreBackup(dir)
+            return true
+            
             
             
         } catch {
             print("error")
         }
+        }
+        return false
     }
     
     
     static func fullReset()
     {
-        clearCoreData()
+        if clearCoreData()
+        {
         do {
             try Helper.managedObjectContext!.save()
             
@@ -304,6 +312,7 @@ struct Restore
         } catch {
             print("error")
         }
+    }
     }
 }
 

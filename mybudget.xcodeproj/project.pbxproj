@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F71883001DDB0E9400AEE6F2 /* CloudDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71882FF1DDB0E9400AEE6F2 /* CloudDataManager.swift */; };
 		F770B52B1DD33D8F00013B87 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4E71DD33D8F00013B87 /* AccountsViewController.swift */; };
 		F770B52C1DD33D8F00013B87 /* AccountTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4E81DD33D8F00013B87 /* AccountTable.swift */; };
 		F770B52D1DD33D8F00013B87 /* AccountTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B4E91DD33D8F00013B87 /* AccountTable+CoreDataProperties.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F71882FF1DDB0E9400AEE6F2 /* CloudDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudDataManager.swift; sourceTree = "<group>"; };
 		F770B4E71DD33D8F00013B87 /* AccountsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		F770B4E81DD33D8F00013B87 /* AccountTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTable.swift; sourceTree = "<group>"; };
 		F770B4E91DD33D8F00013B87 /* AccountTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AccountTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				F770B5151DD33D8F00013B87 /* Other.swift */,
 				F770B51B1DD33D8F00013B87 /* Restore.swift */,
 				F770B5201DD33D8F00013B87 /* Strings.swift */,
+				F71882FF1DDB0E9400AEE6F2 /* CloudDataManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71883001DDB0E9400AEE6F2 /* CloudDataManager.swift in Sources */,
 				F770B5581DD33D8F00013B87 /* QuickSummaryViewController.swift in Sources */,
 				F770B5621DD33D8F00013B87 /* TableSectionHeader.swift in Sources */,
 				F770B5521DD33D8F00013B87 /* OneBudgetViewController.swift in Sources */,

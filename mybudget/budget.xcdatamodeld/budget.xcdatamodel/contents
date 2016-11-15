@@ -36,6 +36,8 @@
         <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountTable" inverseName="income" inverseEntity="AccountTable" syncable="YES"/>
     </entity>
     <entity name="Other" representedClassName=".Other" syncable="YES">
+        <attribute name="backupFrequency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="backupTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="currencyCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currencySymbol" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -62,7 +64,7 @@
         <element name="CategoryTable" positionX="432" positionY="18" width="128" height="88"/>
         <element name="ExpenseTable" positionX="-36" positionY="71" width="128" height="133"/>
         <element name="IncomeTable" positionX="-36" positionY="222" width="128" height="118"/>
-        <element name="Other" positionX="108" positionY="252" width="128" height="133"/>
+        <element name="Other" positionX="108" positionY="252" width="128" height="165"/>
         <element name="SubCategoryTable" positionX="234" positionY="-63" width="128" height="118"/>
         <element name="TransferTable" positionX="36" positionY="252" width="128" height="103"/>
     </elements>

@@ -165,7 +165,7 @@ class EmailBackupViewController: UIViewController ,MFMailComposeViewControllerDe
                 if checkAndDownloadBackupFile(s as? NSURL)
                 {
                     print("file is uptodate")
-                    Restore.clearCoreDataStore(s as! NSURL)
+                    Restore.clearCoreDataStore()
                 }
                
             }
