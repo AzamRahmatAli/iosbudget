@@ -159,8 +159,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
             
         }
         
-        iCloudAccountIsSignedIn()
-        
+        //iCloudAccountIsSignedIn()
+        CloudDataManager.autoBackup()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         //var initialViewController = storyboard.instantiateViewControllerWithIdentifier("entryPoint")
@@ -172,7 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
         self.window?.makeKeyAndVisible()
         }
     
-        CloudDataManager.autoBackup()
+        
         return true
     }
 

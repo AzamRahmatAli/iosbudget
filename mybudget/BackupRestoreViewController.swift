@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class BackupRestoreViewController: UITableViewController {
    
@@ -166,14 +167,53 @@ class BackupRestoreViewController: UITableViewController {
     }
     
     
-    
+    func setBackupFrequencyCoreData(frequency : autoBackupFrequency)
+    {
+        let request = NSFetchRequest(entityName: "Other")
+        
+        
+        
+        if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
+        {
+            
+            do{
+                
+                
+                let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
+                
+                queryResult.backupFrequency = frequency.rawValue
+                
+            }
+            catch let error {
+                print("error : ", error)
+            }
+            
+            
+            
+        }
+            
+        else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
+        {
+            
+            
+            entity.backupTime = NSDate()
+            
+        }
+        do {
+            try Helper.managedObjectContext!.save()
+            Helper.backupFrequency = frequency
+        } catch {
+            print("error")
+        }
+    }
+
     func autoBackupAction()
     {
         let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "", message: "Auto Backup", preferredStyle: .ActionSheet)
         
         let monthly: UIAlertAction = UIAlertAction(title: "Monthly", style: .Default)
         { action -> Void in
-            Helper.backupFrequency = .Monthly
+            self.setBackupFrequencyCoreData(.Monthly)
             CloudDataManager.autoBackup()
             self.tableView.reloadData()
         }
@@ -182,7 +222,7 @@ class BackupRestoreViewController: UITableViewController {
         let Weekly: UIAlertAction = UIAlertAction(title: "Weekly", style: .Default)
         { action -> Void in
             
-            Helper.backupFrequency = .Weekly
+            self.setBackupFrequencyCoreData(.Weekly)
             CloudDataManager.autoBackup()
             self.tableView.reloadData()
         }
@@ -190,7 +230,7 @@ class BackupRestoreViewController: UITableViewController {
         let Daily: UIAlertAction = UIAlertAction(title: "Daily", style: .Default)
         { action -> Void in
             
-            Helper.backupFrequency = .Daily
+            self.setBackupFrequencyCoreData(.Daily)
             CloudDataManager.autoBackup()
             self.tableView.reloadData()
         }
@@ -198,7 +238,7 @@ class BackupRestoreViewController: UITableViewController {
         let OFF: UIAlertAction = UIAlertAction(title: "OFF", style: .Default)
         { action -> Void in
             
-            Helper.backupFrequency = .OFF
+            self.setBackupFrequencyCoreData(.OFF)
             
             self.tableView.reloadData()
         }
@@ -228,6 +268,11 @@ class BackupRestoreViewController: UITableViewController {
                if !value
                {
                 Helper.alertUser(self, title: "", message: "Backup failed, please try later")
+                }
+                else
+               {
+                Helper.alertUser(self, title: "", message: "Backup complete")
+                tableView.reloadData()
                 }
             }
             else{

@@ -69,8 +69,8 @@ class CloudDataManager {
     
     class func moveFileToCloud(name : String) -> Bool {
         
-       if deleteFilesInDirectory(name) // Clear destination
-       {
+        deleteFilesInDirectory(name) // Clear destination
+       
         let fileManager = NSFileManager.defaultManager()
         
         
@@ -80,12 +80,12 @@ class CloudDataManager {
                                           itemAtURL: DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(name),
                                           destinationURL: DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(name))
             print("Moved to iCloud")
-            self.setLastBackupTime()
+            
            return true
         } catch let error as NSError {
             print("Failed to move file to Cloud : \(error)")
         }
-        }
+        
         return false
         
     }
@@ -159,6 +159,7 @@ class CloudDataManager {
                 {
                     
                     try NSFileManager.defaultManager().createDirectoryAtURL(iCloudDocumentsURL!, withIntermediateDirectories: true, attributes: nil)
+                   
                 }
                 catch let error as NSError {
                     error.description
@@ -179,7 +180,7 @@ class CloudDataManager {
                 
                 
                 try myTextString.writeToURL(myLocalFile, atomically: true, encoding: NSUTF8StringEncoding)
-                
+                self.setLastBackupTime()
                 return moveFileToCloud(name)
             }
             catch
