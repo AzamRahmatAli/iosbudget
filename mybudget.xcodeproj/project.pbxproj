@@ -68,6 +68,7 @@
 		F770B57C1DD3437400013B87 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F770B57B1DD3437400013B87 /* Info.plist */; };
 		F770B5821DD3449300013B87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F770B5811DD3449300013B87 /* LaunchScreen.storyboard */; };
 		F770B58A1DD345EB00013B87 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770B5891DD345EB00013B87 /* SWRevealViewController.m */; };
+		F7C3B8CF1DDC4B7C00D44B3A /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C3B8CE1DDC4B7C00D44B3A /* MainCollectionViewCell.swift */; };
 		F7E6AE5F1DD311B200DC11E3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +136,7 @@
 		F770B5881DD345EB00013B87 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F770B5891DD345EB00013B87 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F770B58B1DD3462300013B87 /* mybudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mybudget-Bridging-Header.h"; sourceTree = "<group>"; };
+		F7C3B8CE1DDC4B7C00D44B3A /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7E6ADC11DD30E6F00DC11E3 /* mybudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mybudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -237,6 +239,7 @@
 				F770B5021DD33D8F00013B87 /* customTableViewCell.swift */,
 				F770B5171DD33D8F00013B87 /* ParentTableViewCell.swift */,
 				F770B5251DD33D8F00013B87 /* TableSectionHeader.swift */,
+				F7C3B8CE1DDC4B7C00D44B3A /* MainCollectionViewCell.swift */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				F770B53A1DD33D8F00013B87 /* BasicData.swift in Sources */,
 				F770B53F1DD33D8F00013B87 /* Currency.swift in Sources */,
 				F770B5441DD33D8F00013B87 /* EmailBackupViewController.swift in Sources */,
+				F7C3B8CF1DDC4B7C00D44B3A /* MainCollectionViewCell.swift in Sources */,
 				F770B54A1DD33D8F00013B87 /* IncomeTable+CoreDataProperties.swift in Sources */,
 				F770B5571DD33D8F00013B87 /* PickIconViewController.swift in Sources */,
 				F770B5661DD33D8F00013B87 /* TransferViewController.swift in Sources */,

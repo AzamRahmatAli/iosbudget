@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     @IBOutlet weak var available: UILabel!
@@ -108,17 +108,116 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
      tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, 50)
      }
     */
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return  images.count
         
     }
+ 
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CustomTableViewCell
+ 
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        //let path = self.tableView.indexPathForSelectedRow!
+        if (segue.identifier == "listView") {
+            
+            //let dvc = segue.destinationViewController as! ExpenseViewController
+            
+            
+            
+        }else{
+            if (segue.identifier == "summary") {
+                
+                let dvc = segue.destinationViewController as! QuickSummaryViewController
+                dvc.addMenu = false
+                
+                
+                
+            }
+        }
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        //if lockView.unlocked{
+        //self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        notificationCenter.addObserver(self,
+                                       selector:#selector(ViewController.applicationDidBecomeActiveNotification),
+                                       name:UIApplicationDidBecomeActiveNotification,
+                                       object:nil)
+        incomeInAccountsTotal  = 0
+        expensesInAccountsTotal = 0
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        collectionView.reloadData()
+        
+        //}
+        
+    }
+    
+    
+    
+    func collectionView(collectionView: UICollectionView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        //print(self.view.frame.size.height)
+        //return self.tableView.frame.size.height /  13.7
+        return collectionView.frame.size.height /  2.3
+    }
+    /*
+    
+    func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+    {
+        let cellSize:CGSize = CGSizeMake(collectionView.frame.width / 2.3 , collectionView.frame.size.height /  2.3)
+        return cellSize
+    }
+    */
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row == 3 {
+            UIView.animateWithDuration(1.0, animations: {
+                self.needle.layer.anchorPoint = CGPointMake(0.5, 0.54)
+                let ValueToMinus = (self.ExpenceAsPercentage < 30 ) ? ((self.ExpenceAsPercentage + 9)/100) * 24 : (self.ExpenceAsPercentage/100) * 24
+                
+                let angle = ((self.ExpenceAsPercentage - ValueToMinus)  / 100 ) * CGFloat(2 * M_PI)
+                self.needle.transform = CGAffineTransformMakeRotation(angle)
+                //print(angle,CGFloat(2 * M_PI))
+                
+            })
+        }
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        
+        if indexPath.row == 0
+        {
+            self.performSegueWithIdentifier("listView", sender: nil)
+        }
+        else if indexPath.row == 1{
+            
+            self.performSegueWithIdentifier("incomeList", sender: nil)
+        }
+        else if indexPath.row == 2
+        {
+            self.performSegueWithIdentifier("budgetView", sender: nil)
+        }
+        else if indexPath.row == 3
+        {
+            self.performSegueWithIdentifier("accountList", sender: nil)
+        }
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! MainCollectionViewCell
         cell.img.image = images[indexPath.row]
         cell.name.text = ctgNames[indexPath.row]
         
@@ -149,7 +248,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     
                     
                     totalExpenses += Float(element.amount ?? "0") ?? 0.0
-                  
+                    
                     
                     
                     
@@ -163,10 +262,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             cell.price.text = totalExpenses.asLocaleCurrency
             let color = UIColor(red: 254/255, green: 129/255, blue: 0, alpha: 1)
-            cell.price.textColor = color
+            //cell.price.textColor = color
             cell.img.image = UIImage(named: "wallet")
             cell.img.tintColor = UIColor.whiteColor()
-            cell.viewInCell.backgroundColor = color
+            cell.contentView.backgroundColor = color
             
             
         }
@@ -200,10 +299,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.price.text = totalIncome.asLocaleCurrency
             
             let color = UIColor(red: 38/255, green: 151/255, blue: 213/255, alpha: 1)
-            cell.price.textColor = color
+            //cell.price.textColor = color
             cell.img.image = UIImage(named: "money")
             cell.img.tintColor = UIColor.whiteColor()
-            cell.viewInCell.backgroundColor = color
+            cell.contentView.backgroundColor = color
             
         }else if indexPath.row == 2
         {
@@ -252,10 +351,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
             let color = UIColor(red: 50/255, green: 195/255, blue: 0, alpha: 1)
-            cell.price.textColor = color
+            //cell.price.textColor = color
             cell.img.image = UIImage(named: "folder")
             cell.img.tintColor = UIColor.whiteColor()
-            cell.viewInCell.backgroundColor = color
+            cell.contentView.backgroundColor = color
             
         }else if indexPath.row == 3
         {
@@ -274,21 +373,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     
                     
                     total += Float(element.amount ?? "0") ?? 0.0
-                   if  let data = element.expense!.allObjects as? [ExpenseTable]
-                   {
-                    var expenses : Float = 0.0
-                   
-                    for expense in data
+                    if  let data = element.expense!.allObjects as? [ExpenseTable]
                     {
-                        expenses += Float(expense.amount ?? "0") ?? 0.0
-                    }
+                        var expenses : Float = 0.0
+                        
+                        for expense in data
+                        {
+                            expenses += Float(expense.amount ?? "0") ?? 0.0
+                        }
                         expensesInAccountsTotal += expenses
-                    
-                    
+                        
+                        
                     }
                     if  let data = element.income!.allObjects as? [IncomeTable]
                     {
-                         var incomes : Float = 0.0
+                        var incomes : Float = 0.0
                         for income in data
                         {
                             incomes += Float(income.amount ?? "0") ?? 0.0
@@ -336,110 +435,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             
             let color = UIColor(red: 69/255, green: 68/255, blue: 205/255, alpha: 1)
-            cell.price.textColor = color
+            //cell.price.textColor = color
             cell.img.image = UIImage(named: "account")
             cell.img.tintColor = UIColor.whiteColor()
-            cell.viewInCell.backgroundColor = color
+            cell.contentView.backgroundColor = color
             
         }
         
         
+        //cell.img?.tintColor = Helper.colors[indexPath.row % 5]
         return cell
-        
     }
-    
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.indexPathForSelectedRow!
-        
-        if indexPath.row == 0
-        {
-            self.performSegueWithIdentifier("listView", sender: nil)
-        }
-        else if indexPath.row == 1{
-            
-            self.performSegueWithIdentifier("incomeList", sender: nil)
-        }
-        else if indexPath.row == 2
-        {
-            self.performSegueWithIdentifier("budgetView", sender: nil)
-        }
-        else if indexPath.row == 3
-        {
-            self.performSegueWithIdentifier("accountList", sender: nil)
-        }
-        
-        
-    }
-    
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
-        //let path = self.tableView.indexPathForSelectedRow!
-        if (segue.identifier == "listView") {
-            
-            //let dvc = segue.destinationViewController as! ExpenseViewController
-            
-            
-            
-        }else{
-            if (segue.identifier == "summary") {
-                
-                let dvc = segue.destinationViewController as! QuickSummaryViewController
-                dvc.addMenu = false
-                
-                
-                
-            }
-        }
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        //if lockView.unlocked{
-        //self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
-        notificationCenter.addObserver(self,
-                                       selector:#selector(ViewController.applicationDidBecomeActiveNotification),
-                                       name:UIApplicationDidBecomeActiveNotification,
-                                       object:nil)
-        incomeInAccountsTotal  = 0
-        expensesInAccountsTotal = 0
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        tableView.reloadData()
-        
-        //}
-        
-    }
-    
-    
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        //print(self.view.frame.size.height)
-        //return self.tableView.frame.size.height /  13.7
-        return self.tableView.frame.size.height /  4.2
-    }
-    
-    
-    
-    
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if indexPath.row == 3 {
-            UIView.animateWithDuration(1.0, animations: {
-                self.needle.layer.anchorPoint = CGPointMake(0.5, 0.54)
-                let ValueToMinus = (self.ExpenceAsPercentage < 30 ) ? ((self.ExpenceAsPercentage + 9)/100) * 24 : (self.ExpenceAsPercentage/100) * 24
-                
-                let angle = ((self.ExpenceAsPercentage - ValueToMinus)  / 100 ) * CGFloat(2 * M_PI)
-                self.needle.transform = CGAffineTransformMakeRotation(angle)
-                //print(angle,CGFloat(2 * M_PI))
-                
-            })
-        }
-        
-    }
-    
-    
     
     
 }
