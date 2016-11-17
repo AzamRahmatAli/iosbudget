@@ -12,13 +12,10 @@ import CoreData
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
-    @IBOutlet weak var available: UILabel!
-    
+        
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var needle: UIImageView!
-    @IBOutlet weak var percentageText: UILabel!
-    @IBOutlet weak var percentage: UILabel!
-    @IBOutlet weak var currentMonth: UILabel!
+    
+    //@IBOutlet weak var currentMonth: UILabel!
     
     
     
@@ -38,17 +35,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     
-       let notificationCenter = NSNotificationCenter.defaultCenter()
-   /*
-    
-    // Remove observer:
-    notificationCenter.removeObserver(self,
-    name:UIApplicationWillResignActiveNotification,
-    object:nil)
-    
-    // Remove all observer for all notifications:
-    notificationCenter.removeObserver(self)
-    */
+    let notificationCenter = NSNotificationCenter.defaultCenter()
+    /*
+     
+     // Remove observer:
+     notificationCenter.removeObserver(self,
+     name:UIApplicationWillResignActiveNotification,
+     object:nil)
+     
+     // Remove all observer for all notifications:
+     notificationCenter.removeObserver(self)
+     */
     // Callback:
     func applicationDidBecomeActiveNotification() {
         // Handle application will resign notification event.
@@ -73,14 +70,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let formatter = NSNumberFormatter()
         formatter.numberStyle = .CurrencyStyle
-      
-            formatter.locale = NSLocale.currentLocale()
+        
+        formatter.locale = NSLocale.currentLocale()
         print(formatter.currencyCode, formatter.currencySymbol)
         
         
         self.title = StringFor.name["appName"]!
         
-      
+        
         // print(((self.view.frame.height  - 480 ) + 24 ) / 2)
         //bottomConstraint.constant = ((self.view.frame.height  - 480 ) + 24 ) / 2
         
@@ -88,26 +85,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         
         Helper.addMenuButton(self)
-            
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MMMM yyyy"
-            currentMonth.text = dateFormatter.stringFromDate(NSDate())
-            
-            
-            
-            /*menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside)
-             
-             */
-       
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMMM yyyy"
+        //currentMonth.text = dateFormatter.stringFromDate(NSDate())
+        
+        
+        
+        /*menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside)
+         
+         */
+        
     }
-     /*override func viewDidLayoutSubviews(){
+    /*override func viewDidLayoutSubviews(){
      tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, self.view.frame.size.height /  3.5)
      // tableView.reloadData()
      }
      -override func viewDidAppear(animated: Bool) {
      tableView.frame = CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, 50)
      }
-    */
+     */
     @IBOutlet weak var collectionView: UICollectionView!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,9 +112,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return  images.count
         
     }
- 
     
- 
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         //let path = self.tableView.indexPathForSelectedRow!
@@ -159,38 +156,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     
-    func collectionView(collectionView: UICollectionView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        //print(self.view.frame.size.height)
-        //return self.tableView.frame.size.height /  13.7
-        return collectionView.frame.size.height /  2.3
-    }
+  
     /*
-    
-    func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+     
+     func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
+     {
+     let cellSize:CGSize = CGSizeMake(collectionView.frame.width / 2.3 , collectionView.frame.size.height /  2.3)
+     return cellSize
+     }
+     */
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
-        let cellSize:CGSize = CGSizeMake(collectionView.frame.width / 2.3 , collectionView.frame.size.height /  2.3)
-        return cellSize
+        var collectionViewSize = collectionView.frame.size
+        collectionViewSize.width = collectionViewSize.width/2.1 //Display Three elements in a row.
+        collectionViewSize.height = collectionViewSize.height/4.85
+        return collectionViewSize
     }
-    */
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if indexPath.row == 3 {
-            UIView.animateWithDuration(1.0, animations: {
-                self.needle.layer.anchorPoint = CGPointMake(0.5, 0.54)
-                let ValueToMinus = (self.ExpenceAsPercentage < 30 ) ? ((self.ExpenceAsPercentage + 9)/100) * 24 : (self.ExpenceAsPercentage/100) * 24
-                
-                let angle = ((self.ExpenceAsPercentage - ValueToMinus)  / 100 ) * CGFloat(2 * M_PI)
-                self.needle.transform = CGAffineTransformMakeRotation(angle)
-                //print(angle,CGFloat(2 * M_PI))
-                
-            })
-        }
-        
-    }
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 8
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -218,8 +204,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! MainCollectionViewCell
-        cell.img.image = images[indexPath.row]
-        cell.name.text = ctgNames[indexPath.row]
+        cell.img.image = images[indexPath.row % 4]
+        cell.name.text = ctgNames[indexPath.row % 4]
         
         
         
@@ -404,8 +390,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.price.text = (total - expensesInAccountsTotal + incomeInAccountsTotal).asLocaleCurrency
             if totalBudget == 0
             {
-                available.text = (totalIncome -  totalExpenses).asLocaleCurrency
-                percentageText.text = "Expenses as % of Income"
+               // available.text = (totalIncome -  totalExpenses).asLocaleCurrency
+                //percentageText.text = "Expenses as % of Income"
                 var pt = 0
                 if totalIncome != 0 // to solve infinity problem
                 {
@@ -414,13 +400,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 {
                     pt = 101 // to solve 100+ problem
                 }
-                percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
+                //percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
                 ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
             }
             else{
                 
-                available.text = (totalBudget -  totalExpenses).asLocaleCurrency
-                percentageText.text = "Expenses as % of Budget"
+                //available.text = (totalBudget -  totalExpenses).asLocaleCurrency
+                //percentageText.text = "Expenses as % of Budget"
                 var pt = 0
                 if totalBudget != 0
                 {
@@ -429,7 +415,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 {
                     pt = 100
                 }
-                percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
+                //percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
                 ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
                 
             }
@@ -442,6 +428,218 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
         }
         
+        
+        if indexPath.row == 7
+        {
+            
+            request = NSFetchRequest(entityName: "ExpenseTable")
+            request.predicate = predicate
+            do{
+                
+                
+                totalExpenses = 0.0
+                
+                let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [ExpenseTable]
+                
+                for element in queryResult
+                {
+                    
+                    
+                    totalExpenses += Float(element.amount ?? "0") ?? 0.0
+                    
+                    
+                    
+                    
+                }
+            }
+                
+                
+            catch let error {
+                print("error : ", error)
+            }
+            
+            cell.price.text = totalExpenses.asLocaleCurrency
+            let color = UIColor(red: 128/255, green: 129/255, blue: 0, alpha: 1)
+            //cell.price.textColor = color
+            cell.img.image = UIImage(named: "wallet")
+            cell.img.tintColor = UIColor.whiteColor()
+            cell.contentView.backgroundColor = color
+            
+            
+        }
+        else if indexPath.row == 6
+        {
+            request = NSFetchRequest(entityName: "IncomeTable")
+            request.predicate = predicate
+            do{
+                
+                
+                totalIncome = 0.0
+                
+                let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [IncomeTable]
+                
+                for element in queryResult
+                {
+                    
+                    totalIncome += Float(element.amount ?? "0") ?? 0.0
+                    
+                    
+                    
+                    
+                    
+                }
+            }
+                
+                
+            catch let error {
+                print("error : ", error)
+            }
+            cell.price.text = totalIncome.asLocaleCurrency
+            
+            let color = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1)
+            //cell.price.textColor = color
+            cell.img.image = UIImage(named: "money")
+            cell.img.tintColor = UIColor.whiteColor()
+            cell.contentView.backgroundColor = color
+            
+        }else if indexPath.row == 5
+        {
+            request = NSFetchRequest(entityName: "SubCategoryTable")
+            request.predicate = nil
+            do{
+                
+                
+                totalBudget = 0.0
+                
+                let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [SubCategoryTable]
+                
+                for element in queryResult
+                {
+                    
+                    
+                    
+                    if let value =  Float(element.amount ?? "0")
+                    {
+                        totalBudget += value
+                        
+                    }
+                    
+                }
+                if totalBudget == 0.0
+                {
+                    do{
+                        
+                        request = NSFetchRequest(entityName: "Other")
+                        let queryResult = try managedObjectContext?.executeFetchRequest(request).first
+                        if let result = queryResult as? Other{
+                            totalBudget = Float(result.oneBudget ?? "0") ?? 0.0
+                        }
+                    }
+                    catch let error {
+                        print("error : ", error)
+                    }
+                }
+            }
+                
+                
+            catch let error {
+                print("error : ", error)
+            }
+            cell.price.text = totalBudget.asLocaleCurrency
+            
+            
+            let color = UIColor(red: 128/255, green: 139/255, blue: 150/255, alpha: 1)
+            //cell.price.textColor = color
+            cell.img.image = UIImage(named: "folder")
+            cell.img.tintColor = UIColor.whiteColor()
+            cell.contentView.backgroundColor = color
+            
+        }else if indexPath.row == 4
+        {
+            var total : Float = 0.0
+            request = NSFetchRequest(entityName: "AccountTable")
+            request.predicate = nil
+            do{
+                
+                
+                
+                
+                let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [AccountTable]
+                
+                for element in queryResult
+                {
+                    
+                    
+                    total += Float(element.amount ?? "0") ?? 0.0
+                    if  let data = element.expense!.allObjects as? [ExpenseTable]
+                    {
+                        var expenses : Float = 0.0
+                        
+                        for expense in data
+                        {
+                            expenses += Float(expense.amount ?? "0") ?? 0.0
+                        }
+                        expensesInAccountsTotal += expenses
+                        
+                        
+                    }
+                    if  let data = element.income!.allObjects as? [IncomeTable]
+                    {
+                        var incomes : Float = 0.0
+                        for income in data
+                        {
+                            incomes += Float(income.amount ?? "0") ?? 0.0
+                        }
+                        incomeInAccountsTotal += incomes
+                    }
+                }
+            }
+                
+                
+            catch let error {
+                print("error : ", error)
+            }
+            cell.price.text = (total - expensesInAccountsTotal + incomeInAccountsTotal).asLocaleCurrency
+            if totalBudget == 0
+            {
+                // available.text = (totalIncome -  totalExpenses).asLocaleCurrency
+                //percentageText.text = "Expenses as % of Income"
+                var pt = 0
+                if totalIncome != 0 // to solve infinity problem
+                {
+                    pt = Int((totalExpenses / totalIncome) * 100)
+                }else if totalExpenses > 0
+                {
+                    pt = 101 // to solve 100+ problem
+                }
+                //percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
+                ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
+            }
+            else{
+                
+                //available.text = (totalBudget -  totalExpenses).asLocaleCurrency
+                //percentageText.text = "Expenses as % of Budget"
+                var pt = 0
+                if totalBudget != 0
+                {
+                    pt = Int((totalExpenses / totalBudget) * 100)
+                }else if totalExpenses > 0
+                {
+                    pt = 100
+                }
+                //percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
+                ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
+                
+            }
+            
+            let color = UIColor(red: 136/255, green:78/255, blue: 160/255, alpha: 1)
+            //cell.price.textColor = color
+            cell.img.image = UIImage(named: "account")
+            cell.img.tintColor = UIColor.whiteColor()
+            cell.contentView.backgroundColor = color
+            
+        }
+
         
         //cell.img?.tintColor = Helper.colors[indexPath.row % 5]
         return cell

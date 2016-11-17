@@ -216,6 +216,12 @@ class CloudDataManager {
     let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
     
     queryResult.backupTime = NSDate()
+        do {
+            try Helper.managedObjectContext!.save()
+            Helper.lastBackupTime = NSDate()
+        } catch {
+            print("error")
+        }
     
     }
     catch let error {
@@ -226,19 +232,8 @@ class CloudDataManager {
     
     }
     
-    else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
-    {
-    
-    
-    entity.backupTime = NSDate()
-    
-    }
-    do {
-    try Helper.managedObjectContext!.save()
-    Helper.lastBackupTime = NSDate()
-    } catch {
-    print("error")
-    }
+  
+  
     }
 
     
