@@ -108,11 +108,11 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         header.catg.text = expenseData!.keys[index]
         if Helper.expandedAndCollapsedSectionsIncome[section]
         {
-            header.image.image = UIImage(named: "arrowDown")
+            //header.image.image = UIImage(named: "arrowDown")
             header.separator.hidden = true
         }
         else{
-            header.image.image = UIImage(named: "arrowRight")
+           // header.image.image = UIImage(named: "arrowRight")
             header.separator.hidden = false
         }
         header.headerCellSection = section

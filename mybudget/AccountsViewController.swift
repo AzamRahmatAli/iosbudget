@@ -101,11 +101,11 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
         
         if  Helper.expandedAndCollapsedSectionsAccount[section]
         {
-            header.image.image = UIImage(named: "arrowDown")
+            //header.image.image = UIImage(named: "arrowDown")
             header.separator.hidden = true
         }
         else{
-            header.image.image = UIImage(named: "arrowRight")
+            //header.image.image = UIImage(named: "arrowRight")
             header.separator.hidden = false
         }
         header.headerCellSection = section

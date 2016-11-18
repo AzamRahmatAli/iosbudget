@@ -109,11 +109,11 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if  Helper.expandedAndCollapsedSectionsExpense[section]
         {
-            header.image.image = UIImage(named: "arrowDown")
+           // header.image.image = UIImage(named: "arrowDown")
             header.separator.hidden = true
         }
         else{
-            header.image.image = UIImage(named: "arrowRight")
+            //header.image.image = UIImage(named: "arrowRight")
             header.separator.hidden = false
         }
         header.headerCellSection = section
