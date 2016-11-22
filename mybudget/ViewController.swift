@@ -446,10 +446,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                     
                     totalExpenses += Float(element.amount ?? "0") ?? 0.0
-                    
-                    
-                    
-                    
+                   
                 }
             }
                 
@@ -459,7 +456,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             
             cell.price.text = totalExpenses.asLocaleCurrency
-            let color = UIColor(red: 128/255, green: 129/255, blue: 0, alpha: 1)
+            let color = UIColor(red: 206/255, green: 193/255, blue: 99/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "wallet")
             cell.img.tintColor = UIColor.whiteColor()
@@ -483,9 +480,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     
                     totalIncome += Float(element.amount ?? "0") ?? 0.0
                     
-                    
-                    
-                    
+                   
                     
                 }
             }
@@ -496,7 +491,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             cell.price.text = totalIncome.asLocaleCurrency
             
-            let color = UIColor(red: 240/255, green: 128/255, blue: 128/255, alpha: 1)
+            let color = UIColor(red: 0/255, green: 113/255, blue: 139/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "money")
             cell.img.tintColor = UIColor.whiteColor()
@@ -548,7 +543,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.price.text = totalBudget.asLocaleCurrency
             
             
-            let color = UIColor(red: 128/255, green: 139/255, blue: 150/255, alpha: 1)
+            let color = UIColor(red: 200/255, green: 0/255, blue: 0/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "folder")
             cell.img.tintColor = UIColor.whiteColor()
@@ -632,7 +627,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
             }
             
-            let color = UIColor(red: 136/255, green:78/255, blue: 160/255, alpha: 1)
+             let color = UIColor(red: 136/255, green:78/255, blue: 160/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "account")
             cell.img.tintColor = UIColor.whiteColor()
