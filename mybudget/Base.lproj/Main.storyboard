@@ -108,11 +108,15 @@
                         <segue destination="qpj-1g-0ZE" kind="show" identifier="incomeList" id="x0o-Zv-uNe"/>
                         <segue destination="F2O-Rf-L1q" kind="show" identifier="budgetView" id="Vax-Si-0IU"/>
                         <segue destination="FLn-43-NNw" kind="show" identifier="accountList" id="fEM-OY-Hyi"/>
+                        <segue destination="FEc-rb-35B" kind="show" identifier="summary" id="juH-CN-12F"/>
+                        <segue destination="2WY-QU-TFA" kind="show" identifier="search" id="YLe-It-JAX"/>
+                        <segue destination="ktf-1q-suf" kind="show" identifier="transfer" id="xeI-fx-maV"/>
+                        <segue destination="2DP-20-DNW" kind="show" identifier="currency" id="jge-zi-JaC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1463" y="328"/>
+            <point key="canvasLocation" x="1494" y="329"/>
         </scene>
         <!--Search-->
         <scene sceneID="Ci0-Wn-Sya">
@@ -124,7 +128,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="Aeb-yF-tek" customClass="ParentTableViewCell" customModule="mybudget" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aeb-yF-tek" id="BpV-7S-zYk">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
@@ -202,7 +206,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1813" y="812"/>
+            <point key="canvasLocation" x="1868" y="760"/>
         </scene>
         <!--Expense View Controller-->
         <scene sceneID="bAg-Eg-RrO">
@@ -677,7 +681,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NiP-Ad-Ha4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="254" y="1352"/>
+            <point key="canvasLocation" x="594" y="1082"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="foP-Kl-YXs">
@@ -2517,7 +2521,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="apA-n1-iUS">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="apA-n1-iUS">
                                 <rect key="frame" x="20" y="72" width="280" height="476"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nHO-1I-6yR">
@@ -2528,7 +2532,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cvcell" id="3wS-rF-pcG" customClass="CustomCollectionViewCell" customModule="mybudget" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="43"/>
+                                        <rect key="frame" x="0.0" y="64" width="42" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="42" height="43"/>
@@ -3335,7 +3339,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clH-5b-g5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="g7O-Ig-8t5"/>
             </objects>
-            <point key="canvasLocation" x="2464" y="799"/>
+            <point key="canvasLocation" x="2237" y="843"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8o6-2W-cIB">
@@ -3436,13 +3440,16 @@
         <image name="prevMonth" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="jge-zi-JaC"/>
         <segue reference="IVx-tJ-cid"/>
         <segue reference="Vax-Si-0IU"/>
-        <segue reference="rxT-Kq-Ui6"/>
+        <segue reference="fEM-OY-Hyi"/>
+        <segue reference="xeI-fx-maV"/>
+        <segue reference="juH-CN-12F"/>
         <segue reference="uKc-4G-tJG"/>
-        <segue reference="oy1-0M-y6T"/>
         <segue reference="hsH-l5-Qe9"/>
-        <segue reference="nSy-yi-OpF"/>
+        <segue reference="Z4r-al-0ds"/>
+        <segue reference="rxT-Kq-Ui6"/>
         <segue reference="7rb-HU-n6Q"/>
     </inferredMetricsTieBreakers>
 </document>

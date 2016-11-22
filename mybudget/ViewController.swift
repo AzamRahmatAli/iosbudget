@@ -21,8 +21,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     
-    let images : [UIImage] = [UIImage(named : "expenses")!, UIImage(named : "income")!, UIImage(named : "budget")!, UIImage(named : "accounts")!]
-    let ctgNames : [String] = ["Expenses","Income", "Budget", "Accounts"]
+ 
+    let ctgNames : [String] = ["Expenses","Income", "Budget", "Accounts", "Currency", "Transfer", "Summary", "Search"]
     
     var expensesInAccountsTotal : Float = 0.0
     var incomeInAccountsTotal : Float = 0.0
@@ -107,14 +107,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
      }
      */
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return  images.count
-        
-    }
-    
-    
+ 
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
@@ -200,13 +193,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         {
             self.performSegueWithIdentifier("accountList", sender: nil)
         }
-        
+        else if indexPath.row == 4
+        {
+            self.performSegueWithIdentifier("currency", sender: nil)
+        }
+        else if indexPath.row == 5{
+            
+            self.performSegueWithIdentifier("transfer", sender: nil)
+        }
+        else if indexPath.row == 6
+        {
+            self.performSegueWithIdentifier("summary", sender: nil)
+        }
+        else if indexPath.row == 7
+        {
+            self.performSegueWithIdentifier("search", sender: nil)
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! MainCollectionViewCell
-        cell.img.image = images[indexPath.row % 4]
-        cell.name.text = ctgNames[indexPath.row % 4]
+        //cell.img.image = images[indexPath.row ]
+        cell.name.text = ctgNames[indexPath.row]
         
         
         
@@ -433,33 +441,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if indexPath.row == 7
         {
             
-            request = NSFetchRequest(entityName: "ExpenseTable")
-            request.predicate = predicate
-            do{
-                
-                
-                totalExpenses = 0.0
-                
-                let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [ExpenseTable]
-                
-                for element in queryResult
-                {
-                    
-                    
-                    totalExpenses += Float(element.amount ?? "0") ?? 0.0
-                   
-                }
-            }
-                
-                
-            catch let error {
-                print("error : ", error)
-            }
             
-            cell.price.text = totalExpenses.asLocaleCurrency
+            
+            cell.price.text = ""
             let color = UIColor(red: 206/255, green: 193/255, blue: 99/255, alpha: 1)
             //cell.price.textColor = color
-            cell.img.image = UIImage(named: "wallet")
+            cell.img.image = UIImage(named: "search")
             cell.img.tintColor = UIColor.whiteColor()
             cell.contentView.backgroundColor = color
             
@@ -467,168 +454,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         else if indexPath.row == 6
         {
-            request = NSFetchRequest(entityName: "IncomeTable")
-            request.predicate = predicate
-            do{
-                
-                
-                totalIncome = 0.0
-                
-                let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [IncomeTable]
-                
-                for element in queryResult
-                {
-                    
-                    totalIncome += Float(element.amount ?? "0") ?? 0.0
-                    
-                   
-                    
-                }
-            }
-                
-                
-            catch let error {
-                print("error : ", error)
-            }
-            cell.price.text = totalIncome.asLocaleCurrency
+            
+        cell.price.text = ""
             
             let color = UIColor(red: 0/255, green: 113/255, blue: 139/255, alpha: 1)
             //cell.price.textColor = color
-            cell.img.image = UIImage(named: "money")
+            cell.img.image = UIImage(named: "ic_functions")
             cell.img.tintColor = UIColor.whiteColor()
             cell.contentView.backgroundColor = color
             
         }else if indexPath.row == 5
         {
-            request = NSFetchRequest(entityName: "SubCategoryTable")
-            request.predicate = nil
-            do{
-                
-                
-                totalBudget = 0.0
-                
-                let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [SubCategoryTable]
-                
-                for element in queryResult
-                {
-                    
-                    
-                    
-                    if let value =  Float(element.amount ?? "0")
-                    {
-                        totalBudget += value
-                        
-                    }
-                    
-                }
-                if totalBudget == 0.0
-                {
-                    do{
-                        
-                        request = NSFetchRequest(entityName: "Other")
-                        let queryResult = try managedObjectContext?.executeFetchRequest(request).first
-                        if let result = queryResult as? Other{
-                            totalBudget = Float(result.oneBudget ?? "0") ?? 0.0
-                        }
-                    }
-                    catch let error {
-                        print("error : ", error)
-                    }
-                }
-            }
-                
-                
-            catch let error {
-                print("error : ", error)
-            }
-            cell.price.text = totalBudget.asLocaleCurrency
+                        cell.price.text = ""
             
             
             let color = UIColor(red: 200/255, green: 0/255, blue: 0/255, alpha: 1)
             //cell.price.textColor = color
-            cell.img.image = UIImage(named: "folder")
+            cell.img.image = UIImage(named: "ia_transfer")
             cell.img.tintColor = UIColor.whiteColor()
             cell.contentView.backgroundColor = color
             
         }else if indexPath.row == 4
         {
-            var total : Float = 0.0
-            request = NSFetchRequest(entityName: "AccountTable")
-            request.predicate = nil
-            do{
-                
-                
-                
-                
-                let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [AccountTable]
-                
-                for element in queryResult
-                {
-                    
-                    
-                    total += Float(element.amount ?? "0") ?? 0.0
-                    if  let data = element.expense!.allObjects as? [ExpenseTable]
-                    {
-                        var expenses : Float = 0.0
-                        
-                        for expense in data
-                        {
-                            expenses += Float(expense.amount ?? "0") ?? 0.0
-                        }
-                        expensesInAccountsTotal += expenses
-                        
-                        
-                    }
-                    if  let data = element.income!.allObjects as? [IncomeTable]
-                    {
-                        var incomes : Float = 0.0
-                        for income in data
-                        {
-                            incomes += Float(income.amount ?? "0") ?? 0.0
-                        }
-                        incomeInAccountsTotal += incomes
-                    }
-                }
-            }
-                
-                
-            catch let error {
-                print("error : ", error)
-            }
-            cell.price.text = (total - expensesInAccountsTotal + incomeInAccountsTotal).asLocaleCurrency
-            if totalBudget == 0
-            {
-                // available.text = (totalIncome -  totalExpenses).asLocaleCurrency
-                //percentageText.text = "Expenses as % of Income"
-                var pt = 0
-                if totalIncome != 0 // to solve infinity problem
-                {
-                    pt = Int((totalExpenses / totalIncome) * 100)
-                }else if totalExpenses > 0
-                {
-                    pt = 101 // to solve 100+ problem
-                }
-                //percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
-                ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
-            }
-            else{
-                
-                //available.text = (totalBudget -  totalExpenses).asLocaleCurrency
-                //percentageText.text = "Expenses as % of Budget"
-                var pt = 0
-                if totalBudget != 0
-                {
-                    pt = Int((totalExpenses / totalBudget) * 100)
-                }else if totalExpenses > 0
-                {
-                    pt = 100
-                }
-                //percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
-                ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
-                
-            }
-            
-             let color = UIColor(red: 136/255, green:78/255, blue: 160/255, alpha: 1)
+            cell.price.text = ""
+            let color = UIColor(red: 136/255, green:78/255, blue: 160/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "account")
             cell.img.tintColor = UIColor.whiteColor()

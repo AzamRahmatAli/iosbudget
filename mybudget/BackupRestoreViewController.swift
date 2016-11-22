@@ -84,7 +84,7 @@ class BackupRestoreViewController: UITableViewController {
             else{
                 let cellbn = tableView.dequeueReusableCellWithIdentifier("cellbn", forIndexPath: indexPath)
                 
-                cellbn.textLabel?.tintColor  = Helper.colors[0]
+                cellbn.textLabel?.textColor  = Helper.colors[0]
                 return cellbn
             }
             
