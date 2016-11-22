@@ -44,18 +44,18 @@ class MenuTableViewController: UITableViewController {
         help.tintColor = UIColor.lightGrayColor()
         if index == 1
         {
-            dashBoard.tintColor = UIColor(red: 0, green : 0.478431, blue: 1 , alpha: 1)
+            dashBoard.tintColor = Helper.colors[0]//UIColor(red: 0, green : 0.478431, blue: 1 , alpha: 1)
         }else if index == 2
         {
-          quickSummary.tintColor = UIColor(red: 0, green : 0.478431, blue: 1 , alpha: 1)
+          quickSummary.tintColor = Helper.colors[0]
         }
         else if index == 3
         {
-           setting.tintColor = UIColor(red: 0, green : 0.478431, blue: 1 , alpha: 1)
+           setting.tintColor = Helper.colors[0]
         }
         else if index == 4
         {
-          help.tintColor = UIColor(red: 0, green : 0.478431, blue: 1 , alpha: 1)
+          help.tintColor = Helper.colors[0]
         }
     }
     /*override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

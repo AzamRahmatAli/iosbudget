@@ -59,6 +59,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController!.navigationBar.tintColor = Helper.colors[0]
         //tableView.backgroundColor = UIColor.greenColor()
         
         //self.navigationController?.setNavigationBarHidden(true, animated: true)

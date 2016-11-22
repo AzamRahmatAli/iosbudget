@@ -39,7 +39,10 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var add: UIBarButtonItem!
     
+    @IBOutlet weak var next: UIButton!
+    @IBOutlet weak var prev: UIButton!
     @IBOutlet weak var expenseTotalLabel: UILabel!
     @IBOutlet weak var titleMonth: UILabel!
     @IBAction func addExpense(sender: AnyObject) {
@@ -53,7 +56,9 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        add.tintColor = Helper.colors[0]
+        next.tintColor = Helper.colors[0]
+        prev.tintColor = Helper.colors[0]
         let nib = UINib(nibName: "TableSectionHeader", bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "TableSectionHeader")
         

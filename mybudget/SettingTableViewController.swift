@@ -22,8 +22,11 @@ class SettingTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController!.navigationBar.tintColor = Helper.colors[0]
         Helper.addMenuButton(self)
-        lockOn.text = "OFF"
+        
+        lockOn.textColor = Helper.colors[0]
+        currency.textColor = Helper.colors[0]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

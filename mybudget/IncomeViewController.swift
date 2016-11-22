@@ -34,6 +34,9 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var expenseDataForSection : [IncomeTable]?
     
+    @IBOutlet weak var prev: UIButton!
+    @IBOutlet weak var next: UIButton!
+    @IBOutlet weak var add: UIBarButtonItem!
     
     @IBOutlet weak var incomeTotalLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -48,7 +51,9 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        add.tintColor = Helper.colors[0]
+        next.tintColor = Helper.colors[0]
+        prev.tintColor = Helper.colors[0]
         let nib = UINib(nibName: "TableSectionHeader", bundle: nil)
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "TableSectionHeader")
         
