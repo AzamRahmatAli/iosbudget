@@ -15,8 +15,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    //@IBOutlet weak var currentMonth: UILabel!
-    
+   
+    @IBOutlet weak var currentMonth: UILabel!
+    @IBOutlet weak var navTitle: UILabel!
     
     
     
@@ -76,7 +77,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         print(formatter.currencyCode, formatter.currencySymbol)
         
         
-        self.title = StringFor.name["appName"]!
+        navTitle.text = StringFor.name["appName"]!
         
         
         // print(((self.view.frame.height  - 480 ) + 24 ) / 2)
@@ -89,7 +90,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
-        //currentMonth.text = dateFormatter.stringFromDate(NSDate())
+        currentMonth.text = dateFormatter.stringFromDate(NSDate())
         
         
         
@@ -479,7 +480,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.price.text = ""
             let color = UIColor(red: 136/255, green:78/255, blue: 160/255, alpha: 1)
             //cell.price.textColor = color
-            cell.img.image = UIImage(named: "account")
+            cell.img.image = UIImage(named: "currency1")
             cell.img.tintColor = UIColor.whiteColor()
             cell.contentView.backgroundColor = color
             
