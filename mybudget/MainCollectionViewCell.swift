@@ -15,5 +15,6 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var name: UILabel!
 
+    @IBOutlet weak var name2: UILabel!
     
 }

@@ -23,7 +23,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
  
-    let ctgNames : [String] = ["Expenses","Income", "Budget", "Accounts", "Currency", "Transfer", "Summary", "Search"]
+    let ctgNames : [String] = ["Expenses","Income", "Budget", "Accounts", "Currency", "Transfer", "Quick", "Search"]
     
     var expensesInAccountsTotal : Float = 0.0
     var incomeInAccountsTotal : Float = 0.0
@@ -217,8 +217,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //cell.img.image = images[indexPath.row ]
         cell.name.text = ctgNames[indexPath.row]
         
-        
-        
+        cell.price.text = ""
+        cell.name2.text = ""
         var request = NSFetchRequest(entityName: "ExpenseTable")
         
         
@@ -444,7 +444,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             
             
-            cell.price.text = ""
+            
+             cell.name2.text = "Transactions"
             let color = UIColor(red: 206/255, green: 193/255, blue: 99/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "search")
@@ -456,8 +457,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         else if indexPath.row == 6
         {
             
-        cell.price.text = ""
-            
+        
+            cell.name2.text = "Summary"
             let color = UIColor(red: 0/255, green: 113/255, blue: 139/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "ic_functions")
@@ -466,9 +467,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
         }else if indexPath.row == 5
         {
-                        cell.price.text = ""
             
             
+            cell.name2.text = "Account"
             let color = UIColor(red: 200/255, green: 0/255, blue: 0/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "ia_transfer")
@@ -477,7 +478,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
         }else if indexPath.row == 4
         {
-            cell.price.text = ""
+           
+            cell.name2.text = Helper.formatter.currencyCode
             let color = UIColor(red: 136/255, green:78/255, blue: 160/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "currency1")
