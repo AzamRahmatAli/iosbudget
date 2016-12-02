@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import StoreKit
-
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObserver, SKProductsRequestDelegate {

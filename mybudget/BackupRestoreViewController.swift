@@ -148,7 +148,7 @@ class BackupRestoreViewController: UITableViewController {
         }
         actionSheetControllerIOS8.addAction(saveActionButton)
         
-        let deleteActionButton: UIAlertAction = UIAlertAction(title: "Delete", style: .Default)
+        let deleteActionButton: UIAlertAction = UIAlertAction(title: "Delete", style: .Destructive)
         { action -> Void in
             if CloudDataManager.deleteFilesInDirectory(name)
             {
@@ -195,13 +195,14 @@ class BackupRestoreViewController: UITableViewController {
         else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
         {
             
-            
+             entity.backupFrequency = frequency.rawValue
             entity.backupTime = NSDate()
             
         }
         do {
             try Helper.managedObjectContext!.save()
             Helper.backupFrequency = frequency
+            Helper.lastBackupTime = NSDate()
         } catch {
             print("error")
         }
@@ -325,7 +326,7 @@ class BackupRestoreViewController: UITableViewController {
                     if String(s).rangeOfString("-backup.txt") != nil
                     {
                         
-                        backupFiles.append(s.asFileName)
+                        backupFiles.insert(s.asFileName, atIndex: 0)//append(s.asFileName)
                         
                         
                     }

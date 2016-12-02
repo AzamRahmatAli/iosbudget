@@ -68,6 +68,13 @@
 		F770B57C1DD3437400013B87 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F770B57B1DD3437400013B87 /* Info.plist */; };
 		F770B5821DD3449300013B87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F770B5811DD3449300013B87 /* LaunchScreen.storyboard */; };
 		F770B58A1DD345EB00013B87 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770B5891DD345EB00013B87 /* SWRevealViewController.m */; };
+		F7B9E3811DF1809E00F8CAD7 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37B1DF1809E00F8CAD7 /* FirebaseAnalytics.framework */; };
+		F7B9E3821DF1809E00F8CAD7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37C1DF1809E00F8CAD7 /* FirebaseCore.framework */; };
+		F7B9E3831DF1809E00F8CAD7 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37D1DF1809E00F8CAD7 /* FirebaseInstanceID.framework */; };
+		F7B9E3841DF1809E00F8CAD7 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37E1DF1809E00F8CAD7 /* GoogleInterchangeUtilities.framework */; };
+		F7B9E3851DF1809E00F8CAD7 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37F1DF1809E00F8CAD7 /* GoogleSymbolUtilities.framework */; };
+		F7B9E3861DF1809E00F8CAD7 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E3801DF1809E00F8CAD7 /* GoogleToolboxForMac.framework */; };
+		F7B9E38B1DF1929700F8CAD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7B9E38A1DF1929700F8CAD7 /* GoogleService-Info.plist */; };
 		F7C3B8CF1DDC4B7C00D44B3A /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C3B8CE1DDC4B7C00D44B3A /* MainCollectionViewCell.swift */; };
 		F7E6AE5F1DD311B200DC11E3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
@@ -136,6 +143,15 @@
 		F770B5881DD345EB00013B87 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F770B5891DD345EB00013B87 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F770B58B1DD3462300013B87 /* mybudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mybudget-Bridging-Header.h"; sourceTree = "<group>"; };
+		F7B9E37B1DF1809E00F8CAD7 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		F7B9E37C1DF1809E00F8CAD7 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
+		F7B9E37D1DF1809E00F8CAD7 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		F7B9E37E1DF1809E00F8CAD7 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		F7B9E37F1DF1809E00F8CAD7 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		F7B9E3801DF1809E00F8CAD7 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
+		F7B9E3881DF181E800F8CAD7 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		F7B9E3891DF1906F00F8CAD7 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		F7B9E38A1DF1929700F8CAD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7C3B8CE1DDC4B7C00D44B3A /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7E6ADC11DD30E6F00DC11E3 /* mybudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mybudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -146,7 +162,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7B9E3861DF1809E00F8CAD7 /* GoogleToolboxForMac.framework in Frameworks */,
+				F7B9E3851DF1809E00F8CAD7 /* GoogleSymbolUtilities.framework in Frameworks */,
+				F7B9E3811DF1809E00F8CAD7 /* FirebaseAnalytics.framework in Frameworks */,
 				F7E6AE5F1DD311B200DC11E3 /* StoreKit.framework in Frameworks */,
+				F7B9E3821DF1809E00F8CAD7 /* FirebaseCore.framework in Frameworks */,
+				F7B9E3831DF1809E00F8CAD7 /* FirebaseInstanceID.framework in Frameworks */,
+				F7B9E3841DF1809E00F8CAD7 /* GoogleInterchangeUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,10 +281,43 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		F7B9E3791DF1803F00F8CAD7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7B9E3871DF181A500F8CAD7 /* Firebase */,
+				F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7B9E37A1DF1809E00F8CAD7 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				F7B9E37B1DF1809E00F8CAD7 /* FirebaseAnalytics.framework */,
+				F7B9E37C1DF1809E00F8CAD7 /* FirebaseCore.framework */,
+				F7B9E37D1DF1809E00F8CAD7 /* FirebaseInstanceID.framework */,
+				F7B9E37E1DF1809E00F8CAD7 /* GoogleInterchangeUtilities.framework */,
+				F7B9E37F1DF1809E00F8CAD7 /* GoogleSymbolUtilities.framework */,
+				F7B9E3801DF1809E00F8CAD7 /* GoogleToolboxForMac.framework */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		F7B9E3871DF181A500F8CAD7 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				F7B9E38A1DF1929700F8CAD7 /* GoogleService-Info.plist */,
+				F7B9E3891DF1906F00F8CAD7 /* module.modulemap */,
+				F7B9E3881DF181E800F8CAD7 /* Firebase.h */,
+				F7B9E37A1DF1809E00F8CAD7 /* Analytics */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
 		F7E6ADB81DD30E6F00DC11E3 = {
 			isa = PBXGroup;
 			children = (
-				F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */,
+				F7B9E3791DF1803F00F8CAD7 /* Frameworks */,
 				F7E6ADC31DD30E6F00DC11E3 /* mybudget */,
 				F7E6ADC21DD30E6F00DC11E3 /* Products */,
 			);
@@ -365,6 +420,7 @@
 				F770B5821DD3449300013B87 /* LaunchScreen.storyboard in Resources */,
 				F770B57C1DD3437400013B87 /* Info.plist in Resources */,
 				F770B5351DD33D8F00013B87 /* Assets.xcassets in Resources */,
+				F7B9E38B1DF1929700F8CAD7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,8 +598,13 @@
 				CODE_SIGN_ENTITLEMENTS = mybudget/mybudget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Samad Malik (HKBFE6AA66)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Analytics",
+				);
 				INFOPLIST_FILE = mybudget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brainload.mybudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bf4c2a49-646f-4ab0-8b98-6a86b119be68";
@@ -560,8 +621,13 @@
 				CODE_SIGN_ENTITLEMENTS = mybudget/mybudget.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Samad Malik (HKBFE6AA66)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Samad Malik (HKBFE6AA66)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Analytics",
+				);
 				INFOPLIST_FILE = mybudget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.brainload.mybudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "bf4c2a49-646f-4ab0-8b98-6a86b119be68";

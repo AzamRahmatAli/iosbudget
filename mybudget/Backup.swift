@@ -118,8 +118,8 @@ static func doBackup() -> String?
                 lockOn = String(lock)
                 print(String(lock))
             }
-            
-            sets.append(["oneBudget" :element.oneBudget ?? "" , "password" :element.password ?? "" , "email" :element.email ?? "" , "lockOn" : lockOn])
+            print(String(NSDate()))
+            sets.append(["oneBudget" :element.oneBudget ?? "" , "password" :element.password ?? "" , "email" :element.email ?? "" , "lockOn" : lockOn, "backupTime" : String(NSDate()) , "backupFrequency" : element.backupFrequency ?? ""])
             
         }
         dictionary["Other"] =  sets

@@ -110,6 +110,14 @@ struct Restore
                                 {
                                     entity.oneBudget = element["oneBudget"]
                                 }
+                                if element["backupTime"]  != ""
+                                {
+                                    entity.backupTime = dateFormatter.dateFromString(element["backupTime"]!)
+                                }
+                                if element["backupFrequency"]  != ""
+                                {
+                                    entity.backupFrequency = element["backupFrequency"]
+                                }
                                 
                                 
                             }
