@@ -14,7 +14,7 @@ struct Restore
     
     
     
-     static func restoreBackup(fileName : String) -> Bool
+    static func restoreBackup(fileName : String) -> Bool
     {
         
         
@@ -110,13 +110,28 @@ struct Restore
                                 {
                                     entity.oneBudget = element["oneBudget"]
                                 }
+                                //becase if restore not last backup then time will wrong
                                 if element["backupTime"]  != ""
                                 {
-                                    entity.backupTime = dateFormatter.dateFromString(element["backupTime"]!)
+                                    if let date = dateFormatter.dateFromString(element["backupTime"]!)
+                                    {
+                                        
+                                        if let lastBackupDate = Helper.lastBackupTime
+                                        {
+                                            if lastBackupDate.compare(date) == .OrderedAscending
+                                            {
+                                                entity.backupTime = date
+                                            }
+                                        }
+                                        else{
+                                            entity.backupTime = date
+                                        }
+                                    }
                                 }
                                 if element["backupFrequency"]  != ""
                                 {
                                     entity.backupFrequency = element["backupFrequency"]
+                                    
                                 }
                                 
                                 
@@ -244,9 +259,9 @@ struct Restore
                                     
                                     entity.toAccount = AccountTable.account(element["toAccountname"]!, type: element["toAccounttype"]!, inManagedObjectContext: Helper.managedObjectContext!)
                                 }
-                               
-
-
+                                
+                                
+                                
                                 
                             }
                         }
@@ -255,12 +270,14 @@ struct Restore
                 
                 do {
                     try Helper.managedObjectContext!.save()
+                    Restore.setStaticValuesFromCoreData()
                     return true
                     
                 } catch {
                     print("error")
                 }
-             
+                
+                
             }
             print(json)
             
@@ -292,17 +309,17 @@ struct Restore
     }
     
     static func clearCoreDataStore() -> Bool{
-            if clearCoreData()
-            {
-        do {
-            try Helper.managedObjectContext!.save()
-            return true
-            
-            
-            
-        } catch {
-            print("error")
-        }
+        if clearCoreData()
+        {
+            do {
+                try Helper.managedObjectContext!.save()
+                return true
+                
+                
+                
+            } catch {
+                print("error")
+            }
         }
         return false
     }
@@ -312,15 +329,59 @@ struct Restore
     {
         if clearCoreData()
         {
-        do {
-            try Helper.managedObjectContext!.save()
-            
-            BasicData.addBasicData()
-            
-        } catch {
-            print("error")
+            do {
+                try Helper.managedObjectContext!.save()
+                
+                BasicData.addBasicData()
+                
+            } catch {
+                print("error")
+            }
         }
     }
+    
+    static func setStaticValuesFromCoreData()
+    {
+        let request = NSFetchRequest(entityName: "Other")
+        Helper.formatter.numberStyle = .CurrencyStyle
+        
+        print("setStaticValuesFromCoreData")
+        
+        if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
+        {
+            
+            do{
+                
+                let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
+                
+                if let isLockOn = queryResult.lockOn
+                {
+                    Helper.passwordProtectionOn = Bool(isLockOn)
+                    Helper.password = queryResult.password!
+                    
+                }
+                if let currencyCode = queryResult.currencyCode
+                {
+                    print("break", currencyCode)
+                    Helper.formatter.currencyCode = currencyCode
+                    Helper.formatter.currencySymbol = queryResult.currencySymbol
+                }
+                if let date = queryResult.backupTime
+                {
+                    Helper.lastBackupTime = date
+                }
+                if let frequency = queryResult.backupFrequency
+                {
+                    Helper.backupFrequency = autoBackupFrequency(rawValue: frequency )!
+                }
+            }
+            catch let error {
+                print("error : ", error)
+            }
+            
+            
+            
+        }
     }
 }
 

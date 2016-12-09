@@ -36,6 +36,7 @@ class BackupRestoreViewController: UITableViewController {
                     if Restore.restoreBackup(fileName)
                     {
                         Helper.alertUser(self, title: "", message: "Backup restored successfully")
+                        self.tableView.reloadData()
                     }
                     else{
                         Helper.alertUser(self, title: "", message: "Backup failed to restore, please try later")
@@ -202,7 +203,7 @@ class BackupRestoreViewController: UITableViewController {
         do {
             try Helper.managedObjectContext!.save()
             Helper.backupFrequency = frequency
-            Helper.lastBackupTime = NSDate()
+            
         } catch {
             print("error")
         }

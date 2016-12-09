@@ -99,45 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
             print("can't make purchases");
         }*/
         
-        let request = NSFetchRequest(entityName: "Other")
-        Helper.formatter.numberStyle = .CurrencyStyle
-        
-        
-        
-        if managedObjectContext.countForFetchRequest( request , error: nil) > 0
-        {
-            
-            do{
-                
-                let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
-                
-                if let isLockOn = queryResult.lockOn
-                {
-                    Helper.passwordProtectionOn = Bool(isLockOn)
-                    Helper.password = queryResult.password!
-                    
-                }
-                if let currencyCode = queryResult.currencyCode
-                {
-                Helper.formatter.currencyCode = currencyCode
-                Helper.formatter.currencySymbol = queryResult.currencySymbol
-                }
-                if let date = queryResult.backupTime
-                {
-                    Helper.lastBackupTime = date
-                }
-                if let frequency = queryResult.backupFrequency
-                {
-                    Helper.backupFrequency = autoBackupFrequency(rawValue: frequency )!
-                }
-            }
-            catch let error {
-                print("error : ", error)
-            }
-            
-            
-            
-        }
+        Restore.setStaticValuesFromCoreData()
         
         
         if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
