@@ -44,46 +44,9 @@ class CurrencyPickerTableViewController: UITableViewController {
         
         Helper.formatter.currencyCode = pickedCurrencyCode
         Helper.formatter.currencySymbol =  Helper.getLocalCurrencySymbl(pickedCurrencyCode!)
-        let request = NSFetchRequest(entityName: "Other")
+        Currency.saveCurrencyCodeAndSymbol()
         
-        
-        
-        if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
-        {
-            
-            do{
-                
-                
-                let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
-                queryResult.currencyCode = Helper.formatter.currencyCode
-                queryResult.currencySymbol = Helper.formatter.currencySymbol
-                
-                
-            }
-            catch let error {
-                print("error : ", error)
-            }
-            
-            
-            
-        }
-            
-        else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
-        {
-            
-            entity.currencyCode =  Helper.formatter.currencyCode
-            entity.currencySymbol =  Helper.formatter.currencySymbol
-            
-        }
-        do {
-            try Helper.managedObjectContext!.save()
-           
-            navigationController?.popViewControllerAnimated(true)
-        } catch {
-            print("error")
-        }
-        
-        
+        navigationController?.popViewControllerAnimated(true)
         
         
     }

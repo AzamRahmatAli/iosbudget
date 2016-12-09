@@ -98,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
         }else{
             print("can't make purchases");
         }*/
-        
+        Helper.formatter.numberStyle = .CurrencyStyle
         Restore.setStaticValuesFromCoreData()
         
         
@@ -114,9 +114,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
             
             
             //let Category = ["Utilities", "Food"]
-          
+            
             BasicData.addBasicData()
-           
+            Currency.saveCurrencyCodeAndSymbol()
             
             
         }

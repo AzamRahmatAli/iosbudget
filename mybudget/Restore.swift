@@ -110,6 +110,14 @@ struct Restore
                                 {
                                     entity.oneBudget = element["oneBudget"]
                                 }
+                                if element["currencyCode"]  != ""
+                                {
+                                    entity.currencyCode = element["currencyCode"]
+                                }
+                                if element["currencySymbol"]  != ""
+                                {
+                                    entity.currencySymbol = element["currencySymbol"]
+                                }
                                 //becase if restore not last backup then time will wrong
                                 if element["backupTime"]  != ""
                                 {
@@ -343,7 +351,7 @@ struct Restore
     static func setStaticValuesFromCoreData()
     {
         let request = NSFetchRequest(entityName: "Other")
-        Helper.formatter.numberStyle = .CurrencyStyle
+        
         
         print("setStaticValuesFromCoreData")
         

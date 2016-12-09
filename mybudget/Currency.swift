@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct Currency {
     
@@ -23,6 +24,48 @@ struct Currency {
         }
     }
     
+    static func saveCurrencyCodeAndSymbol()
+    {
+        let request = NSFetchRequest(entityName: "Other")
+        
+        
+        
+        if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
+        {
+            
+            do{
+                
+                
+                let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
+                queryResult.currencyCode = Helper.formatter.currencyCode
+                queryResult.currencySymbol = Helper.formatter.currencySymbol
+                
+                
+            }
+            catch let error {
+                print("error : ", error)
+            }
+            
+            
+            
+        }
+            
+        else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
+        {
+            
+            entity.currencyCode =  Helper.formatter.currencyCode
+            entity.currencySymbol =  Helper.formatter.currencySymbol
+            
+        }
+        do {
+            try Helper.managedObjectContext!.save()
+            
+            
+        } catch {
+            print("error")
+        }
+    }
+
 }
 
 struct CurrencyDataSource {
@@ -34,5 +77,7 @@ struct CurrencyDataSource {
             return Currency(code: $0 )
             }.filter { $0 != nil }.map { $0! }
     }()
+    
+    
     
 }
