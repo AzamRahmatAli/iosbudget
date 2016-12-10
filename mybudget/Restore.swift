@@ -94,7 +94,7 @@ struct Restore
                             
                             if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
                             {
-                                if element["email"]  != ""
+                                if element["email"]  != "" //hint not email
                                 {
                                     entity.email = element["email"]
                                 }
@@ -104,7 +104,7 @@ struct Restore
                                 }
                                 if element["lockOn"]  != ""
                                 {
-                                    entity.lockOn = element["lockOn"] == "1" ? true : false
+                                    entity.lockOn = element["lockOn"] == "1" ? 1 : 0
                                 }
                                 if element["oneBudget"]  != ""
                                 {
@@ -365,8 +365,11 @@ struct Restore
                 if let isLockOn = queryResult.lockOn
                 {
                     Helper.passwordProtectionOn = Bool(isLockOn)
-                    Helper.password = queryResult.password!
+                    Helper.password = queryResult.password ?? ""
                     
+                }
+                else{
+                    Helper.passwordProtectionOn = false
                 }
                 if let currencyCode = queryResult.currencyCode
                 {

@@ -24,6 +24,32 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var quickSummary: UIImageView!
     //@IBOutlet weak var currency: UILabel!
     
+    @IBOutlet weak var available: UILabel!
+    
+
+    @IBOutlet weak var needle: UIImageView!
+    @IBOutlet weak var percentageText: UILabel!
+    @IBOutlet weak var percentage: UILabel!
+    var ExpenceAsPercentage : CGFloat = 16
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.row == 3 {
+            UIView.animateWithDuration(1.0, animations: {
+                self.needle.layer.anchorPoint = CGPointMake(0.5, 0.54)
+                let ValueToMinus = (self.ExpenceAsPercentage < 30 ) ? ((self.ExpenceAsPercentage + 9)/100) * 24 : (self.ExpenceAsPercentage/100) * 24
+                
+                let angle = ((self.ExpenceAsPercentage - ValueToMinus)  / 100 ) * CGFloat(2 * M_PI)
+                self.needle.transform = CGAffineTransformMakeRotation(angle)
+                //print(angle,CGFloat(2 * M_PI))
+                
+            })
+        }
+        
+    }
+    
+    
+
     var managedObjectContext: NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
     
     

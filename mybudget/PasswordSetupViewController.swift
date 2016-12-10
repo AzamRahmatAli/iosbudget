@@ -14,7 +14,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var email: UITextField! //using for hint
     @IBOutlet weak var error: UILabel!
     @IBAction func save(sender: UIBarButtonItem) {
         dismissKeyboard()
@@ -43,7 +43,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                     
                                     let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
                                     queryResult.lockOn = NSNumber(bool: lockSwitch.on)
-                                    queryResult.email = email.text
+                                    queryResult.email = email.text //using for hint
                                     queryResult.password =  password.text
                                     
                                 }
@@ -58,7 +58,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                             else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
                             {
                                 entity.lockOn = NSNumber(bool: lockSwitch.on)
-                                entity.email =  email.text  //if else condition
+                                entity.email =  email.text  //if else condition //using for hint
                                 entity.password =  password.text
                                 
                             }
@@ -83,6 +83,9 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                 error.text = "Password required"
             }
         }else{
+            
+            // save lock off
+            
             let request = NSFetchRequest(entityName: "Other")
             
             

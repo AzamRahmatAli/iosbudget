@@ -973,6 +973,9 @@
                         <outlet property="appName" destination="bzf-M0-1bQ" id="yp4-Yi-PEu"/>
                         <outlet property="dashBoard" destination="Byz-JI-QvZ" id="r8C-Uj-mS6"/>
                         <outlet property="help" destination="tTs-7i-V0T" id="ral-pS-1Gu"/>
+                        <outlet property="needle" destination="0uc-Kt-yVl" id="5XL-Iy-MEl"/>
+                        <outlet property="percentage" destination="aiK-OU-ASP" id="zOx-rE-cnM"/>
+                        <outlet property="percentageText" destination="ucX-1l-ZIe" id="U3D-Cx-XJI"/>
                         <outlet property="quickSummary" destination="p47-Lv-uUl" id="t0f-Hv-dzQ"/>
                         <outlet property="setting" destination="Jv5-WH-eqC" id="Qkb-4G-882"/>
                         <segue destination="hL5-gf-cLH" kind="custom" identifier="dashboard" customClass="SWRevealViewControllerSeguePushController" id="IVx-tJ-cid"/>
