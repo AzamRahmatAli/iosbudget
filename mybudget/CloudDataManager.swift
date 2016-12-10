@@ -127,20 +127,22 @@ class CloudDataManager {
 
     class func autoBackup()
     {
-        if  isCloudEnabled() {
-        if let lastBackupDate = Helper.lastBackupTime
+        
+        if (Helper.backupFrequency != autoBackupFrequency.OFF && CloudDataManager.isCloudEnabled())
         {
-            timeAgoSinceDate(lastBackupDate)
+            if let lastBackupDate = Helper.lastBackupTime
+            {
+                 timeAgoSinceDate(lastBackupDate)
+            }
+            else{
+                print("time = ",NSDate(timeIntervalSinceReferenceDate: 0 ))
+                timeAgoSinceDate(NSDate(timeIntervalSinceReferenceDate: 0 ))
+            }
+           
            
         }
-        else
-        {
-             backupNow(backupNowName)
-            
-              
-            
-        }
-        }
+        
+        
     }
     
     class func backupNow(name : String) -> Bool?

@@ -119,7 +119,7 @@ static func doBackup() -> String?
                 print(String(lock))
             }
             print(String(NSDate()))
-            sets.append(["currencyCode" :element.currencyCode ?? "USD" , "currencySymbol" :element.currencySymbol ?? "$","oneBudget" :element.oneBudget ?? "" , "password" :element.password ?? "" , "email" :element.email ?? "" , "lockOn" : lockOn, "backupTime" : String(NSDate()) , "backupFrequency" : element.backupFrequency ?? ""])
+            sets.append(["currencyCode" :element.currencyCode ?? "" , "currencySymbol" :element.currencySymbol ?? "","oneBudget" :element.oneBudget ?? "" , "password" :element.password ?? "" , "email" :element.email ?? "" , "lockOn" : lockOn, "backupTime" : String(NSDate()) , "backupFrequency" : element.backupFrequency ?? ""])
            
             
         }

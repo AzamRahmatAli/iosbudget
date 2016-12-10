@@ -116,7 +116,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
             //let Category = ["Utilities", "Food"]
             
             BasicData.addBasicData()
-            Currency.saveCurrencyCodeAndSymbol()
             
             
         }

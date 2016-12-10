@@ -27,8 +27,7 @@ struct Currency {
     static func saveCurrencyCodeAndSymbol()
     {
         let request = NSFetchRequest(entityName: "Other")
-        
-        
+       
         
         if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
         {

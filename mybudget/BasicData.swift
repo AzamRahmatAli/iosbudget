@@ -69,6 +69,10 @@ struct BasicData
                         do{
                             try managedObjectContext.save()
                             
+                            //for local currncy code and symbol
+                            let formatter = NSNumberFormatter()
+                            Helper.formatter.currencyCode =  formatter.currencyCode
+                            Helper.formatter.currencySymbol = formatter.currencySymbol
                             //receivedMessageFromServer()
                             
                         }

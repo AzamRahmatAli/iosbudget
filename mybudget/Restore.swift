@@ -278,7 +278,7 @@ struct Restore
                 
                 do {
                     try Helper.managedObjectContext!.save()
-                    Restore.setStaticValuesFromCoreData()
+                    setStaticValuesFromCoreData()
                     return true
                     
                 } catch {
@@ -333,7 +333,7 @@ struct Restore
     }
     
     
-    static func fullReset()
+    static func fullReset()  -> Bool
     {
         if clearCoreData()
         {
@@ -341,11 +341,13 @@ struct Restore
                 try Helper.managedObjectContext!.save()
                 
                 BasicData.addBasicData()
-                
+                setStaticValuesFromCoreData()
+                return true
             } catch {
                 print("error")
             }
         }
+        return false
     }
     
     static func setStaticValuesFromCoreData()
@@ -368,12 +370,8 @@ struct Restore
                     Helper.password = queryResult.password ?? ""
                     
                 }
-                else{
-                    Helper.passwordProtectionOn = false
-                }
                 if let currencyCode = queryResult.currencyCode
                 {
-                    print("break", currencyCode)
                     Helper.formatter.currencyCode = currencyCode
                     Helper.formatter.currencySymbol = queryResult.currencySymbol
                 }
@@ -385,6 +383,7 @@ struct Restore
                 {
                     Helper.backupFrequency = autoBackupFrequency(rawValue: frequency )!
                 }
+                
             }
             catch let error {
                 print("error : ", error)
@@ -392,6 +391,11 @@ struct Restore
             
             
             
+        }
+        else{
+            Helper.passwordProtectionOn = false
+            Helper.backupFrequency = autoBackupFrequency.OFF
+            Helper.lastBackupTime = nil
         }
     }
 }

@@ -43,7 +43,11 @@ class SettingTableViewController: UITableViewController {
             
             
             let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-            Restore.fullReset()
+                if Restore.fullReset()
+                {
+                self.refresh()
+                Helper.alertUser(self, title: "", message: "Full reset completed")
+                }
            
                 
             }
@@ -63,21 +67,24 @@ class SettingTableViewController: UITableViewController {
       
     }
     
-   
+    func refresh()
+    {
+        if Helper.passwordProtectionOn
+        {
+            lockOn.text = "ON"
+        }
+        else{
+            lockOn.text = "OFF"
+        }
+        print("Helper.passwordProtectionOn2", Helper.passwordProtectionOn)
+        
+        currency.text = Helper.formatter.currencyCode
+    }
     
      override func viewWillAppear(animated: Bool) {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    
-                    if Helper.passwordProtectionOn
-                    {
-                    lockOn.text = "ON"
-                    }
-                    else{
-                        lockOn.text = "OFF"
-                    }
+        refresh()
         
-        
-            currency.text = Helper.formatter.currencyCode
         
         }
     

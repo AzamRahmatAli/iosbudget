@@ -77,7 +77,9 @@ class BackupRestoreViewController: UITableViewController {
             if indexPath.row == 1
             {
                 let cellb = tableView.dequeueReusableCellWithIdentifier("cellb", forIndexPath: indexPath)
-                cellb.detailTextLabel?.text = Helper.backupFrequency.rawValue
+                
+                cellb.detailTextLabel?.text = CloudDataManager.isCloudEnabled() ? Helper.backupFrequency.rawValue : autoBackupFrequency.OFF.rawValue
+                
                 cellb.textLabel!.text = "Auto Backup"
                 
                 return cellb
@@ -126,7 +128,7 @@ class BackupRestoreViewController: UITableViewController {
         switch section
         {
         case 0:
-            if let date = Helper.lastBackupTime
+            if let date = Helper.lastBackupTime  where   CloudDataManager.isCloudEnabled() 
             {
             return "Last backup: " + NSDate.timeAgoSinceDate(date, numericDates: false)
             }
@@ -217,7 +219,7 @@ class BackupRestoreViewController: UITableViewController {
         { action -> Void in
             self.setBackupFrequencyCoreData(.Monthly)
             CloudDataManager.autoBackup()
-            self.tableView.reloadData()
+            self.loadFiles()
         }
         actionSheetControllerIOS8.addAction(monthly)
         
@@ -226,7 +228,7 @@ class BackupRestoreViewController: UITableViewController {
             
             self.setBackupFrequencyCoreData(.Weekly)
             CloudDataManager.autoBackup()
-            self.tableView.reloadData()
+            self.loadFiles()
         }
         actionSheetControllerIOS8.addAction(Weekly)
         let Daily: UIAlertAction = UIAlertAction(title: "Daily", style: .Default)
@@ -234,7 +236,7 @@ class BackupRestoreViewController: UITableViewController {
             
             self.setBackupFrequencyCoreData(.Daily)
             CloudDataManager.autoBackup()
-            self.tableView.reloadData()
+            self.loadFiles()
         }
         actionSheetControllerIOS8.addAction(Daily)
         let OFF: UIAlertAction = UIAlertAction(title: "OFF", style: .Default)
@@ -242,7 +244,7 @@ class BackupRestoreViewController: UITableViewController {
             
             self.setBackupFrequencyCoreData(.OFF)
             
-            self.tableView.reloadData()
+            self.loadFiles()
         }
         actionSheetControllerIOS8.addAction(OFF)
         self.presentViewController(actionSheetControllerIOS8, animated: true, completion: nil)
@@ -257,7 +259,8 @@ class BackupRestoreViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        
+        if CloudDataManager.isCloudEnabled()
+        {
         if(indexPath.section == 1)
         {
             self.action(backupFiles[indexPath.row])
@@ -277,16 +280,19 @@ class BackupRestoreViewController: UITableViewController {
                 tableView.reloadData()
                 }
             }
-            else{
-                Helper.alertUser(self, title: "", message: "You need to be signed into iCloud and have \"iCloud Drive\" set to ON. To chnge your settings, go to iPhone Setting > iCloud")
-            }
+            
         }
         else  if(indexPath.row == 1)
         {
+            
             autoBackupAction()
+            }
+            
         }
         
-        
+        else{
+            Helper.alertUser(self, title: "", message: "You need to be signed into iCloud and have \"iCloud Drive\" set to ON. To chnge your settings, go to iPhone Setting > iCloud")
+        }
     }
     
     
