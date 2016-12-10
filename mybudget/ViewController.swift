@@ -28,8 +28,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var expensesInAccountsTotal : Float = 0.0
     var incomeInAccountsTotal : Float = 0.0
     var totalExpenses : Float = 0.0
+        {
+            willSet
+            {
+                Helper.totalExpenses = newValue
+        }
+    }
     var totalIncome : Float = 0.0
+        {
+        willSet
+        {
+            Helper.totalIncome = newValue
+        }
+    }
     var totalBudget : Float = 0.0
+        {
+        willSet
+        {
+        Helper.totalBudget = newValue
+        }
+    }
     var ExpenceAsPercentage : CGFloat = 0.0
     
     var managedObjectContext: NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
@@ -398,37 +416,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print("error : ", error)
             }
             cell.price.text = (total - expensesInAccountsTotal + incomeInAccountsTotal).asLocaleCurrency
-            if totalBudget == 0
-            {
-               // available.text = (totalIncome -  totalExpenses).asLocaleCurrency
-                //percentageText.text = "Expenses as % of Income"
-                var pt = 0
-                if totalIncome != 0 // to solve infinity problem
-                {
-                    pt = Int((totalExpenses / totalIncome) * 100)
-                }else if totalExpenses > 0
-                {
-                    pt = 101 // to solve 100+ problem
-                }
-                //percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
-                ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
-            }
-            else{
-                
-                //available.text = (totalBudget -  totalExpenses).asLocaleCurrency
-                //percentageText.text = "Expenses as % of Budget"
-                var pt = 0
-                if totalBudget != 0
-                {
-                    pt = Int((totalExpenses / totalBudget) * 100)
-                }else if totalExpenses > 0
-                {
-                    pt = 100
-                }
-                //percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
-                ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
-                
-            }
             
             let color = UIColor(red: 69/255, green: 68/255, blue: 205/255, alpha: 1)
             //cell.price.textColor = color

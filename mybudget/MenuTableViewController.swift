@@ -30,23 +30,9 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var needle: UIImageView!
     @IBOutlet weak var percentageText: UILabel!
     @IBOutlet weak var percentage: UILabel!
-    var ExpenceAsPercentage : CGFloat = 16
+    var ExpenceAsPercentage : CGFloat = 0
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if indexPath.row == 3 {
-            UIView.animateWithDuration(1.0, animations: {
-                self.needle.layer.anchorPoint = CGPointMake(0.5, 0.54)
-                let ValueToMinus = (self.ExpenceAsPercentage < 30 ) ? ((self.ExpenceAsPercentage + 9)/100) * 24 : (self.ExpenceAsPercentage/100) * 24
-                
-                let angle = ((self.ExpenceAsPercentage - ValueToMinus)  / 100 ) * CGFloat(2 * M_PI)
-                self.needle.transform = CGAffineTransformMakeRotation(angle)
-                //print(angle,CGFloat(2 * M_PI))
-                
-            })
-        }
-        
-    }
+  
     
     
 
@@ -157,12 +143,56 @@ class MenuTableViewController: UITableViewController {
                     
             }*/
             switchColor(indexPath.row)
+            
     }
     }
     
     
    override func viewWillAppear(animated: Bool) {
         //currency.text = Helper.formatter.currencyCode
+    if Helper.totalBudget == 0
+    {
+        available.text = (Helper.totalIncome -  Helper.totalExpenses).asLocaleCurrency
+        percentageText.text = "Expenses as % of Income"
+        var pt = 0
+        if Helper.totalIncome != 0 // to solve infinity problem
+        {
+            pt = Int((Helper.totalExpenses / Helper.totalIncome) * 100)
+        }else if Helper.totalExpenses > 0
+        {
+            pt = 101 // to solve 100+ problem
+        }
+        percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
+        ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
+    }
+    else{
+        
+        available.text = (Helper.totalBudget -  Helper.totalExpenses).asLocaleCurrency
+        percentageText.text = "Expenses as % of Budget"
+        var pt = 0
+        if Helper.totalBudget != 0
+        {
+            pt = Int((Helper.totalExpenses / Helper.totalBudget) * 100)
+        }else if Helper.totalExpenses > 0
+        {
+            pt = 100
+        }
+        percentage.text =  pt > 100 ? (String(100) + "%+") : (String(pt) + "%")
+        ExpenceAsPercentage = pt > 100 ? CGFloat(100) : CGFloat(pt)
+        
+    }
+    
+    
+    UIView.animateWithDuration(1.0, animations: {
+        self.needle.layer.anchorPoint = CGPointMake(0.5, 0.54)
+        let ValueToMinus = (self.ExpenceAsPercentage < 30 ) ? ((self.ExpenceAsPercentage + 9)/100) * 24 : (self.ExpenceAsPercentage/100) * 24
+        
+        let angle = ((self.ExpenceAsPercentage - ValueToMinus)  / 100 ) * CGFloat(2 * M_PI)
+        self.needle.transform = CGAffineTransformMakeRotation(angle)
+        //print(angle,CGFloat(2 * M_PI))
+        
+    })
+
     }
     
     
