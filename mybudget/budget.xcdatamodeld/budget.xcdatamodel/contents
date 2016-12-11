@@ -40,10 +40,10 @@
         <attribute name="backupTime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="currencyCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currencySymbol" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lockOn" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="oneBudget" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="passwordHint" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="SubCategoryTable" representedClassName=".SubCategoryTable" syncable="YES">
         <attribute name="amount" optional="YES" attributeType="String" syncable="YES"/>
@@ -64,7 +64,7 @@
         <element name="CategoryTable" positionX="432" positionY="18" width="128" height="88"/>
         <element name="ExpenseTable" positionX="-36" positionY="71" width="128" height="133"/>
         <element name="IncomeTable" positionX="-36" positionY="222" width="128" height="118"/>
-        <element name="Other" positionX="108" positionY="252" width="128" height="165"/>
+        <element name="Other" positionX="108" positionY="252" width="128" height="163"/>
         <element name="SubCategoryTable" positionX="234" positionY="-63" width="128" height="118"/>
         <element name="TransferTable" positionX="36" positionY="252" width="128" height="103"/>
     </elements>

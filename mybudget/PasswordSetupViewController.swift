@@ -14,7 +14,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var email: UITextField! //using for hint
+    @IBOutlet weak var passwordHint: UITextField! //using for hint
     @IBOutlet weak var error: UILabel!
     @IBAction func save(sender: UIBarButtonItem) {
         dismissKeyboard()
@@ -24,7 +24,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
             {
                 if confirmPassword.text == password.text
                 {
-                    if email.text == ""
+                    if passwordHint.text == ""
                     {
                         error.text = "Hint required"
                     }
@@ -43,7 +43,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                     
                                     let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
                                     queryResult.lockOn = NSNumber(bool: lockSwitch.on)
-                                    queryResult.email = email.text //using for hint
+                                    queryResult.passwordHint = passwordHint.text //using for hint
                                     queryResult.password =  password.text
                                     
                                 }
@@ -58,7 +58,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                             else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
                             {
                                 entity.lockOn = NSNumber(bool: lockSwitch.on)
-                                entity.email =  email.text  //if else condition //using for hint
+                                entity.passwordHint =  passwordHint.text  //if else condition //using for hint
                                 entity.password =  password.text
                                 
                             }
@@ -130,7 +130,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
         super.viewDidLoad()
         password.delegate  = self
         confirmPassword.delegate  = self
-        email.delegate  = self
+        passwordHint.delegate  = self
         lockSwitch.on = false
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddIncomeViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -178,7 +178,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                     
                     password.text = queryResult.password
                     confirmPassword.text = queryResult.password
-                    email.text = queryResult.email
+                    passwordHint.text = queryResult.passwordHint
                 }
                 
                 

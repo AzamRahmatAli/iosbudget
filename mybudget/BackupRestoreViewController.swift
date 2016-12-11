@@ -277,7 +277,7 @@ class BackupRestoreViewController: UITableViewController {
                 else
                {
                 Helper.alertUser(self, title: "", message: "Backup complete")
-                tableView.reloadData()
+                loadFiles()
                 }
             }
             
@@ -375,7 +375,7 @@ class BackupRestoreViewController: UITableViewController {
                 
                 if filemanager.isUbiquitousItemAtURL(file) {
                     
-                    Helper.alertUser(self, title: "Warning", message: "iCloud is currently busy syncing the backup files. Please try again in a few minutes")
+                    Helper.alertUser(self, title: "", message: "iCloud is currently busy syncing the backup files. Please try again in a few minutes")
                     
                     
                     do {

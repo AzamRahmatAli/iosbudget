@@ -2,7 +2,7 @@
 //  Other+CoreDataProperties.swift
 //  mybudget
 //
-//  Created by Azam Rahmat on 11/15/16.
+//  Created by Azam Rahmat on 12/11/16.
 //  Copyright © 2016 Brainload Technologies. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,13 +14,13 @@ import CoreData
 
 extension Other {
 
+    @NSManaged var backupFrequency: String?
+    @NSManaged var backupTime: NSDate?
     @NSManaged var currencyCode: String?
     @NSManaged var currencySymbol: String?
-    @NSManaged var email: String?
+    @NSManaged var passwordHint: String?
     @NSManaged var lockOn: NSNumber?
     @NSManaged var oneBudget: String?
     @NSManaged var password: String?
-    @NSManaged var backupTime: NSDate?
-    @NSManaged var backupFrequency: String?
 
 }

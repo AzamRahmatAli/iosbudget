@@ -18,7 +18,6 @@ static func doBackup() -> String?
         var fetchRequest = NSFetchRequest(entityName: "AccountTypeTable")
         
         
-        
         var fetchedData : [AnyObject]? = try Helper.managedObjectContext?.executeFetchRequest(fetchRequest)
         var names : [String] = []
         
@@ -30,10 +29,7 @@ static func doBackup() -> String?
         var dictionary : [String : AnyObject] = ["AccountTypeTable" : names]
         
         
-        
         fetchRequest = NSFetchRequest(entityName: "CategoryTable")
-        
-        
         
         fetchedData = try Helper.managedObjectContext?.executeFetchRequest(fetchRequest)
         var sets  = [[String:AnyObject]]()
@@ -119,7 +115,7 @@ static func doBackup() -> String?
                 print(String(lock))
             }
             print(String(NSDate()))
-            sets.append(["currencyCode" :element.currencyCode ?? "" , "currencySymbol" :element.currencySymbol ?? "","oneBudget" :element.oneBudget ?? "" , "password" :element.password ?? "" , "email" :element.email ?? "" , "lockOn" : lockOn, "backupTime" : String(NSDate()) , "backupFrequency" : element.backupFrequency ?? ""])
+            sets.append(["currencyCode" :element.currencyCode ?? "" , "currencySymbol" :element.currencySymbol ?? "","oneBudget" :element.oneBudget ?? "" , "password" :element.password ?? "" , "passwordHint" :element.passwordHint ?? "" , "lockOn" : lockOn, "backupTime" : String(NSDate()) , "backupFrequency" : element.backupFrequency ?? ""])
            
             
         }

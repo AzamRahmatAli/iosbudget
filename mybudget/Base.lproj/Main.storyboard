@@ -3076,10 +3076,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="confirmPassword" destination="B8V-Sk-LKM" id="Cql-sZ-hF8"/>
-                        <outlet property="email" destination="ABJ-qL-U20" id="rad-Fu-jmx"/>
                         <outlet property="error" destination="REp-v8-T8o" id="yI5-5A-EkR"/>
                         <outlet property="lockSwitch" destination="PVK-ci-Poe" id="C7o-ar-UZU"/>
                         <outlet property="password" destination="8tn-8R-EKU" id="l8b-o2-tvg"/>
+                        <outlet property="passwordHint" destination="ABJ-qL-U20" id="XFt-Hb-6Yl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sST-Ya-H6R" userLabel="First Responder" sceneMemberID="firstResponder"/>

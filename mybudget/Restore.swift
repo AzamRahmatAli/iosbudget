@@ -94,9 +94,9 @@ struct Restore
                             
                             if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
                             {
-                                if element["email"]  != "" //hint not email
+                                if element["passwordHint"]  != "" //hint not email
                                 {
-                                    entity.email = element["email"]
+                                    entity.passwordHint = element["passwordHint"]
                                 }
                                 if element["password"]  != ""
                                 {
