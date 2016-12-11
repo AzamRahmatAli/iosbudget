@@ -57,7 +57,7 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBAction func save(sender: AnyObject) {
         
-        if name.text != "" && selectedImage != ""
+        if name.text?.trim() != "" && selectedImage != ""
         {
             if addSubCategory
             {
@@ -66,7 +66,7 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
                 if update{
                     if let subCtg = SubCategoryTable.subCategory(subcategory!.name!, categoryName : category!.name!,inManagedObjectContext: managedObjectContext!)
                     {
-                        subCtg.name = name.text
+                        subCtg.name = name.text!.trim()
                         subCtg.icon = selectedImage
                     }
                 }
@@ -92,7 +92,7 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
                 else
                 {
                     
-                    let _ = CategoryTable.category(name.text!, image: selectedImage, inManagedObjectContext: managedObjectContext!)
+                    let _ = CategoryTable.category(name.text!.trim(), image: selectedImage, inManagedObjectContext: managedObjectContext!)
                 }
             }
             

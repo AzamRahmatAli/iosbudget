@@ -162,11 +162,11 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
                 
                 
                 
-                entity.category = (category.text != "") ? category.text : "income"
+                entity.category = (category.text!.trim() != "") ? category.text?.trim() : "income"
                 
                 entity.createdAt = incomeDate
                 
-                entity.note = note.text
+                entity.note = note.text?.trim()
                 //entity.account?.name = payFrom.text
                 // ... Update additional properties with new values
                 
@@ -185,7 +185,7 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
         {
             
             
-            entity.category = (category.text != "") ? category.text : "income"
+            entity.category = (category.text!.trim() != "") ? category.text?.trim() : "income"
             entity.amount = (amount.text != "") ? amount.text : "0"
             //entity.account = account.text
             if let account = Helper.pickedAccountData
@@ -196,7 +196,7 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
             
             
             entity.createdAt = incomeDate
-            entity.note = note.text
+            entity.note = note.text?.trim()
             
             //print(expense)
             do{

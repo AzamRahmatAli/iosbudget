@@ -317,8 +317,8 @@
 		F7E6ADB81DD30E6F00DC11E3 = {
 			isa = PBXGroup;
 			children = (
-				F7B9E3791DF1803F00F8CAD7 /* Frameworks */,
 				F7E6ADC31DD30E6F00DC11E3 /* mybudget */,
+				F7B9E3791DF1803F00F8CAD7 /* Frameworks */,
 				F7E6ADC21DD30E6F00DC11E3 /* Products */,
 			);
 			sourceTree = "<group>";

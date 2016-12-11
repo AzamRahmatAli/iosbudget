@@ -263,9 +263,9 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
         dismissKeyboard()
         
         
-        if category.text != ""
+        if category.text?.trim() != ""
         {
-            if subCategory.text != ""
+            if subCategory.text?.trim() != ""
             {
                 if updateAccount
                 {
@@ -280,12 +280,12 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                         
                         entity.createdAt = accountDate
                         
-                        entity.name = subCategory.text
+                        entity.name = subCategory.text?.trim()
                         
                         let  accountTypeName = entity.accountType!.name
                         
                         
-                        if let accountType = AccountTypeTable.accontType(category.text!, inManagedObjectContext: managedObjectContext!)
+                        if let accountType = AccountTypeTable.accontType(category.text!.trim(), inManagedObjectContext: managedObjectContext!)
                         {
                             entity.accountType = accountType
                         }
@@ -298,7 +298,7 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                     
                 }
                     
-                else   if let _ = AccountTable.account(category.text!, type: category.text!, inManagedObjectContext: managedObjectContext!)
+                else   if let _ = AccountTable.account(category.text!.trim(), type: category.text!.trim(), inManagedObjectContext: managedObjectContext!)
                 {
                     self.navigationController?.popViewControllerAnimated(true)
                 }
@@ -310,9 +310,9 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                     entity.amount = (amount.text != "") ? amount.text : "0"
                     entity.icon = Helper.bankIcon
                     Helper.bankIcon = "bank"
-                    entity.name = subCategory.text
+                    entity.name = subCategory.text?.trim()
                     entity.createdAt = accountDate
-                    entity.accountType = AccountTypeTable.accontType(category.text!, inManagedObjectContext: managedObjectContext!)
+                    entity.accountType = AccountTypeTable.accontType(category.text!.trim(), inManagedObjectContext: managedObjectContext!)
                     
                     print(entity)
                     

@@ -144,3 +144,10 @@ enum autoBackupFrequency : String{
     case OFF = "OFF"
 }
 
+extension String
+{
+    func trim() -> String
+    {
+        return self.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+    }
+}

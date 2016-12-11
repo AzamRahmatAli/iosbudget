@@ -421,7 +421,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                 
                 entity.createdAt = dateValue
                 
-                entity.note = note.text
+                entity.note = note.text?.trim()
                 
                 do {
                     try self.managedObjectContext!.save()
@@ -446,7 +446,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             
         {
             
-            if category.text != ""
+            if category.text?.trim() != ""
             {
                 
                 /*if amount.text != ""
@@ -465,7 +465,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     entity.reciept = UIImageJPEGRepresentation(image, 1.0)//back by UIImage(data: imageData)
                     imagePicked = false
                 }
-                entity.note = note.text
+                entity.note = note.text?.trim()
                 if let account = Helper.pickedAccountData
                 {
                     entity.account = account
