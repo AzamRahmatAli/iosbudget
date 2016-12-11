@@ -68,6 +68,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
     
     func request(request: SKRequest, didFailWithError error: NSError) {
         print("Error Fetching product information");
+        Helper.alertUser(self, title: "In-App Purchase", message: "Something went wrong. Please try later.")
     }
     
     func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])    {
@@ -79,10 +80,11 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                 case .Purchased:
                     print("Product Purchased");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
-                    defaults.setBool(true , forKey: "purchased")
+                    defaults.setBool(true , forKey: "alreadyPurchased")
                      purchased = true
-                   // overlayView.hidden = true
+                   
                     break;
+                    
                 case .Failed:
                     print("Purchased Failed");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
@@ -92,9 +94,9 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     
                 case .Restored:
                     print("Already Purchased");
-                    SKPaymentQueue.defaultQueue().restoreCompletedTransactions() 
-                    
-                    
+                    SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+                    purchased = true
+                    defaults.setBool(true , forKey: "alreadyPurchased")
                 default:
                     break;
                 }
@@ -117,14 +119,14 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         
         
         
-        product_id = "com.brainload.mybudget.iap"
+        product_id = "com.bltechapps.budget3.iap"
         
-        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        
         
         //Check if product is purchased
         
         
-        if (defaults.boolForKey("purchased")){
+        if (defaults.boolForKey("alreadyPurchased")){
             
             // Hide a view or show content depends on your requirement
             print("true")
@@ -132,7 +134,9 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             //overlayView.hidden = true
             
         }
-        else if (!defaults.boolForKey("purchased")){
+        else {
+            SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+            SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
             print("false")
             
         }
@@ -439,7 +443,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         
         
         
-        if  purchased  || Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) < 10
+        if  purchased  || Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) < 2
         {
             if let entity = NSEntityDescription.insertNewObjectForEntityForName("ExpenseTable", inManagedObjectContext: managedObjectContext!) as? ExpenseTable
             
@@ -494,7 +498,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             let alertController = UIAlertController(title: "Thank You for using \(StringFor.name["appName"]!)", message:  "Purchase to remove limit of 10 expenses", preferredStyle: UIAlertControllerStyle.Alert)
             
             
-            let yesAction = UIAlertAction(title: "Purchase", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            let yesAction = UIAlertAction(title: "Next", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
                 
                 print("About to fetch the products")
                 
@@ -510,6 +514,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     print("Fetching Products");
                 }else{
                     print("can't make purchases");
+                    Helper.alertUser(self, title: "In-App Purchase", message: "Can't make purchase. Please try later.")
                 }
                 
             }

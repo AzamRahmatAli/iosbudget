@@ -74,7 +74,7 @@
 		F7B9E3841DF1809E00F8CAD7 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37E1DF1809E00F8CAD7 /* GoogleInterchangeUtilities.framework */; };
 		F7B9E3851DF1809E00F8CAD7 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37F1DF1809E00F8CAD7 /* GoogleSymbolUtilities.framework */; };
 		F7B9E3861DF1809E00F8CAD7 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E3801DF1809E00F8CAD7 /* GoogleToolboxForMac.framework */; };
-		F7B9E38B1DF1929700F8CAD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7B9E38A1DF1929700F8CAD7 /* GoogleService-Info.plist */; };
+		F7BB54891DFD860A00B6219A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7BB54881DFD860A00B6219A /* GoogleService-Info.plist */; };
 		F7C3B8CF1DDC4B7C00D44B3A /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C3B8CE1DDC4B7C00D44B3A /* MainCollectionViewCell.swift */; };
 		F7E6AE5F1DD311B200DC11E3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
@@ -151,7 +151,7 @@
 		F7B9E3801DF1809E00F8CAD7 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = "<group>"; };
 		F7B9E3881DF181E800F8CAD7 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		F7B9E3891DF1906F00F8CAD7 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		F7B9E38A1DF1929700F8CAD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F7BB54881DFD860A00B6219A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7C3B8CE1DDC4B7C00D44B3A /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7E6ADC11DD30E6F00DC11E3 /* mybudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mybudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -306,7 +306,7 @@
 		F7B9E3871DF181A500F8CAD7 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				F7B9E38A1DF1929700F8CAD7 /* GoogleService-Info.plist */,
+				F7BB54881DFD860A00B6219A /* GoogleService-Info.plist */,
 				F7B9E3891DF1906F00F8CAD7 /* module.modulemap */,
 				F7B9E3881DF181E800F8CAD7 /* Firebase.h */,
 				F7B9E37A1DF1809E00F8CAD7 /* Analytics */,
@@ -420,7 +420,7 @@
 				F770B5821DD3449300013B87 /* LaunchScreen.storyboard in Resources */,
 				F770B57C1DD3437400013B87 /* Info.plist in Resources */,
 				F770B5351DD33D8F00013B87 /* Assets.xcassets in Resources */,
-				F7B9E38B1DF1929700F8CAD7 /* GoogleService-Info.plist in Resources */,
+				F7BB54891DFD860A00B6219A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

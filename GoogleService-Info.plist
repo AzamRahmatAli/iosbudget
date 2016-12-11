@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>783428348250-43c4agbms127hqoqgojrjild4jcpr96m.apps.googleusercontent.com</string>
+	<string>770562749688-qs1r7k33h9uqg5q64ob6muovsqj6hlre.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.783428348250-43c4agbms127hqoqgojrjild4jcpr96m</string>
+	<string>com.googleusercontent.apps.770562749688-qs1r7k33h9uqg5q64ob6muovsqj6hlre</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD3arJXhOMN-ICdkfuHSkAlk6R0twsDNJg</string>
+	<string>AIzaSyAV5zITUjQU3e-Q7GFsetvXnRsdFqvBZYI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>783428348250</string>
+	<string>770562749688</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.brainload.mybudget</string>
+	<string>com.bltechapps.budget3</string>
 	<key>PROJECT_ID</key>
-	<string>mybudget-b6f09</string>
+	<string>mybudget-89519</string>
 	<key>STORAGE_BUCKET</key>
-	<string>mybudget-b6f09.appspot.com</string>
+	<string>mybudget-89519.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:783428348250:ios:6c45ce4a18f4728b</string>
+	<string>1:770562749688:ios:d9cc3fa52276b60d</string>
 	<key>DATABASE_URL</key>
-	<string>https://mybudget-b6f09.firebaseio.com</string>
+	<string>https://mybudget-89519.firebaseio.com</string>
 </dict>
 </plist>

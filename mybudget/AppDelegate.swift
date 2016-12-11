@@ -8,96 +8,17 @@
 
 import UIKit
 import CoreData
-import StoreKit
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObserver, SKProductsRequestDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var product_id: String?
-    let defaults = NSUserDefaults.standardUserDefaults()
-    var purchased = false
-    //
-    //Delegate Methods for IAP
+  
+  
     
-    func productsRequest (request: SKProductsRequest, didReceiveResponse response: SKProductsResponse) {
+        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let count : Int = response.products.count
-        print(response, response.products)
-        if (count > 0) {
-            _ = response.products
-            let validProduct: SKProduct = response.products[0] as SKProduct
-            if (validProduct.productIdentifier == self.product_id) {
-                print(validProduct.localizedTitle)
-                print(validProduct.localizedDescription)
-                print(validProduct.price)
-                buyProduct(validProduct);
-            } else {
-                print(validProduct.productIdentifier)
-            }
-        } else {
-            print("nothing")
-        }
-    }
-    
-    
-    func request(request: SKRequest, didFailWithError error: NSError) {
-        print("Error Fetching product information");
-    }
-    
-    func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])    {
-        print("Received Payment Transaction Response from Apple");
-        
-        for transaction:AnyObject in transactions {
-            if let trans:SKPaymentTransaction = transaction as? SKPaymentTransaction{
-                switch trans.transactionState {
-                case .Purchased:
-                    print("Product Purchased");
-                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
-                    defaults.setBool(true , forKey: "purchased")
-                    purchased = true
-                    // overlayView.hidden = true
-                    break;
-                case .Failed:
-                    print("Purchased Failed");
-                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
-                    break;
-                    
-                    
-                    
-                case .Restored:
-                    print("Already Purchased");
-                    SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
-                    
-                    
-                default:
-                    break;
-                }
-            }
-        }
-        
-    }
-    func buyProduct(product: SKProduct){
-        print("Sending the Payment Request to Apple");
-        let payment = SKPayment(product: product)
-        SKPaymentQueue.defaultQueue().addPayment(payment);
-        
-    }
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        /*product_id = "com.brainload.mybudget.iap"
-        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
-        if (SKPaymentQueue.canMakePayments())
-        {
-            let productID: Set<String> = [self.product_id!];
-            let productsRequest:SKProductsRequest = SKProductsRequest(productIdentifiers: productID  );
-            productsRequest.delegate = self;
-            productsRequest.start();
-            print("Fetching Products");
-        }else{
-            print("can't make purchases");
-        }*/
         Helper.formatter.numberStyle = .CurrencyStyle
         Restore.setStaticValuesFromCoreData()
         
@@ -132,7 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SKPaymentTransactionObser
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         }
-    
+            
+            
+        FIRApp.configure()
         
         return true
     }
