@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class CurrencyPickerTableViewController: UITableViewController {
     
@@ -44,6 +45,12 @@ class CurrencyPickerTableViewController: UITableViewController {
         
         Helper.formatter.currencyCode = pickedCurrencyCode
         Helper.formatter.currencySymbol =  Helper.getLocalCurrencySymbl(pickedCurrencyCode!)
+        
+        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+            kFIRParameterItemID : "id-set_currency" as NSObject,
+            kFIRParameterValue : Helper.formatter.currencyCode + " - " + Helper.formatter.currencySymbol as NSObject
+            
+            ])
         Currency.saveCurrencyCodeAndSymbol()
         
         navigationController?.popViewControllerAnimated(true)

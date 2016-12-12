@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 
 class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITextFieldDelegate {
@@ -100,6 +101,15 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
             
             do{
                 try self.managedObjectContext?.save()
+               
+               
+                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                    kFIRParameterItemID : "id-budget_category_subcategory" as NSObject,
+                    kFIRParameterItemName: addCategory ? "category" : "subcategory" as NSObject,
+                    kFIRParameterContentType: update ? "update" : "new" as NSObject,
+                    kFIRParameterValue : (addCategory ? name.text!  : category!.name! + " > " + name.text!) + " \( selectedImage)" as NSObject
+                    ])
+                
                 navigationController?.popViewControllerAnimated(true)
                 //receivedMessageFromServer()
                 
@@ -108,6 +118,7 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
                 
             }
         }
+       
     }
     @IBAction func cancel(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)

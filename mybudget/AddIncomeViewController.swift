@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 
 class AddIncomeViewController: UIViewController , UITextFieldDelegate{
@@ -188,9 +189,11 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
             entity.category = (category.text!.trim() != "") ? category.text?.trim() : "income"
             entity.amount = (amount.text != "") ? amount.text : "0"
             //entity.account = account.text
+            var accountName  = ""
             if let account = Helper.pickedAccountData
             {
                 entity.account = account
+                accountName = account.name!
                 Helper.pickedAccountData = nil
             }
             
@@ -201,6 +204,15 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
             //print(expense)
             do{
                 try self.managedObjectContext?.save()
+                
+                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                    kFIRParameterItemID : "id-add_income" as NSObject,
+                    kFIRParameterItemName: category.text! as NSObject,
+                    kFIRParameterValue : amount.text! as NSObject,
+                    kFIRParameterItemCategory: "account "  + accountName  as NSObject,
+                   
+                    ])
+                
                 navigationController?.popViewControllerAnimated(true)
                 //receivedMessageFromServer()
                 

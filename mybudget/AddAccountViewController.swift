@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class AddAccountViewController: UIViewController , UITextFieldDelegate {
     
@@ -298,9 +299,9 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                     
                 }
                     
-                else   if let _ = AccountTable.account(category.text!.trim(), type: category.text!.trim(), inManagedObjectContext: managedObjectContext!)
+                else   if let _ = AccountTable.account(subCategory.text!.trim(), type: category.text!.trim(), inManagedObjectContext: managedObjectContext!)
                 {
-                    self.navigationController?.popViewControllerAnimated(true)
+                    missing.text = "Account with same type and name already exist"
                 }
                 else if let entity = NSEntityDescription.insertNewObjectForEntityForName("AccountTable", inManagedObjectContext: managedObjectContext!) as? AccountTable
                 {
@@ -316,10 +317,13 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                     
                     print(entity)
                     
-                    
-                    
-                    
-                    
+                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                        kFIRParameterItemID : "id-add_account" as NSObject,
+                        kFIRParameterItemName: subCategory.text! as NSObject,
+                        kFIRParameterValue : amount.text! as NSObject,
+                        kFIRParameterItemCategory: "account-type "  + category.text!  as NSObject,
+                        ])
+
                     Helper.saveChanges(managedObjectContext!, viewController : self )
                 }
             }

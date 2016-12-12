@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import StoreKit
+import Firebase
 
 class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSheetDelegate , UIImagePickerControllerDelegate, UINavigationControllerDelegate ,UIScrollViewDelegate,  SKProductsRequestDelegate, SKPaymentTransactionObserver{
     
@@ -434,16 +435,10 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     print("error")
                 }
             }
-            
-            
-            
+           
         }
             
-        else
-        
-        
-        
-        if  purchased  || Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) < 2
+        else if  purchased  || Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) < 10
         {
             if let entity = NSEntityDescription.insertNewObjectForEntityForName("ExpenseTable", inManagedObjectContext: managedObjectContext!) as? ExpenseTable
             
@@ -470,15 +465,25 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     imagePicked = false
                 }
                 entity.note = note.text?.trim()
+                var accountName = ""
                 if let account = Helper.pickedAccountData
                 {
                     entity.account = account
+                    accountName = account.name!
+                    Helper.pickedAccountData = nil
                 }
                 
                 
                 print(entity)
                 do{
                     try self.managedObjectContext?.save()
+                    
+                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                        kFIRParameterItemID : "id-add_expense" as NSObject,
+                        kFIRParameterValue : amount.text! as NSObject,
+                        kFIRParameterItemCategory: Helper.pickedSubCaregory!.name! + " > "  + Helper.pickedSubCaregory!.category!.name!  + " account "  + accountName as NSObject,
+                        
+                        ])
                     navigationController?.popViewControllerAnimated(true)
                     //receivedMessageFromServer()
                     

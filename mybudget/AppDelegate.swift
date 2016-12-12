@@ -33,7 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
             NSUserDefaults.standardUserDefaults().synchronize()
             
-            
+            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                kFIRParameterItemID : "id-local_currency" as NSObject,
+                kFIRParameterValue : Helper.formatter.currencyCode + " - " + Helper.formatter.currencySymbol as NSObject
+                
+                ])
             //let Category = ["Utilities", "Food"]
             
             BasicData.addBasicData()
