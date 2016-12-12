@@ -321,7 +321,7 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                         kFIRParameterItemID : "id-add_account" as NSObject,
                         kFIRParameterItemName: subCategory.text! as NSObject,
                         kFIRParameterValue : amount.text! as NSObject,
-                        kFIRParameterItemCategory: "account-type "  + category.text!  as NSObject,
+                        kFIRParameterItemCategory: "account-type "  + category.text! + " \(Helper.bankIcon)" as NSObject,
                         ])
 
                     Helper.saveChanges(managedObjectContext!, viewController : self )

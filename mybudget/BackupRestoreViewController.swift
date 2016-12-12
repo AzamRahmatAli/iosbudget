@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class BackupRestoreViewController: UITableViewController {
    
@@ -36,6 +37,12 @@ class BackupRestoreViewController: UITableViewController {
                     if Restore.restoreBackup(fileName)
                     {
                         Helper.alertUser(self, title: "", message: "Backup restored successfully")
+                        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                            kFIRParameterItemID : "id-backup_restored" as NSObject,
+                            kFIRParameterItemName : fileName as NSObject,
+                            kFIRParameterValue : "restored" as NSObject,
+                            
+                            ])
                         self.tableView.reloadData()
                     }
                     else{
@@ -205,6 +212,11 @@ class BackupRestoreViewController: UITableViewController {
         do {
             try Helper.managedObjectContext!.save()
             Helper.backupFrequency = frequency
+            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                kFIRParameterItemID : "id-backup_frequency" as NSObject,
+                kFIRParameterValue : "backup_frequency \(frequency.rawValue)" as NSObject,
+                
+                ])
             
         } catch {
             print("error")
@@ -278,6 +290,15 @@ class BackupRestoreViewController: UITableViewController {
                {
                 Helper.alertUser(self, title: "", message: "Backup complete")
                 loadFiles()
+                
+                
+                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                    kFIRParameterItemID : "id-backup_now" as NSObject,
+                    kFIRParameterValue : "backup_now complete" as NSObject,
+                    
+                    ])
+                
+                
                 }
             }
             

@@ -84,11 +84,22 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     defaults.setBool(true , forKey: "alreadyPurchased")
                      purchased = true
                    
+                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                        kFIRParameterItemID : "id-app_purchased" as NSObject,
+                        kFIRParameterValue : "purchased" as NSObject,
+                        
+                        ])
                     break;
                     
                 case .Failed:
                     print("Purchased Failed");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
+                    
+                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                        kFIRParameterItemID : "id-app_purchased" as NSObject,
+                        kFIRParameterValue : "failed" as NSObject
+                        ])
+                    
                     break;
                     
                     
@@ -98,6 +109,17 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
                     purchased = true
                     defaults.setBool(true , forKey: "alreadyPurchased")
+                    
+                    SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
+                    defaults.setBool(true , forKey: "alreadyPurchased")
+                    purchased = true
+                    
+                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                        kFIRParameterItemID : "id-app_purchased" as NSObject,
+                        kFIRParameterValue : "restored" as NSObject
+                        ])
+                    
+                    
                 default:
                     break;
                 }
@@ -133,13 +155,19 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             print("true")
             purchased = true
             //overlayView.hidden = true
+            FIRAnalytics.setUserPropertyString("yes", forName: "app_purchased")
             
         }
         else {
             SKPaymentQueue.defaultQueue().addTransactionObserver(self)
             SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+             purchased = false
             print("false")
-            
+            FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
+            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                kFIRParameterItemID : "id-app_purchased" as NSObject,
+                kFIRParameterValue : "not" as NSObject
+                ])
         }
 
         

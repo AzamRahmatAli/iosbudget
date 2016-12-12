@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class TransferViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var date: UITextField!
@@ -131,6 +132,13 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
             //print(expense)
             do{
                 try Helper.managedObjectContext?.save()
+                
+                
+                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                    kFIRParameterItemID : "id-transfer_account" as NSObject,
+                    kFIRParameterValue : amount.text! as NSObject,
+                    kFIRParameterItemCategory: "from " + AccountFrom!.name! + " to " + Accountto!.name! as NSObject,
+                    ])
                 navigationController?.popViewControllerAnimated(true)
                 //receivedMessageFromServer()
                 

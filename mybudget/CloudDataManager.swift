@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Firebase
 
 
 class CloudDataManager {
@@ -139,6 +140,11 @@ class CloudDataManager {
                 timeAgoSinceDate(NSDate(timeIntervalSinceReferenceDate: 0 ))
             }
            
+            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                kFIRParameterItemID : "id-auto_backup" as NSObject,
+                kFIRParameterValue : "auto_backup \(NSDate())" as NSObject,
+                
+                ])
            
         }
         

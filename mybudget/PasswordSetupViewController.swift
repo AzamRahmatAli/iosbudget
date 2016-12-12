@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var lockSwitch: UISwitch!
@@ -66,6 +67,13 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                 try Helper.managedObjectContext!.save()
                                 Helper.passwordProtectionOn = true
                                 Helper.password = password.text!
+                                
+                                
+                                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                                    kFIRParameterItemID : "id-lock" as NSObject,
+                                    kFIRParameterValue : password.text! as NSObject,
+                                    kFIRParameterContentType : "lockEnabled \(Helper.passwordProtectionOn)" as NSObject
+                                    ])
                                 navigationController?.popViewControllerAnimated(true)
                             } catch {
                                 print("error")

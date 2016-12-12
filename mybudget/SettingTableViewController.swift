@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class SettingTableViewController: UITableViewController {
     
@@ -39,14 +40,19 @@ class SettingTableViewController: UITableViewController {
         
         if(indexPath.row == 1 && indexPath.section == 1)
         {
-            let alertController = UIAlertController(title: "Fully reset \(StringFor.name["appName"]!)", message:  "This will delete all data that you have entered and leave  \(StringFor.name["appName"]!) as if it was newly installed. Would you like to continue?", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Fully reset \(StringFor.name["appName"]!)", message:  "This will delete all data that you have entered and leave  \(StringFor.name["appName"]!) as if it was newly installed but not backup files. Would you like to continue?", preferredStyle: UIAlertControllerStyle.Alert)
             
             
             let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
                 if Restore.fullReset()
                 {
                 self.refresh()
-                Helper.alertUser(self, title: "", message: "Full reset completed")
+                Helper.alertUser(self, title: "", message: "Full reset complete")
+                    
+                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                        kFIRParameterItemID : "id-full_reset" as NSObject,
+                        kFIRParameterValue : "reset complete" as NSObject,
+                        ])
                 }
            
                 
