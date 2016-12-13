@@ -143,6 +143,7 @@ class MenuTableViewController: UITableViewController {
                     
             }*/
             switchColor(indexPath.row)
+            Helper.alertUser(self, title: "Help", message: "\(StringFor.name["appName"]!) provide features to manage your cash flow.\n\(StringFor.name["appName"]!) supports tracking of expenses, income, budgets and accounts.\nWe welcome your suggestions and feedback. Contact us at: \(StringFor.name["email"]!).")
             
     }
     }

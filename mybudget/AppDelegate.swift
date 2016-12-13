@@ -15,10 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
   
-  
-    
         func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+            FIRApp.configure()
+            
         Helper.formatter.numberStyle = .CurrencyStyle
         Restore.setStaticValuesFromCoreData()
         
@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
             
             
-        FIRApp.configure()
+       
         
         return true
     }

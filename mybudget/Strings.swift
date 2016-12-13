@@ -10,5 +10,6 @@ import Foundation
 
 struct StringFor
 {
-    static let name = ["appName" : "MyBudget"]
+    static let name = ["appName" : "MyBudget", "email" : "help@brainloadtech.com"]
+    
 }

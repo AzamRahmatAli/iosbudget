@@ -64,9 +64,9 @@ class SettingTableViewController: UITableViewController {
             alertController.addAction(yesAction)
             self.presentViewController(alertController, animated: true, completion: nil)
         }
-        else if(indexPath.row == 1)
+        else if(indexPath.row == 0 && indexPath.section == 2)
         {
-         
+         Helper.alertUser(self, title: "About", message: "\(StringFor.name["appName"]!)\nVersion 1.0")
         }
             
         
