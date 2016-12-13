@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class OneBudgetViewController: UIViewController , UITextFieldDelegate{
     
@@ -108,6 +109,8 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
         }
         do {
             try self.managedObjectContext!.save()
+            
+            FIRAnalytics.setUserPropertyString("yes", forName: "set_one_budget")
             navigationController?.popViewControllerAnimated(true)
         } catch {
             print("error")

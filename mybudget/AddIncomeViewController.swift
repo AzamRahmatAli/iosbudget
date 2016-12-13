@@ -206,12 +206,16 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
                 try self.managedObjectContext?.save()
                 
                 FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                    kFIRParameterItemID : "id-add_income" as NSObject,
+                    kFIRParameterItemID : "add_income" as NSObject,
+                    kFIRParameterContentType : "added_income" as NSObject
+                    ])
+                    
+                    /*
                     kFIRParameterItemName: category.text! as NSObject,
                     kFIRParameterValue : amount.text! as NSObject,
                     kFIRParameterItemCategory: "account "  + accountName  as NSObject,
                    
-                    ])
+                    ])*/
                 
                 navigationController?.popViewControllerAnimated(true)
                 //receivedMessageFromServer()

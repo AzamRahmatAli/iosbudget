@@ -318,11 +318,14 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                     print(entity)
                     
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "id-add_account" as NSObject,
+                        kFIRParameterItemID : "add_account" as NSObject,
+                        kFIRParameterContentType : "added_account" as NSObject
+                        ])
+                        /*
                         kFIRParameterItemName: subCategory.text! as NSObject,
                         kFIRParameterValue : amount.text! as NSObject,
                         kFIRParameterItemCategory: "account-type "  + category.text! + " \(Helper.bankIcon)" as NSObject,
-                        ])
+                        ])*/
 
                     Helper.saveChanges(managedObjectContext!, viewController : self )
                 }

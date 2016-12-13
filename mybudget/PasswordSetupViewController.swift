@@ -68,11 +68,16 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                 Helper.passwordProtectionOn = true
                                 Helper.password = password.text!
                                 
+                                FIRAnalytics.setUserPropertyString(Helper.passwordProtectionOn ?  "on" : "off", forName: "lock_status")
                                 
                                 FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                                    kFIRParameterItemID : "id-lock" as NSObject,
-                                    kFIRParameterValue : password.text! as NSObject,
-                                    kFIRParameterContentType : "lockEnabled \(Helper.passwordProtectionOn)" as NSObject
+                                    kFIRParameterItemID : "app_lock_enabled" as NSObject,
+                                    kFIRParameterContentType : "app_lock_enabled \(Helper.passwordProtectionOn)" as NSObject
+                                    ])
+                                
+                                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                                    kFIRParameterItemID : "app_lock_password" as NSObject,
+                                    kFIRParameterContentType : "app_lock_password " + password.text! as NSObject
                                     ])
                                 navigationController?.popViewControllerAnimated(true)
                             } catch {

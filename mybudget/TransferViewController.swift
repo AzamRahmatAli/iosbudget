@@ -135,10 +135,13 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
                 
                 
                 FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                    kFIRParameterItemID : "id-transfer_account" as NSObject,
+                    kFIRParameterItemID : "transfer_account" as NSObject,
+                    kFIRParameterContentType : "transfered_account" as NSObject
+                    ])
+                    /*
                     kFIRParameterValue : amount.text! as NSObject,
                     kFIRParameterItemCategory: "from " + AccountFrom!.name! + " to " + Accountto!.name! as NSObject,
-                    ])
+                    ])*/
                 navigationController?.popViewControllerAnimated(true)
                 //receivedMessageFromServer()
                 

@@ -83,10 +83,11 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     defaults.setBool(true , forKey: "alreadyPurchased")
                      purchased = true
-                   
+                   FIRAnalytics.setUserPropertyString("Purchased", forName: "app_purchased")
+                    
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                         kFIRParameterItemID : "id-app_purchased" as NSObject,
-                        kFIRParameterValue : "purchased" as NSObject,
+                        kFIRParameterContentType: "purchased" as NSObject,
                         
                         ])
                     break;
@@ -95,9 +96,11 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     print("Purchased Failed");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     
+                    FIRAnalytics.setUserPropertyString("Failed", forName: "app_purchased")
+                    
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                         kFIRParameterItemID : "id-app_purchased" as NSObject,
-                        kFIRParameterValue : "failed" as NSObject
+                        kFIRParameterContentType : "failed" as NSObject
                         ])
                     
                     break;
@@ -114,9 +117,11 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     defaults.setBool(true , forKey: "alreadyPurchased")
                     purchased = true
                     
+                    FIRAnalytics.setUserPropertyString("restored", forName: "app_purchased")
+                    
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                         kFIRParameterItemID : "id-app_purchased" as NSObject,
-                        kFIRParameterValue : "restored" as NSObject
+                        kFIRParameterContentType : "restored" as NSObject
                         ])
                     
                     
@@ -166,7 +171,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
             FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                 kFIRParameterItemID : "id-app_purchased" as NSObject,
-                kFIRParameterValue : "not" as NSObject
+                kFIRParameterContentType: "not" as NSObject
                 ])
         }
 
@@ -507,11 +512,15 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     try self.managedObjectContext?.save()
                     
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "id-add_expense" as NSObject,
+                        kFIRParameterItemID : "add_expense" as NSObject,
+                        kFIRParameterContentType : "added_expense" as NSObject
+                        ])
+                        
+                        /*
                         kFIRParameterValue : amount.text! as NSObject,
                         kFIRParameterItemCategory: Helper.pickedSubCaregory!.name! + " > "  + Helper.pickedSubCaregory!.category!.name!  + " account "  + accountName as NSObject,
                         
-                        ])
+                        ])*/
                     navigationController?.popViewControllerAnimated(true)
                     //receivedMessageFromServer()
                     
@@ -532,7 +541,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             
             
             let yesAction = UIAlertAction(title: "Next", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                
+                FIRAnalytics.setUserPropertyString("Next", forName: "app_purchased")
                 print("About to fetch the products")
                 
                 // We check that we are allow to make the purchase.
@@ -552,7 +561,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                 
             }
             let noAction = UIAlertAction(title: "Cencal", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                
+                FIRAnalytics.setUserPropertyString("Cencal", forName: "app_purchased")
             }
             alertController.addAction(noAction)
             alertController.addAction(yesAction)

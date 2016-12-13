@@ -44,14 +44,18 @@ class SettingTableViewController: UITableViewController {
             
             
             let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+                
+                FIRAnalytics.setUserPropertyString("not-complete", forName: "full_reset")
                 if Restore.fullReset()
                 {
                 self.refresh()
                 Helper.alertUser(self, title: "", message: "Full reset complete")
                     
+                    FIRAnalytics.setUserPropertyString("complete", forName: "full_reset")
+                    
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "id-full_reset" as NSObject,
-                        kFIRParameterValue : "reset complete" as NSObject,
+                        kFIRParameterItemID : "full_reset" as NSObject,
+                        kFIRParameterContentType : "reset complete + \(NSDate())" as NSObject,
                         ])
                 }
            

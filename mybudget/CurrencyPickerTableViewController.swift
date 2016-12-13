@@ -46,9 +46,11 @@ class CurrencyPickerTableViewController: UITableViewController {
         Helper.formatter.currencyCode = pickedCurrencyCode
         Helper.formatter.currencySymbol =  Helper.getLocalCurrencySymbl(pickedCurrencyCode!)
         
+        FIRAnalytics.setUserPropertyString("yes", forName: "set_currency")
+        
         FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-            kFIRParameterItemID : "id-set_currency" as NSObject,
-            kFIRParameterValue : Helper.formatter.currencyCode + " - " + Helper.formatter.currencySymbol as NSObject
+            kFIRParameterItemID : "set_currency" as NSObject,
+            kFIRParameterContentType : "set_currency" + Helper.formatter.currencyCode + " - " + Helper.formatter.currencySymbol as NSObject
             
             ])
         Currency.saveCurrencyCodeAndSymbol()

@@ -28,7 +28,7 @@ class BackupRestoreViewController: UITableViewController {
         
         let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
            
-            
+            FIRAnalytics.setUserPropertyString("not-complete", forName: "backup_restore")
             if self.checkAndDownloadBackupFile(fileName)
             {
                 
@@ -36,13 +36,21 @@ class BackupRestoreViewController: UITableViewController {
                 {
                     if Restore.restoreBackup(fileName)
                     {
+                        
                         Helper.alertUser(self, title: "", message: "Backup restored successfully")
+                        
+                        
+                        
+                        FIRAnalytics.setUserPropertyString("yes", forName: "backup_restore")
+                        
+                        
                         FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                            kFIRParameterItemID : "id-backup_restored" as NSObject,
-                            kFIRParameterItemName : fileName as NSObject,
-                            kFIRParameterValue : "restored" as NSObject,
+                            kFIRParameterItemID : "backup_restored" as NSObject,
+                            kFIRParameterContentType : "restored " + fileName as NSObject
                             
                             ])
+                        
+                        
                         self.tableView.reloadData()
                     }
                     else{
@@ -206,15 +214,17 @@ class BackupRestoreViewController: UITableViewController {
         {
             
              entity.backupFrequency = frequency.rawValue
-            entity.backupTime = NSDate()
+             entity.backupTime = NSDate()
             
         }
         do {
             try Helper.managedObjectContext!.save()
             Helper.backupFrequency = frequency
+            
+            FIRAnalytics.setUserPropertyString(frequency.rawValue, forName: "backup_enabled")
             FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                kFIRParameterItemID : "id-backup_frequency" as NSObject,
-                kFIRParameterValue : "backup_frequency \(frequency.rawValue)" as NSObject,
+                kFIRParameterItemID : "auto-backup_frequency" as NSObject,
+                kFIRParameterContentType : "backup_frequency \(frequency.rawValue)" as NSObject,
                 
                 ])
             
@@ -279,22 +289,25 @@ class BackupRestoreViewController: UITableViewController {
         }
         else if(indexPath.row == 0)
         {
+            FIRAnalytics.setUserPropertyString("not-complete", forName: "manual_backup")
+            
             let name = CloudDataManager.backupNowName
             if let value = CloudDataManager.backupNow(name)
             {
                if !value
                {
                 Helper.alertUser(self, title: "", message: "Backup failed, please try later")
+                FIRAnalytics.setUserPropertyString("fail", forName: "manual_backup")
                 }
                 else
                {
                 Helper.alertUser(self, title: "", message: "Backup complete")
                 loadFiles()
-                
+                FIRAnalytics.setUserPropertyString("yes", forName: "manual_backup")
                 
                 FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                     kFIRParameterItemID : "id-backup_now" as NSObject,
-                    kFIRParameterValue : "backup_now complete" as NSObject,
+                    kFIRParameterContentType : "backup_now complete" as NSObject,
                     
                     ])
                 
