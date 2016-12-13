@@ -58,8 +58,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         }
             
-            
-       
+            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                kFIRParameterItemID : "open_app" as NSObject,
+                kFIRParameterContentType : "open_app" as NSObject
+                ])
         
         return true
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -111,6 +112,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         currentMonth.text = dateFormatter.stringFromDate(NSDate())
         
         
+
         
         /*menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside)
          
