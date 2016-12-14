@@ -142,7 +142,7 @@ class CloudDataManager {
            
             FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                 kFIRParameterItemID : "id-auto_backup" as NSObject,
-                kFIRParameterContentType : "auto_backup \(NSDate())" as NSObject,
+                kFIRParameterContentType : "auto_backup" as NSObject,
                 ])
            
         }

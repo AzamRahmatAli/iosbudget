@@ -153,7 +153,7 @@
 		F7B9E3891DF1906F00F8CAD7 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		F7BB54881DFD860A00B6219A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7C3B8CE1DDC4B7C00D44B3A /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
-		F7E6ADC11DD30E6F00DC11E3 /* mybudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mybudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7E6ADC11DD30E6F00DC11E3 /* Expense Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E6AE5E1DD311B200DC11E3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -326,7 +326,7 @@
 		F7E6ADC21DD30E6F00DC11E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F7E6ADC11DD30E6F00DC11E3 /* mybudget.app */,
+				F7E6ADC11DD30E6F00DC11E3 /* Expense Manager.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,9 +347,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F7E6ADC01DD30E6F00DC11E3 /* mybudget */ = {
+		F7E6ADC01DD30E6F00DC11E3 /* Expense Manager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F7E6ADD61DD30E7000DC11E3 /* Build configuration list for PBXNativeTarget "mybudget" */;
+			buildConfigurationList = F7E6ADD61DD30E7000DC11E3 /* Build configuration list for PBXNativeTarget "Expense Manager" */;
 			buildPhases = (
 				F7E6ADBD1DD30E6F00DC11E3 /* Sources */,
 				F7E6ADBE1DD30E6F00DC11E3 /* Frameworks */,
@@ -359,9 +359,9 @@
 			);
 			dependencies = (
 			);
-			name = mybudget;
+			name = "Expense Manager";
 			productName = mybudget;
-			productReference = F7E6ADC11DD30E6F00DC11E3 /* mybudget.app */;
+			productReference = F7E6ADC11DD30E6F00DC11E3 /* Expense Manager.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -391,7 +391,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F7E6ADBC1DD30E6F00DC11E3 /* Build configuration list for PBXProject "mybudget" */;
+			buildConfigurationList = F7E6ADBC1DD30E6F00DC11E3 /* Build configuration list for PBXProject "Expense Manager" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -404,7 +404,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F7E6ADC01DD30E6F00DC11E3 /* mybudget */,
+				F7E6ADC01DD30E6F00DC11E3 /* Expense Manager */,
 			);
 		};
 /* End PBXProject section */
@@ -608,7 +608,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bltechapps.budget3;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Expense Manager";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "mybudget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -631,7 +631,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bltechapps.budget3;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Expense Manager";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "mybudget-Bridging-Header.h";
 			};
@@ -640,7 +640,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F7E6ADBC1DD30E6F00DC11E3 /* Build configuration list for PBXProject "mybudget" */ = {
+		F7E6ADBC1DD30E6F00DC11E3 /* Build configuration list for PBXProject "Expense Manager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F7E6ADD41DD30E7000DC11E3 /* Debug */,
@@ -649,7 +649,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F7E6ADD61DD30E7000DC11E3 /* Build configuration list for PBXNativeTarget "mybudget" */ = {
+		F7E6ADD61DD30E7000DC11E3 /* Build configuration list for PBXNativeTarget "Expense Manager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F7E6ADD71DD30E7000DC11E3 /* Debug */,

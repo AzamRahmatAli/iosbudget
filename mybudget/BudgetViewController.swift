@@ -179,6 +179,9 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCellWithIdentifier("cellparent", forIndexPath: indexPath) as! ParentTableViewCell
         let index = indexPath.row
         let ctgName = expenseData![index].name
+        cell.rightUp.text = ""
+        cell.leftDown.text = ""
+        cell.rightDown.text = ""
         cell.leftUp.text = ctgName
         
         cell.img.image = UIImage(named: expenseData![index].icon!)
@@ -191,6 +194,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             if let expenses = getExpensesForCategory(indexPath.row)
             {
+                //print(ctgName)
                 cell.leftDown.text = expenses.asLocaleCurrency
                 cell.rightDown.text = (budget - expenses).asLocaleCurrency
                 if (budget - expenses) >= 0
@@ -205,6 +209,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }//if budget is not set
         else if let expenses = getExpensesForCategory(indexPath.row)
         {
+            //print("budget is not set",ctgName)
             cell.rightUp.text = Float(0).asLocaleCurrency
             cell.leftDown.text = expenses.asLocaleCurrency
             cell.rightDown.text = (0.0 - expenses).asLocaleCurrency

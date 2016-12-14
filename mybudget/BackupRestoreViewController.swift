@@ -46,7 +46,7 @@ class BackupRestoreViewController: UITableViewController {
                         
                         FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                             kFIRParameterItemID : "backup_restored" as NSObject,
-                            kFIRParameterContentType : "restored " + fileName as NSObject
+                            kFIRParameterContentType : "backup_restored"  as NSObject
                             
                             ])
                         

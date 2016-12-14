@@ -104,12 +104,14 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
                
                if !update
                {
-                let info = (addCategory ? name.text!  : category!.name! + " > " + name.text!) + " \( selectedImage)"
+               // let info = (addCategory ? name.text!  : category!.name! + " > " + name.text!) + " \( selectedImage)"
                 FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                     kFIRParameterItemID : "id-budget_category_subcategory" as NSObject,
-                    
+                    kFIRParameterItemName: "added " + (addCategory ? "category " : "subcategory ") as NSObject
+                ])
+                    /*
                     kFIRParameterItemName: "added " + (addCategory ? "category " : "subcategory ") + info as NSObject
-                    ])
+                    ])*/
                 }
                     /*
                     kFIRParameterContentType: update ? "update" : "new" as NSObject,

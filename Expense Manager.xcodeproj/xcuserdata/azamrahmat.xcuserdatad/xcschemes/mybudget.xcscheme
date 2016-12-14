@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F7E6ADC01DD30E6F00DC11E3"
-               BuildableName = "mybudget.app"
-               BlueprintName = "mybudget"
-               ReferencedContainer = "container:mybudget.xcodeproj">
+               BuildableName = "Expense Manager.app"
+               BlueprintName = "Expense Manager"
+               ReferencedContainer = "container:Expense Manager.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F7E6ADC01DD30E6F00DC11E3"
-            BuildableName = "mybudget.app"
-            BlueprintName = "mybudget"
-            ReferencedContainer = "container:mybudget.xcodeproj">
+            BuildableName = "Expense Manager.app"
+            BlueprintName = "Expense Manager"
+            ReferencedContainer = "container:Expense Manager.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F7E6ADC01DD30E6F00DC11E3"
-            BuildableName = "mybudget.app"
-            BlueprintName = "mybudget"
-            ReferencedContainer = "container:mybudget.xcodeproj">
+            BuildableName = "Expense Manager.app"
+            BlueprintName = "Expense Manager"
+            ReferencedContainer = "container:Expense Manager.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -81,9 +81,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F7E6ADC01DD30E6F00DC11E3"
-            BuildableName = "mybudget.app"
-            BlueprintName = "mybudget"
-            ReferencedContainer = "container:mybudget.xcodeproj">
+            BuildableName = "Expense Manager.app"
+            BlueprintName = "Expense Manager"
+            ReferencedContainer = "container:Expense Manager.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

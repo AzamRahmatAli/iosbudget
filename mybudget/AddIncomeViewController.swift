@@ -189,11 +189,11 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
             entity.category = (category.text!.trim() != "") ? category.text?.trim() : "income"
             entity.amount = (amount.text != "") ? amount.text : "0"
             //entity.account = account.text
-            var accountName  = ""
+            //var accountName  = ""
             if let account = Helper.pickedAccountData
             {
                 entity.account = account
-                accountName = account.name!
+                //accountName = account.name!
                 Helper.pickedAccountData = nil
             }
             

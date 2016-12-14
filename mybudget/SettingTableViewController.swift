@@ -55,7 +55,7 @@ class SettingTableViewController: UITableViewController {
                     
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                         kFIRParameterItemID : "full_reset" as NSObject,
-                        kFIRParameterContentType : "reset complete + \(NSDate())" as NSObject,
+                        kFIRParameterContentType : "reset complete" as NSObject,
                         ])
                 }
            

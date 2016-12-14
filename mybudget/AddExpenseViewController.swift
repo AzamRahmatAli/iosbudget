@@ -498,11 +498,11 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     imagePicked = false
                 }
                 entity.note = note.text?.trim()
-                var accountName = ""
+                //var accountName = ""
                 if let account = Helper.pickedAccountData
                 {
                     entity.account = account
-                    accountName = account.name!
+                    //accountName = account.name!
                     Helper.pickedAccountData = nil
                 }
                 

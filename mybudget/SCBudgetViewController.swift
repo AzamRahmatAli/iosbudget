@@ -150,6 +150,11 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
         cell.img.tintColor = Helper.colors[indexPath.row % 5]
         cell.img.tintColor = UIColor.whiteColor()
         cell.viewInCell.backgroundColor = Helper.colors[indexPath.row % 5]
+        cell.rightUp.text = ""
+        cell.leftDown.text = ""
+        cell.rightDown.text = ""
+        
+        
         if let budget = getBudgetForCategory(indexPath.row)
         {
             cell.rightUp.text = budget.asLocaleCurrency

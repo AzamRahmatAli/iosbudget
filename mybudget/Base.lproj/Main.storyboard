@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uNa-qW-WdN"/>
                         <viewControllerLayoutGuide type="bottom" id="VnL-tC-obH"/>
@@ -31,7 +31,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="GUF-hk-Ekg" customClass="MainCollectionViewCell" customModule="mybudget" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="GUF-hk-Ekg" customClass="MainCollectionViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                         <rect key="frame" x="66" y="64" width="148" height="141"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -163,13 +163,13 @@
         <!--Search-->
         <scene sceneID="Ci0-Wn-Sya">
             <objects>
-                <tableViewController id="2WY-QU-TFA" customClass="SearchTableViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="2WY-QU-TFA" customClass="SearchTableViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="k0q-8S-ydG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="Aeb-yF-tek" customClass="ParentTableViewCell" customModule="mybudget" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="Aeb-yF-tek" customClass="ParentTableViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aeb-yF-tek" id="BpV-7S-zYk">
@@ -253,7 +253,7 @@
         <!--Expense View Controller-->
         <scene sceneID="bAg-Eg-RrO">
             <objects>
-                <viewController id="FOZ-Vs-VV6" customClass="ExpenseViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FOZ-Vs-VV6" customClass="ExpenseViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vSz-ZP-zAC"/>
                         <viewControllerLayoutGuide type="bottom" id="Sx1-lr-bmn"/>
@@ -266,7 +266,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="d0G-NQ-pcN" customClass="ParentTableViewCell" customModule="mybudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="d0G-NQ-pcN" customClass="ParentTableViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d0G-NQ-pcN" id="x2d-zG-nvz">
@@ -423,7 +423,7 @@
         <!--Add Expense-->
         <scene sceneID="HM9-uX-YnB">
             <objects>
-                <viewController id="dzr-U8-tqR" customClass="AddExpenseViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dzr-U8-tqR" customClass="AddExpenseViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ECe-P1-A87"/>
                         <viewControllerLayoutGuide type="bottom" id="dGh-g7-JX0"/>
@@ -698,7 +698,7 @@
         <!--Select Currency-->
         <scene sceneID="sgx-EL-2Nr">
             <objects>
-                <tableViewController id="2DP-20-DNW" customClass="CurrencyPickerTableViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="2DP-20-DNW" customClass="CurrencyPickerTableViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jbj-8B-vEc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -746,7 +746,7 @@
         <!--Menu Table View Controller-->
         <scene sceneID="foP-Kl-YXs">
             <objects>
-                <tableViewController id="a0W-hd-cjG" customClass="MenuTableViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="a0W-hd-cjG" customClass="MenuTableViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" bouncesZoom="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aQM-51-qYc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1080,7 +1080,7 @@
         <!--Email Backup View Controller-->
         <scene sceneID="aAg-SN-XAv">
             <objects>
-                <viewController id="r3S-TD-ILv" customClass="EmailBackupViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="r3S-TD-ILv" customClass="EmailBackupViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DAA-Sd-G0Y"/>
                         <viewControllerLayoutGuide type="bottom" id="jtP-Gd-sqe"/>
@@ -1094,8 +1094,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aO0-Ol-dhK">
-                                <rect key="frame" x="122" y="221" width="76" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aO0-Ol-dhK">
+                                <rect key="frame" x="136" y="221" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="sendMessage" destination="r3S-TD-ILv" eventType="touchUpInside" id="cvG-O1-JVf"/>
@@ -1191,7 +1191,7 @@
         <!--Set Budget-->
         <scene sceneID="WBg-LO-a1C">
             <objects>
-                <viewController storyboardIdentifier="setBudget" id="PDa-Lg-jOL" customClass="SetBudgetViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="setBudget" id="PDa-Lg-jOL" customClass="SetBudgetViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3xF-bB-eAc"/>
                         <viewControllerLayoutGuide type="bottom" id="w93-a5-W0p"/>
@@ -1267,7 +1267,7 @@
         <!--Budget View Controller-->
         <scene sceneID="IIA-zK-hcK">
             <objects>
-                <viewController id="F2O-Rf-L1q" customClass="BudgetViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="F2O-Rf-L1q" customClass="BudgetViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Yc-z0-wV8"/>
                         <viewControllerLayoutGuide type="bottom" id="HsJ-3I-uHR"/>
@@ -1325,7 +1325,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="MDC-cF-zuk" customClass="ParentTableViewCell" customModule="mybudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="MDC-cF-zuk" customClass="ParentTableViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MDC-cF-zuk" id="3h9-vo-HLk">
@@ -1335,8 +1335,8 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SoC-WU-hMy">
                                                     <rect key="frame" x="8" y="8" width="30" height="29"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t9e-iH-cPr">
-                                                            <rect key="frame" x="5" y="5" width="21" height="20"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t9e-iH-cPr">
+                                                            <rect key="frame" x="13" y="13" width="21" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="t9e-iH-cPr" secondAttribute="height" multiplier="21:20" id="MZm-yN-GiB"/>
                                                                 <constraint firstAttribute="width" constant="21" id="OTs-45-9sk"/>
@@ -1350,10 +1350,10 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="117-ib-xe0">
-                                                    <rect key="frame" x="46" y="54" width="233" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="budget left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="117-ib-xe0">
+                                                    <rect key="frame" x="46" y="53" width="233" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zmt-ut-c5O">
@@ -1362,14 +1362,14 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-z2-yRz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="budget" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-z2-yRz">
                                                     <rect key="frame" x="171" y="8" width="108" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCf-jC-MR8">
-                                                    <rect key="frame" x="46" y="30" width="233" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="expenses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCf-jC-MR8">
+                                                    <rect key="frame" x="46" y="30" width="233" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1475,7 +1475,7 @@
         <!--One Budget-->
         <scene sceneID="s01-Sz-iLj">
             <objects>
-                <viewController id="q2c-HG-ocP" customClass="OneBudgetViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="q2c-HG-ocP" customClass="OneBudgetViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QHe-Qy-dJ3"/>
                         <viewControllerLayoutGuide type="bottom" id="DXd-6f-o5Y"/>
@@ -1536,7 +1536,7 @@
         <!--Income View Controller-->
         <scene sceneID="iZf-qf-UYJ">
             <objects>
-                <viewController id="qpj-1g-0ZE" customClass="IncomeViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qpj-1g-0ZE" customClass="IncomeViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7PL-J8-l1e"/>
                         <viewControllerLayoutGuide type="bottom" id="2YL-eg-6EX"/>
@@ -1549,7 +1549,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="fzj-ma-jri" customClass="ParentTableViewCell" customModule="mybudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="fzj-ma-jri" customClass="ParentTableViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fzj-ma-jri" id="7ZK-8A-yh4">
@@ -1695,7 +1695,7 @@
         <!--Budget View Controller-->
         <scene sceneID="akY-zo-A5X">
             <objects>
-                <viewController id="SAF-ci-MK7" customClass="SCBudgetViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SAF-ci-MK7" customClass="SCBudgetViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iuR-bu-zgr"/>
                         <viewControllerLayoutGuide type="bottom" id="5A9-d6-LSg"/>
@@ -1739,21 +1739,21 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" id="KFM-Ao-4o0" customClass="ParentTableViewCell" customModule="mybudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" id="KFM-Ao-4o0" customClass="ParentTableViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KFM-Ao-4o0" id="xd7-Te-4xl">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZB-8P-o8H">
-                                                    <rect key="frame" x="165" y="8" width="114" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="budget" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZB-8P-o8H">
+                                                    <rect key="frame" x="167" y="8" width="112" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-7z-Qe3">
-                                                    <rect key="frame" x="46" y="33" width="233" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7z-7z-Qe3">
+                                                    <rect key="frame" x="46" y="33" width="233" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1780,14 +1780,14 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="nRb-Yr-gQv">
-                                                    <rect key="frame" x="46" y="8" width="111" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="nRb-Yr-gQv">
+                                                    <rect key="frame" x="46" y="8" width="113" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJN-Qb-2JH">
-                                                    <rect key="frame" x="46" y="58" width="233" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="budget left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJN-Qb-2JH">
+                                                    <rect key="frame" x="46" y="56" width="233" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1894,7 +1894,7 @@
         <!--Add-->
         <scene sceneID="0zw-b7-cGQ">
             <objects>
-                <viewController id="m9h-SI-dz5" customClass="AddBudgetCGViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="m9h-SI-dz5" customClass="AddBudgetCGViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a7l-nG-lea"/>
                         <viewControllerLayoutGuide type="bottom" id="k5u-ii-DFt"/>
@@ -1933,7 +1933,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cvcel" id="cp7-8o-8tj" customClass="CustomCollectionViewCell" customModule="mybudget" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cvcel" id="cp7-8o-8tj" customClass="CustomCollectionViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -2007,7 +2007,7 @@
         <!--Add Income-->
         <scene sceneID="mOH-Sa-XCd">
             <objects>
-                <viewController id="kZa-3P-UXW" customClass="AddIncomeViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kZa-3P-UXW" customClass="AddIncomeViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dze-sM-gVe"/>
                         <viewControllerLayoutGuide type="bottom" id="B4f-QH-UvZ"/>
@@ -2186,7 +2186,7 @@
         <!--Pick Date-->
         <scene sceneID="lo0-Gm-U0V">
             <objects>
-                <viewController id="Fbh-7Y-0n5" customClass="datePickerViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fbh-7Y-0n5" customClass="datePickerViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g41-9f-ALo"/>
                         <viewControllerLayoutGuide type="bottom" id="j68-XG-cAZ"/>
@@ -2260,7 +2260,7 @@
         <!--Accounts View Controller-->
         <scene sceneID="YPN-WK-9Us">
             <objects>
-                <viewController id="FLn-43-NNw" customClass="AccountsViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FLn-43-NNw" customClass="AccountsViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="diu-w0-vhK"/>
                         <viewControllerLayoutGuide type="bottom" id="cEp-IM-waG"/>
@@ -2304,7 +2304,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="453"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="DAq-Fa-Rlz" customClass="ParentTableViewCell" customModule="mybudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellparent" rowHeight="80" id="DAq-Fa-Rlz" customClass="ParentTableViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DAq-Fa-Rlz" id="lKx-U4-4rY">
@@ -2433,7 +2433,7 @@
         <!--Add Account-->
         <scene sceneID="8I2-bt-XHD">
             <objects>
-                <viewController id="lQ8-HK-Rlz" customClass="AddAccountViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lQ8-HK-Rlz" customClass="AddAccountViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B2l-Bi-jkm"/>
                         <viewControllerLayoutGuide type="bottom" id="h4x-PN-Thd"/>
@@ -2709,7 +2709,7 @@
         <!--Assign Icon-->
         <scene sceneID="PLP-F0-ucl">
             <objects>
-                <viewController id="oOW-TP-KYE" customClass="PickIconViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oOW-TP-KYE" customClass="PickIconViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m2D-MI-Lhl"/>
                         <viewControllerLayoutGuide type="bottom" id="Rw7-I2-2mf"/>
@@ -2728,7 +2728,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cvcell" id="3wS-rF-pcG" customClass="CustomCollectionViewCell" customModule="mybudget" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cvcell" id="3wS-rF-pcG" customClass="CustomCollectionViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="64" width="42" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -2790,7 +2790,7 @@
         <!--Settings-->
         <scene sceneID="1Ms-zb-N52">
             <objects>
-                <tableViewController id="2Kw-vA-vab" customClass="SettingTableViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="2Kw-vA-vab" customClass="SettingTableViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="uBH-Ck-aTI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2963,7 +2963,7 @@
         <!--Password Lock-->
         <scene sceneID="LkK-R5-dmi">
             <objects>
-                <viewController id="D7L-mf-lyG" customClass="PasswordSetupViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D7L-mf-lyG" customClass="PasswordSetupViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PvB-Ke-fDL"/>
                         <viewControllerLayoutGuide type="bottom" id="BAk-bF-PNs"/>
@@ -3089,7 +3089,7 @@
         <!--Quick Summary-->
         <scene sceneID="z4P-wH-XQB">
             <objects>
-                <viewController title="Quick Summary" id="FEc-rb-35B" customClass="QuickSummaryViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Quick Summary" id="FEc-rb-35B" customClass="QuickSummaryViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cxC-l1-9cV"/>
                         <viewControllerLayoutGuide type="bottom" id="O0E-V0-cp8"/>
@@ -3102,7 +3102,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="81" id="Z5I-e5-oMK" customClass="ParentTableViewCell" customModule="mybudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="81" id="Z5I-e5-oMK" customClass="ParentTableViewCell" customModule="Expense_Manager" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z5I-e5-oMK" id="hQX-YY-LT6">
@@ -3218,7 +3218,7 @@
         <!--Backup Restore View Controller-->
         <scene sceneID="cxQ-yj-2JN">
             <objects>
-                <tableViewController id="Wak-Te-K5h" customClass="BackupRestoreViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Wak-Te-K5h" customClass="BackupRestoreViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ccu-Pa-83I">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3298,7 +3298,7 @@
         <!--Backup/Restore-->
         <scene sceneID="hRk-rv-1hY">
             <objects>
-                <viewController id="iJj-Ph-B8a" customClass="BackupRestoreViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iJj-Ph-B8a" customClass="BackupRestoreViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U63-ID-e3W"/>
                         <viewControllerLayoutGuide type="bottom" id="49R-kF-smG"/>
@@ -3405,7 +3405,7 @@
         <!--Transfer-->
         <scene sceneID="ke3-Ni-zBv">
             <objects>
-                <viewController id="ktf-1q-suf" customClass="TransferViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ktf-1q-suf" customClass="TransferViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8N7-M1-yvi"/>
                         <viewControllerLayoutGuide type="bottom" id="Vwd-Cp-lGI"/>
@@ -3560,13 +3560,13 @@
         <!--Lock View Controller-->
         <scene sceneID="Nev-Yp-XNK">
             <objects>
-                <viewController storyboardIdentifier="lock" id="z1y-fj-PPv" customClass="LockViewController" customModule="mybudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="lock" id="z1y-fj-PPv" customClass="LockViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vR7-iO-Zuv"/>
                         <viewControllerLayoutGuide type="bottom" id="4cb-0f-O0D"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dHu-ZF-8vk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ndx-MF-f5S">
@@ -3613,7 +3613,7 @@
                             <constraint firstItem="59J-6D-Tjm" firstAttribute="leading" secondItem="ndx-MF-f5S" secondAttribute="leading" id="sNj-l7-9IN"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="appName" destination="59J-6D-Tjm" id="TOY-nK-G4i"/>
                         <outlet property="password" destination="ZGh-we-7Jt" id="jFw-IT-My0"/>
@@ -3622,13 +3622,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrp-ia-3q6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213" y="136"/>
+            <point key="canvasLocation" x="594" y="-57"/>
         </scene>
     </scenes>
     <resources>
         <image name="Camera" width="217" height="285"/>
         <image name="delete" width="128" height="128"/>
-        <image name="home_logo" width="272" height="332"/>
+        <image name="home_logo" width="60" height="60"/>
         <image name="ic_functions" width="96" height="96"/>
         <image name="ic_info" width="96" height="96"/>
         <image name="ic_settings" width="96" height="96"/>
@@ -3639,16 +3639,16 @@
         <image name="prevMonth" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="u5g-mR-znT"/>
+        <segue reference="oy1-0M-y6T"/>
         <segue reference="IVx-tJ-cid"/>
         <segue reference="juH-CN-12F"/>
         <segue reference="jge-zi-JaC"/>
         <segue reference="rxT-Kq-Ui6"/>
-        <segue reference="oy1-0M-y6T"/>
         <segue reference="uHg-lh-ava"/>
         <segue reference="DM0-rh-VpF"/>
-        <segue reference="u5g-mR-znT"/>
-        <segue reference="MWT-bX-VUq"/>
         <segue reference="hsH-l5-Qe9"/>
-        <segue reference="uKc-4G-tJG"/>
+        <segue reference="MWT-bX-VUq"/>
+        <segue reference="JIA-nG-xpd"/>
     </inferredMetricsTieBreakers>
 </document>

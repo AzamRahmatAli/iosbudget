@@ -136,7 +136,7 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
                 
                 FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                     kFIRParameterItemID : "transfer_account" as NSObject,
-                    kFIRParameterContentType : "transfered_account" as NSObject
+                    kFIRParameterContentType : "transfered account" as NSObject
                     ])
                     /*
                     kFIRParameterValue : amount.text! as NSObject,
