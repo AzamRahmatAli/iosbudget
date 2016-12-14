@@ -66,7 +66,7 @@ class BackupRestoreViewController: UITableViewController {
             
         }
         let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-            print("no")
+           //print("no")
         }
         alertController.addAction(noAction)
         alertController.addAction(yesAction)
@@ -203,7 +203,7 @@ class BackupRestoreViewController: UITableViewController {
                 
             }
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
             
             
@@ -229,7 +229,7 @@ class BackupRestoreViewController: UITableViewController {
                 ])
             
         } catch {
-            print("error")
+           //print("error")
         }
     }
 
@@ -363,7 +363,7 @@ class BackupRestoreViewController: UITableViewController {
                 
                 
                 for s in fileList {
-                    print(s)
+                   //print(s)
                     if String(s).rangeOfString("-backup.txt") != nil
                     {
                         
@@ -415,7 +415,7 @@ class BackupRestoreViewController: UITableViewController {
                     do {
                         try filemanager.startDownloadingUbiquitousItemAtURL(file)
                     } catch{
-                        print("Error while loading Backup File \(error)")
+                       //print("Error while loading Backup File \(error)")
                     }
                 }
                 return false
@@ -495,7 +495,7 @@ extension String
  {
  
  
- print("Error saving to local DIR")
+//print("Error saving to local DIR")
  
  }
  
@@ -511,7 +511,7 @@ extension String
  }
  catch let error as NSError
  {
- print(error.localizedDescription);
+//print(error.localizedDescription);
  }
  }
  do{
@@ -524,7 +524,7 @@ extension String
  }
  catch let error as NSError
  {
- print(error.localizedDescription);
+//print(error.localizedDescription);
  }
  
  
@@ -554,8 +554,8 @@ extension String
  // To do in a background thread
  
  func getDocumentDiretoryURL() -> NSURL {
- print(DocumentsDirectory.iCloudDocumentsURL)
- print(DocumentsDirectory.localDocumentsURL)
+//print(DocumentsDirectory.iCloudDocumentsURL)
+//print(DocumentsDirectory.localDocumentsURL)
  return DocumentsDirectory.localDocumentsURL!//DocumentsDirectory.iCloudDocumentsURL!
  
  }
@@ -576,9 +576,9 @@ extension String
  
  do {
  try fileManager.removeItemAtURL(url!.URLByAppendingPathComponent(file))
- print("Files deleted")
+//print("Files deleted")
  } catch let error as NSError {
- print("Failed deleting files : \(error)")
+//print("Failed deleting files : \(error)")
  }
  }
  }
@@ -598,9 +598,9 @@ extension String
  try fileManager.setUbiquitous(true,
  itemAtURL: DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(file),
  destinationURL: DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(file))
- print("Moved to iCloud")
+//print("Moved to iCloud")
  } catch let error as NSError {
- print("Failed to move file to Cloud : \(error)")
+//print("Failed to move file to Cloud : \(error)")
  }
  }
  }
@@ -621,9 +621,9 @@ extension String
  try fileManager.setUbiquitous(false,
  itemAtURL: DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(file),
  destinationURL: DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(file))
- print("Moved to local dir")
+//print("Moved to local dir")
  } catch let error as NSError {
- print("Failed to move file to local dir : \(error)")
+//print("Failed to move file to local dir : \(error)")
  }
  }
  }

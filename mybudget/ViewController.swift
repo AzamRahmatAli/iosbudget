@@ -69,7 +69,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // Callback:
     func applicationDidBecomeActiveNotification() {
         // Handle application will resign notification event.
-        print("active")
+       //print("active")
         
     }
     override func viewDidDisappear(animated: Bool) {
@@ -93,13 +93,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         formatter.numberStyle = .CurrencyStyle
         
         formatter.locale = NSLocale.currentLocale()
-        print(formatter.currencyCode, formatter.currencySymbol)
+       //print(formatter.currencyCode, formatter.currencySymbol)
         
         
         navTitle.text = StringFor.name["appName"]!
         
         
-        // print(((self.view.frame.height  - 480 ) + 24 ) / 2)
+        ////print(((self.view.frame.height  - 480 ) + 24 ) / 2)
         //bottomConstraint.constant = ((self.view.frame.height  - 480 ) + 24 ) / 2
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -273,7 +273,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
             
             cell.price.text = totalExpenses.asLocaleCurrency
@@ -310,7 +310,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
             cell.price.text = totalIncome.asLocaleCurrency
             
@@ -354,14 +354,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         }
                     }
                     catch let error {
-                        print("error : ", error)
+                       //print("error : ", error)
                     }
                 }
             }
                 
                 
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
             cell.price.text = totalBudget.asLocaleCurrency
             
@@ -415,7 +415,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
             cell.price.text = (total - expensesInAccountsTotal + incomeInAccountsTotal).asLocaleCurrency
             

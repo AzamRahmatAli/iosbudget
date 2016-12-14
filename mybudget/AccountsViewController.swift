@@ -134,7 +134,7 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
         //do it before table reload
         //change the value of section to expandable or not expandable
         Helper.expandedAndCollapsedSectionsAccount[section] = !Helper.expandedAndCollapsedSectionsAccount[section]
-        print(Helper.expandedAndCollapsedSectionsAccount[section], section)
+       //print(Helper.expandedAndCollapsedSectionsAccount[section], section)
         
         // Get the section
         sectionTapped  = section
@@ -164,7 +164,7 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        print("accountData.count= ", accountData.count)
+       //print("accountData.count= ", accountData.count)
         return accountData.count
         
     }
@@ -334,7 +334,7 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
             
             
         catch let error {
-            print("error : ", error)
+           //print("error : ", error)
         }
         
         tableView.reloadData()

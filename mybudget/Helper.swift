@@ -53,7 +53,7 @@ struct  Helper {
         
     
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-            print("OK")
+           //print("OK")
         }
         alertController.addAction(okAction)
        
@@ -74,7 +74,7 @@ struct  Helper {
             viewController.navigationController?.popViewControllerAnimated(true)
             
         } catch {
-            print("error")
+           //print("error")
         }
     }
     
@@ -85,10 +85,10 @@ struct  Helper {
             let locale = NSLocale(localeIdentifier: localeID as String)
             let code = locale.objectForKey(NSLocaleCurrencyCode) as? String
             if code == currencyCode{
-                print(currencyCode, localeID)
+               //print(currencyCode, localeID)
                 
                 let symbol = locale.objectForKey(NSLocaleCurrencySymbol) as? String
-                print(symbol)
+               //print(symbol)
                 return symbol!
                 
             }

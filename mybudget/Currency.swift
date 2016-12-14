@@ -42,7 +42,7 @@ struct Currency {
                 
             }
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
             
             
@@ -61,7 +61,7 @@ struct Currency {
             
             
         } catch {
-            print("error")
+           //print("error")
         }
     }
 

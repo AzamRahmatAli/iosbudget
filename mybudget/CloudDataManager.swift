@@ -29,8 +29,8 @@ class CloudDataManager {
     // To do in a background thread
     
     func getDocumentDiretoryURL() -> NSURL {
-        print(DocumentsDirectory.iCloudDocumentsURL)
-        print(DocumentsDirectory.localDocumentsURL)
+       //print(DocumentsDirectory.iCloudDocumentsURL)
+       //print(DocumentsDirectory.localDocumentsURL)
         return DocumentsDirectory.localDocumentsURL!//DocumentsDirectory.iCloudDocumentsURL!
         
     }
@@ -52,11 +52,11 @@ class CloudDataManager {
         let url = iCloudDocumentsURL!.URLByAppendingPathComponent(fileName)
         do {
             try fileManager.removeItemAtURL(url)
-            print("File deleted")
+           //print("File deleted")
             return true
            
         } catch let error as NSError {
-            print("Failed deleting files : \(error)")
+           //print("Failed deleting files : \(error)")
         }
         //}
         return false
@@ -80,11 +80,11 @@ class CloudDataManager {
             try fileManager.setUbiquitous(true,
                                           itemAtURL: DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(name),
                                           destinationURL: DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(name))
-            print("Moved to iCloud")
+           //print("Moved to iCloud")
             
            return true
         } catch let error as NSError {
-            print("Failed to move file to Cloud : \(error)")
+           //print("Failed to move file to Cloud : \(error)")
         }
         
         return false
@@ -136,7 +136,7 @@ class CloudDataManager {
                  timeAgoSinceDate(lastBackupDate)
             }
             else{
-                print("time = ",NSDate(timeIntervalSinceReferenceDate: 0 ))
+               //print("time = ",NSDate(timeIntervalSinceReferenceDate: 0 ))
                 timeAgoSinceDate(NSDate(timeIntervalSinceReferenceDate: 0 ))
             }
            
@@ -194,7 +194,7 @@ class CloudDataManager {
             {
                 
                 
-                print("Error saving to local DIR")
+               //print("Error saving to local DIR")
                 
             }
             
@@ -227,7 +227,7 @@ class CloudDataManager {
     
     }
     catch let error {
-    print("error : ", error)
+   //print("error : ", error)
     }
     
     
@@ -245,7 +245,7 @@ class CloudDataManager {
             try Helper.managedObjectContext!.save()
             Helper.lastBackupTime = NSDate()
         } catch {
-            print("error")
+           //print("error")
         }
   
     }

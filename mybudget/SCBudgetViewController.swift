@@ -70,7 +70,7 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
             budgetTotalLabel.text = totalAmount.asLocaleCurrency
         }
         catch let error {
-            print("error : ", error)
+           //print("error : ", error)
         }
         
         tableView.reloadData()
@@ -81,7 +81,7 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print(subCategories.count)
+       //print(subCategories.count)
         return subCategories.count
         
     }
@@ -307,7 +307,7 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
                         
                         
                     } catch {
-                        print("error")
+                       //print("error")
                     }
                     subCategories.removeAtIndex(indexPath.row)
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -319,7 +319,7 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     
                     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                        print("OK")
+                       //print("OK")
                     }
                     
                     alertController.addAction(okAction)

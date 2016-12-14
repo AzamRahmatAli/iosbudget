@@ -175,7 +175,7 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
                     try self.managedObjectContext!.save()
                     navigationController?.popViewControllerAnimated(true)
                 } catch {
-                    print("error")
+                   //print("error")
                 }
             }
             

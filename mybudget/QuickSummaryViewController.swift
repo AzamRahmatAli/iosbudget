@@ -158,7 +158,7 @@ class QuickSummaryViewController: UIViewController {
             
         }
         catch let error {
-            print("error : ", error)
+           //print("error : ", error)
         }
         
         
@@ -191,7 +191,7 @@ class QuickSummaryViewController: UIViewController {
             
         }
         catch let error {
-            print("error : ", error)
+           //print("error : ", error)
         }
         
         

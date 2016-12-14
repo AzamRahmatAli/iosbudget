@@ -77,13 +77,13 @@ struct BasicData
                             
                         }
                         catch{
-                            print("error")
+                           //print("error")
                         }
                         
                         
                     }
                     else{
-                        print("fail insert")
+                       //print("fail insert")
                     }
                     
                 }

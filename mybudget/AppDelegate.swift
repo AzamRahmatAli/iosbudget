@@ -233,14 +233,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func iCloudAccountIsSignedIn() -> Bool {
-        print("Running \(self.self) '\(NSStringFromSelector(#function))'")
+       //print("Running \(self.self) '\(NSStringFromSelector(#function))'")
         let token = NSFileManager.defaultManager().ubiquityIdentityToken
         if (token != nil) {
-            print("----iCloud is Logged In with token '\(token)' ----")
+           //print("----iCloud is Logged In with token '\(token)' ----")
             return true
         }
-        print("---- iCloud is NOT Logged In ----")
-        print("Check these: Is iCloud Documents and Data enabled??? (Mac, IOS Device)--- iCloud Capability -App Target, ---- Code Sign Entitlements Error??")
+       //print("---- iCloud is NOT Logged In ----")
+       //print("Check these: Is iCloud Documents and Data enabled??? (Mac, IOS Device)--- iCloud Capability -App Target, ---- Code Sign Entitlements Error??")
         return false
     }
     // MARK: - Core Data stack

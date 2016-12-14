@@ -121,7 +121,7 @@ class SearchTableViewController: UITableViewController {
             
         }
         catch let error {
-            print("error : ", error)
+           //print("error : ", error)
         }
         
         

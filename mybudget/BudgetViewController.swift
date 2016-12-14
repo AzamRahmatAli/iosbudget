@@ -102,7 +102,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
                 }
                 catch let error {
-                    print("error : ", error)
+                   //print("error : ", error)
                 }
             }
             budgetTotalLabel.text = totalAmount.asLocaleCurrency
@@ -110,7 +110,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
         catch let error {
-            print("error : ", error)
+           //print("error : ", error)
         }
         
         tableView.reloadData()
@@ -323,7 +323,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
              
              
              } catch {
-             print("error")
+            //print("error")
              }
              
              expenseData!.removeAtIndex(indexPath.row)
@@ -341,7 +341,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         
                         
                     } catch {
-                        print("error")
+                       //print("error")
                     }
                     expenseData!.removeAtIndex(indexPath.row)
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -351,7 +351,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     
                     
                     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                        print("OK")
+                       //print("OK")
                     }
                     
                     alertController.addAction(okAction)

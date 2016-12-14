@@ -112,9 +112,9 @@ static func doBackup() -> String?
             if let lock = element.lockOn
             {
                 lockOn = String(lock)
-                print(String(lock))
+               //print(String(lock))
             }
-            print(String(NSDate()))
+           //print(String(NSDate()))
             sets.append(["currencyCode" :element.currencyCode ?? "" , "currencySymbol" :element.currencySymbol ?? "","oneBudget" :element.oneBudget ?? "" , "password" :element.password ?? "" , "passwordHint" :element.passwordHint ?? "" , "lockOn" : lockOn, "backupTime" : String(NSDate()) , "backupFrequency" : element.backupFrequency ?? ""])
            
             
@@ -139,7 +139,7 @@ static func doBackup() -> String?
         
         let jsonData: NSData = try NSJSONSerialization.dataWithJSONObject(dictionary, options: NSJSONWritingOptions.PrettyPrinted)
         let cdata = NSString(data: jsonData, encoding: NSUTF8StringEncoding)! as String
-        // print(cdata)
+        ////print(cdata)
         /*if let dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
          let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent("datafile.txt")
          /*if let file = NSFileHandle(forWritingAtPath:"datafile.txt") {
@@ -155,11 +155,11 @@ static func doBackup() -> String?
         
         return cdata
         // let myEntities : [String] = Array(objectModel!.entitiesByName.keys)
-        // print(myEntities)
+        ////print(myEntities)
         
     }
     catch let error {
-        print("error : ", error)
+       //print("error : ", error)
     }
     return nil
 }

@@ -58,7 +58,7 @@ struct Restore
                                 
                                 //        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
                                 let dateObj = dateFormatter.dateFromString(dateString!)
-                                print(dateObj)
+                               //print(dateObj)
                                 entity.createdAt = dateObj
                                 entity.accountType = AccountTypeTable.accontType(account["accounttype"]!, inManagedObjectContext: Helper.managedObjectContext!)
                                 
@@ -282,12 +282,12 @@ struct Restore
                     return true
                     
                 } catch {
-                    print("error")
+                   //print("error")
                 }
                 
                 
             }
-            print(json)
+           //print(json)
             
             
             
@@ -308,7 +308,7 @@ struct Restore
                 try Helper.managedObjectContext!.executeRequest(deleteReqest)
                 
             } catch {
-                print(error)
+               //print(error)
                 return false
             }
             
@@ -326,7 +326,7 @@ struct Restore
                 
                 
             } catch {
-                print("error")
+               //print("error")
             }
         }
         return false
@@ -344,7 +344,7 @@ struct Restore
                 setStaticValuesFromCoreData()
                 return true
             } catch {
-                print("error")
+               //print("error")
             }
         }
         return false
@@ -355,7 +355,7 @@ struct Restore
         let request = NSFetchRequest(entityName: "Other")
         
         
-        print("setStaticValuesFromCoreData")
+       //print("setStaticValuesFromCoreData")
         
         if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
         {
@@ -386,7 +386,7 @@ struct Restore
                 
             }
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
             
             

@@ -148,7 +148,7 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
         //do it before table reload
         //change the value of section to expandable or not expandable
         Helper.expandedAndCollapsedSectionsExpense[section] = !Helper.expandedAndCollapsedSectionsExpense[section]
-        print(Helper.expandedAndCollapsedSectionsExpense[section], section)
+       //print(Helper.expandedAndCollapsedSectionsExpense[section], section)
         
         
         // Get the section
@@ -165,7 +165,7 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             let array = expenseData!.values[index]
             expenseDataForSection = array as? [ExpenseTable]
-            print(array.count)
+           //print(array.count)
             return array.count
         }
         else
@@ -309,7 +309,7 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         catch let error {
-            print("error : ", error)
+           //print("error : ", error)
         }
         
         //append array if section increase

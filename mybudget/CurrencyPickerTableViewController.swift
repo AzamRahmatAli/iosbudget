@@ -36,10 +36,10 @@ class CurrencyPickerTableViewController: UITableViewController {
         
         let pickedCurrencyCode : String? = currency!.currencies[indexPathRow].code
         /*let localeIdentifier = NSLocale.localeIdentifierFromComponents([NSLocaleCurrencyCode : pickedCurrencyCode!])
-         print(localeIdentifier)
+        //print(localeIdentifier)
          
          let locale = NSLocale(localeIdentifier: localeIdentifier)
-         print(locale)
+        //print(locale)
          let Identifier = locale.objectForKey(NSLocaleCurrencySymbol) as? String*/
         
         

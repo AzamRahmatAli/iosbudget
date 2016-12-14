@@ -62,7 +62,7 @@ class SettingTableViewController: UITableViewController {
                 
             }
             let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                print("no")
+               //print("no")
             }
             alertController.addAction(noAction)
             alertController.addAction(yesAction)
@@ -86,7 +86,7 @@ class SettingTableViewController: UITableViewController {
         else{
             lockOn.text = "OFF"
         }
-        print("Helper.passwordProtectionOn2", Helper.passwordProtectionOn)
+       //print("Helper.passwordProtectionOn2", Helper.passwordProtectionOn)
         
         currency.text = Helper.formatter.currencyCode
     }

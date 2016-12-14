@@ -93,12 +93,12 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
             expense.icon = "home"
             
             
-            print(expense)
+           //print(expense)
             
             
         }
         else{
-            print("fail insert")
+           //print("fail insert")
         }
         
         

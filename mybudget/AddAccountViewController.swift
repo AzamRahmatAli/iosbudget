@@ -40,7 +40,7 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
         
         
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-            print("OK")
+           //print("OK")
         }
         
         alertController.addAction(okAction)
@@ -315,7 +315,7 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                     entity.createdAt = accountDate
                     entity.accountType = AccountTypeTable.accontType(category.text!.trim(), inManagedObjectContext: managedObjectContext!)
                     
-                    print(entity)
+                   //print(entity)
                     
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                         kFIRParameterItemID : "add_account" as NSObject,

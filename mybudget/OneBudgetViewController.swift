@@ -30,7 +30,7 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
                 oneBudget.text = queryResult.oneBudget
             }
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
         }
         
@@ -67,7 +67,7 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
         
         
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-            print("OK")
+           //print("OK")
         }
         
         alertController.addAction(okAction)
@@ -93,7 +93,7 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
                 
             }
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
             
             
@@ -113,7 +113,7 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
             FIRAnalytics.setUserPropertyString("yes", forName: "set_one_budget")
             navigationController?.popViewControllerAnimated(true)
         } catch {
-            print("error")
+           //print("error")
         }
     }
     

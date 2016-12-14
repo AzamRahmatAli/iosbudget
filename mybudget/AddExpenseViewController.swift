@@ -54,32 +54,32 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             _ = response.products
             let validProduct: SKProduct = response.products[0] as SKProduct
             if (validProduct.productIdentifier == self.product_id) {
-                print(validProduct.localizedTitle)
-                print(validProduct.localizedDescription)
-                print(validProduct.price)
+               //print(validProduct.localizedTitle)
+               //print(validProduct.localizedDescription)
+               //print(validProduct.price)
                 buyProduct(validProduct);
             } else {
-                print(validProduct.productIdentifier)
+               //print(validProduct.productIdentifier)
             }
         } else {
-            print("nothing")
+           //print("nothing")
         }
     }
     
     
     func request(request: SKRequest, didFailWithError error: NSError) {
-        print("Error Fetching product information");
+       //print("Error Fetching product information");
         Helper.alertUser(self, title: "In-App Purchase", message: "Something went wrong. Please try later.")
     }
     
     func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])    {
-        print("Received Payment Transaction Response from Apple");
+       //print("Received Payment Transaction Response from Apple");
         
         for transaction:AnyObject in transactions {
             if let trans:SKPaymentTransaction = transaction as? SKPaymentTransaction{
                 switch trans.transactionState {
                 case .Purchased:
-                    print("Product Purchased");
+                   //print("Product Purchased");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     defaults.setBool(true , forKey: "alreadyPurchased")
                      purchased = true
@@ -93,7 +93,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     break;
                     
                 case .Failed:
-                    print("Purchased Failed");
+                   //print("Purchased Failed");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     
                     FIRAnalytics.setUserPropertyString("Failed", forName: "app_purchased")
@@ -108,7 +108,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     
                     
                 case .Restored:
-                    print("Already Purchased");
+                   //print("Already Purchased");
                     SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
                     purchased = true
                     defaults.setBool(true , forKey: "alreadyPurchased")
@@ -136,7 +136,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
     
     // Helper Method
     func buyProduct(product: SKProduct){
-        print("Sending the Payment Request to Apple");
+       //print("Sending the Payment Request to Apple");
         let payment = SKPayment(product: product)
         SKPaymentQueue.defaultQueue().addPayment(payment);
         
@@ -157,7 +157,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         if (defaults.boolForKey("alreadyPurchased")){
             
             // Hide a view or show content depends on your requirement
-            print("true")
+           //print("true")
             purchased = true
             //overlayView.hidden = true
             FIRAnalytics.setUserPropertyString("yes", forName: "app_purchased")
@@ -167,7 +167,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             SKPaymentQueue.defaultQueue().addTransactionObserver(self)
             //SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
              purchased = false
-            print("false")
+           //print("false")
             FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
             FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                 kFIRParameterItemID : "id-app_purchased" as NSObject,
@@ -465,7 +465,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     try self.managedObjectContext!.save()
                     navigationController?.popViewControllerAnimated(true)
                 } catch {
-                    print("error")
+                   //print("error")
                 }
             }
            
@@ -507,7 +507,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                 }
                 
                 
-                print(entity)
+               //print(entity)
                 do{
                     try self.managedObjectContext?.save()
                     
@@ -542,7 +542,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             
             let yesAction = UIAlertAction(title: "Purchase", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
                 FIRAnalytics.setUserPropertyString("Next", forName: "app_purchased")
-                print("About to fetch the products")
+               //print("About to fetch the products")
                 
                 // We check that we are allow to make the purchase.
                 
@@ -553,9 +553,9 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     let productsRequest:SKProductsRequest = SKProductsRequest(productIdentifiers: productID  );
                     productsRequest.delegate = self;
                     productsRequest.start();
-                    print("Fetching Products");
+                   //print("Fetching Products");
                 }else{
-                    print("can't make purchases");
+                   //print("can't make purchases");
                     Helper.alertUser(self, title: "In-App Purchase", message: "Can't make purchase. Please try later.")
                 }
                 

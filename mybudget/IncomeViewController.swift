@@ -142,7 +142,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //do it before table reload
         //change the value of section to expandable or not expandable
         Helper.expandedAndCollapsedSectionsIncome[section] = !Helper.expandedAndCollapsedSectionsIncome[section]
-        print(Helper.expandedAndCollapsedSectionsIncome[section], section)
+       //print(Helper.expandedAndCollapsedSectionsIncome[section], section)
         
         
         // Get the section
@@ -155,7 +155,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(Helper.expandedAndCollapsedSectionsIncome[section], section)
+       //print(Helper.expandedAndCollapsedSectionsIncome[section], section)
         if Helper.expandedAndCollapsedSectionsIncome[section]
         {
             let index = expenseData!.values.startIndex.advancedBy(section)
@@ -262,7 +262,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             request.predicate = NSPredicate(format: "createdAt >= %@ AND createdAt <= %@", startDate, endDate)
             
-            print(startDate ,  endDate)
+           //print(startDate ,  endDate)
             let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [IncomeTable]
             var totalAmount : Float = 0
             for element in queryResult
@@ -286,7 +286,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             incomeTotalLabel.text = totalAmount.asLocaleCurrency
         }
         catch let error {
-            print("error : ", error)
+           //print("error : ", error)
         }
         
         //append array if section increase

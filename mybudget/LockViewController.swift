@@ -21,7 +21,7 @@ class LockViewController: UIViewController , UITextFieldDelegate, MFMailComposeV
     /*override func viewDidLoad() {
      super.viewDidLoad()
      appName.text = StringFor.name["appName"]
-     print(password!)
+    //print(password!)
      // Do any additional setup after loading the view.
      }*/
     /*

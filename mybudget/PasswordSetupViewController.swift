@@ -49,7 +49,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                     
                                 }
                                 catch let error {
-                                    print("error : ", error)
+                                   //print("error : ", error)
                                 }
                                 
                                 
@@ -81,7 +81,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                     ])
                                 navigationController?.popViewControllerAnimated(true)
                             } catch {
-                                print("error")
+                               //print("error")
                             }
 
                             
@@ -119,14 +119,14 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                             Helper.passwordProtectionOn = false
                             navigationController?.popViewControllerAnimated(true)
                         } catch {
-                            print("error")
+                           //print("error")
                         }
                     }
                     
                     
                 }
                 catch let error {
-                    print("error : ", error)
+                   //print("error : ", error)
                 }
                 
                 
@@ -197,7 +197,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                 
             }
             catch let error {
-                print("error : ", error)
+               //print("error : ", error)
             }
             
             
