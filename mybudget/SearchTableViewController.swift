@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class SearchTableViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController : nil)
@@ -120,7 +121,8 @@ class SearchTableViewController: UITableViewController {
             
             
         }
-        catch let error {
+        catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
            //print("error : ", error)
         }
         

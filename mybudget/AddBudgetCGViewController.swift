@@ -122,7 +122,8 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
                 //receivedMessageFromServer()
                 
             }
-            catch{
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                 
             }
         }

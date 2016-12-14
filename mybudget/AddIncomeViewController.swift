@@ -174,7 +174,8 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
                 do {
                     try self.managedObjectContext!.save()
                     navigationController?.popViewControllerAnimated(true)
-                } catch {
+                } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                    //print("error")
                 }
             }
@@ -221,7 +222,8 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
                 //receivedMessageFromServer()
                 
             }
-            catch{
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                 
             }
             

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class AccountsViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
     
@@ -333,8 +334,8 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
         }
             
             
-        catch let error {
-           //print("error : ", error)
+        catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
         }
         
         tableView.reloadData()

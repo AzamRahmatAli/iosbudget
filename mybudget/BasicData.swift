@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import Firebase
 
 struct BasicData
 {
@@ -76,7 +76,8 @@ struct BasicData
                             //receivedMessageFromServer()
                             
                         }
-                        catch{
+                        catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                            //print("error")
                         }
                         

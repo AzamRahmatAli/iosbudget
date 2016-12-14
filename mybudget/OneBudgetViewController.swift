@@ -29,7 +29,8 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
                 
                 oneBudget.text = queryResult.oneBudget
             }
-            catch let error {
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error : ", error)
             }
         }
@@ -92,7 +93,8 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
                 queryResult.oneBudget = (oneBudget.text != "") ? oneBudget.text : "0"
                 
             }
-            catch let error {
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error : ", error)
             }
             
@@ -112,7 +114,8 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
             
             FIRAnalytics.setUserPropertyString("yes", forName: "set_one_budget")
             navigationController?.popViewControllerAnimated(true)
-        } catch {
+        } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
            //print("error")
         }
     }

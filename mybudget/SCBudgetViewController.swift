@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -69,7 +70,8 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
             }
             budgetTotalLabel.text = totalAmount.asLocaleCurrency
         }
-        catch let error {
+        catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
            //print("error : ", error)
         }
         
@@ -306,7 +308,8 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
                         try managedObjectContext!.save()
                         
                         
-                    } catch {
+                    } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                        //print("error")
                     }
                     subCategories.removeAtIndex(indexPath.row)

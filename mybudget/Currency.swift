@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Firebase
 
 struct Currency {
     
@@ -41,7 +42,8 @@ struct Currency {
                 
                 
             }
-            catch let error {
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error : ", error)
             }
             
@@ -60,7 +62,8 @@ struct Currency {
             try Helper.managedObjectContext!.save()
             
             
-        } catch {
+        } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
            //print("error")
         }
     }

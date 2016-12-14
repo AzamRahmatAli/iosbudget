@@ -272,7 +272,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
                 
                 
-            catch let error {
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error : ", error)
             }
             
@@ -309,7 +310,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
                 
                 
-            catch let error {
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error : ", error)
             }
             cell.price.text = totalIncome.asLocaleCurrency
@@ -353,14 +355,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                             totalBudget = Float(result.oneBudget ?? "0") ?? 0.0
                         }
                     }
-                    catch let error {
+                    catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                        //print("error : ", error)
                     }
                 }
             }
                 
                 
-            catch let error {
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error : ", error)
             }
             cell.price.text = totalBudget.asLocaleCurrency
@@ -414,7 +418,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
                 
                 
-            catch let error {
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error : ", error)
             }
             cell.price.text = (total - expensesInAccountsTotal + incomeInAccountsTotal).asLocaleCurrency

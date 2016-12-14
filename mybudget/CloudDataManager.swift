@@ -55,7 +55,8 @@ class CloudDataManager {
            //print("File deleted")
             return true
            
-        } catch let error as NSError {
+        } catch let nsError as NSError{
+            FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
            //print("Failed deleting files : \(error)")
         }
         //}
@@ -83,7 +84,8 @@ class CloudDataManager {
            //print("Moved to iCloud")
             
            return true
-        } catch let error as NSError {
+        } catch let nsError as NSError{
+            FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
            //print("Failed to move file to Cloud : \(error)")
         }
         
@@ -190,9 +192,8 @@ class CloudDataManager {
                 self.setLastBackupTime()
                 return moveFileToCloud(name)
             }
-            catch
-            {
-                
+            catch let nsError as NSError{
+                FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                 
                //print("Error saving to local DIR")
                 
@@ -226,7 +227,8 @@ class CloudDataManager {
        
     
     }
-    catch let error {
+    catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
    //print("error : ", error)
     }
     
@@ -244,7 +246,8 @@ class CloudDataManager {
         do {
             try Helper.managedObjectContext!.save()
             Helper.lastBackupTime = NSDate()
-        } catch {
+        } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
            //print("error")
         }
   

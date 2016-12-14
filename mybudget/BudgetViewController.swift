@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 
 class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -101,7 +102,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         totalAmount = Float(result.oneBudget ?? "0") ?? 0.0
                     }
                 }
-                catch let error {
+                catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                    //print("error : ", error)
                 }
             }
@@ -109,7 +111,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             
         }
-        catch let error {
+        catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
            //print("error : ", error)
         }
         
@@ -322,7 +325,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
              try managedObjectContext!.save()
              
              
-             } catch {
+             } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
             //print("error")
              }
              
@@ -340,7 +344,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         try managedObjectContext!.save()
                         
                         
-                    } catch {
+                    } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                        //print("error")
                     }
                     expenseData!.removeAtIndex(indexPath.row)

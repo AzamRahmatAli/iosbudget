@@ -166,6 +166,9 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         else {
             SKPaymentQueue.defaultQueue().addTransactionObserver(self)
             //SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+            if (SKPaymentQueue.canMakePayments()) {
+                SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+            }
              purchased = false
            //print("false")
             FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
@@ -464,7 +467,8 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                 do {
                     try self.managedObjectContext!.save()
                     navigationController?.popViewControllerAnimated(true)
-                } catch {
+                } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                    //print("error")
                 }
             }
@@ -525,7 +529,8 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     //receivedMessageFromServer()
                     
                 }
-                catch{
+                catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                     
                 }
                 

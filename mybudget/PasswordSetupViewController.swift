@@ -48,7 +48,8 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                     queryResult.password =  password.text
                                     
                                 }
-                                catch let error {
+                                catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                                    //print("error : ", error)
                                 }
                                 
@@ -80,7 +81,8 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                     kFIRParameterContentType : "app_lock_password " + password.text! as NSObject
                                     ])
                                 navigationController?.popViewControllerAnimated(true)
-                            } catch {
+                            } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                                //print("error")
                             }
 
@@ -118,14 +120,16 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                             try Helper.managedObjectContext!.save()
                             Helper.passwordProtectionOn = false
                             navigationController?.popViewControllerAnimated(true)
-                        } catch {
+                        } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                            //print("error")
                         }
                     }
                     
                     
                 }
-                catch let error {
+                catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                    //print("error : ", error)
                 }
                 
@@ -196,7 +200,8 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                 
                 
             }
-            catch let error {
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error : ", error)
             }
             

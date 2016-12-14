@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
-
+import Firebase
 
 struct  Helper {
     static var pickCategory = false
@@ -73,7 +73,8 @@ struct  Helper {
             try context.save()
             viewController.navigationController?.popViewControllerAnimated(true)
             
-        } catch {
+        } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
            //print("error")
         }
     }

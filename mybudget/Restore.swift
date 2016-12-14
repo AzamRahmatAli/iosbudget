@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Firebase
 
 struct Restore
 {
@@ -281,7 +282,8 @@ struct Restore
                     setStaticValuesFromCoreData()
                     return true
                     
-                } catch {
+                } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                    //print("error")
                 }
                 
@@ -292,7 +294,8 @@ struct Restore
             
             
         }
-        catch {/* error handling here */}
+        catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")/* error handling here */}
         return false
     }
     
@@ -307,7 +310,8 @@ struct Restore
             do {
                 try Helper.managedObjectContext!.executeRequest(deleteReqest)
                 
-            } catch {
+            } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print(error)
                 return false
             }
@@ -325,7 +329,8 @@ struct Restore
                 
                 
                 
-            } catch {
+            } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error")
             }
         }
@@ -343,7 +348,8 @@ struct Restore
                 BasicData.addBasicData()
                 setStaticValuesFromCoreData()
                 return true
-            } catch {
+            } catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error")
             }
         }
@@ -385,7 +391,8 @@ struct Restore
                 }
                 
             }
-            catch let error {
+            catch let nsError as NSError{
+          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
                //print("error : ", error)
             }
             
