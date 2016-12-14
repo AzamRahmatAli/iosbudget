@@ -147,7 +147,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         
         
         
-        product_id = "com.bltechapps.budget3.iap"
+        product_id = "com.bltechapps.expensemanager.iap"
         
         
         
@@ -165,7 +165,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         }
         else {
             SKPaymentQueue.defaultQueue().addTransactionObserver(self)
-            SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+            //SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
              purchased = false
             print("false")
             FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
@@ -537,10 +537,10 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             
         }
         }else{
-            let alertController = UIAlertController(title: "Thank You for using \(StringFor.name["appName"]!)", message:  "Purchase to remove limit of 10 expenses", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Thank You for using \(StringFor.name["appName"]!)", message:  "You have reached the limit of adding 10 expenses in this free version. Purchase to remove this limit forever", preferredStyle: UIAlertControllerStyle.Alert)
             
             
-            let yesAction = UIAlertAction(title: "Next", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+            let yesAction = UIAlertAction(title: "Purchase", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
                 FIRAnalytics.setUserPropertyString("Next", forName: "app_purchased")
                 print("About to fetch the products")
                 
@@ -560,8 +560,8 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                 }
                 
             }
-            let noAction = UIAlertAction(title: "Cencal", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                FIRAnalytics.setUserPropertyString("Cencal", forName: "app_purchased")
+            let noAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
+                FIRAnalytics.setUserPropertyString("Cancel", forName: "app_purchased")
             }
             alertController.addAction(noAction)
             alertController.addAction(yesAction)
