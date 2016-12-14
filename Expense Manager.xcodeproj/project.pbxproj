@@ -32,7 +32,6 @@
 		F770B5411DD33D8F00013B87 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5011DD33D8F00013B87 /* CustomCollectionViewCell.swift */; };
 		F770B5421DD33D8F00013B87 /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5021DD33D8F00013B87 /* customTableViewCell.swift */; };
 		F770B5431DD33D8F00013B87 /* datePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5031DD33D8F00013B87 /* datePickerViewController.swift */; };
-		F770B5441DD33D8F00013B87 /* EmailBackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5041DD33D8F00013B87 /* EmailBackupViewController.swift */; };
 		F770B5451DD33D8F00013B87 /* ExpenseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5051DD33D8F00013B87 /* ExpenseTable.swift */; };
 		F770B5461DD33D8F00013B87 /* ExpenseTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5061DD33D8F00013B87 /* ExpenseTable+CoreDataProperties.swift */; };
 		F770B5471DD33D8F00013B87 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F770B5071DD33D8F00013B87 /* ExpenseViewController.swift */; };
@@ -105,7 +104,6 @@
 		F770B5011DD33D8F00013B87 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		F770B5021DD33D8F00013B87 /* customTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
 		F770B5031DD33D8F00013B87 /* datePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerViewController.swift; sourceTree = "<group>"; };
-		F770B5041DD33D8F00013B87 /* EmailBackupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailBackupViewController.swift; sourceTree = "<group>"; };
 		F770B5051DD33D8F00013B87 /* ExpenseTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTable.swift; sourceTree = "<group>"; };
 		F770B5061DD33D8F00013B87 /* ExpenseTable+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExpenseTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F770B5071DD33D8F00013B87 /* ExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 				F770B4FC1DD33D8F00013B87 /* BudgetViewController.swift */,
 				F770B5001DD33D8F00013B87 /* CurrencyPickerTableViewController.swift */,
 				F770B5031DD33D8F00013B87 /* datePickerViewController.swift */,
-				F770B5041DD33D8F00013B87 /* EmailBackupViewController.swift */,
 				F770B5071DD33D8F00013B87 /* ExpenseViewController.swift */,
 				F770B50B1DD33D8F00013B87 /* IncomeViewController.swift */,
 				F770B50D1DD33D8F00013B87 /* LockViewController.swift */,
@@ -465,7 +462,6 @@
 				F770B5481DD33D8F00013B87 /* Helper.swift in Sources */,
 				F770B53A1DD33D8F00013B87 /* BasicData.swift in Sources */,
 				F770B53F1DD33D8F00013B87 /* Currency.swift in Sources */,
-				F770B5441DD33D8F00013B87 /* EmailBackupViewController.swift in Sources */,
 				F7C3B8CF1DDC4B7C00D44B3A /* MainCollectionViewCell.swift in Sources */,
 				F770B54A1DD33D8F00013B87 /* IncomeTable+CoreDataProperties.swift in Sources */,
 				F770B5571DD33D8F00013B87 /* PickIconViewController.swift in Sources */,

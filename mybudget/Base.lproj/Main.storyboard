@@ -1077,94 +1077,6 @@
             </objects>
             <point key="canvasLocation" x="618.5" y="558.5"/>
         </scene>
-        <!--Email Backup View Controller-->
-        <scene sceneID="aAg-SN-XAv">
-            <objects>
-                <viewController id="r3S-TD-ILv" customClass="EmailBackupViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DAA-Sd-G0Y"/>
-                        <viewControllerLayoutGuide type="bottom" id="jtP-Gd-sqe"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Glq-bt-xfb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xeb-Ip-XWd">
-                                <rect key="frame" x="20" y="183" width="280" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aO0-Ol-dhK">
-                                <rect key="frame" x="136" y="221" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="sendMessage" destination="r3S-TD-ILv" eventType="touchUpInside" id="cvG-O1-JVf"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To restore the data, please follow the instructions in the email." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Px-Ed-5wu">
-                                <rect key="frame" x="39" y="368" width="243" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="KX3-KD-EGH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqn-Tm-N3T">
-                                <rect key="frame" x="20" y="154" width="280" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="6Y2-Qf-ruF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get a backup of the  application data sent to you by email, enter the email and press submit." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPi-gU-cAU">
-                                <rect key="frame" x="39" y="283" width="243" height="77"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="77" id="Bvm-Qb-pDs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cPi-gU-cAU" firstAttribute="leading" secondItem="0Px-Ed-5wu" secondAttribute="leading" id="4es-VM-EM7"/>
-                            <constraint firstItem="xeb-Ip-XWd" firstAttribute="centerX" secondItem="aO0-Ol-dhK" secondAttribute="centerX" id="AZp-uX-IXl"/>
-                            <constraint firstItem="aO0-Ol-dhK" firstAttribute="top" secondItem="xeb-Ip-XWd" secondAttribute="bottom" constant="8" symbolic="YES" id="CWx-r6-3XG"/>
-                            <constraint firstItem="tqn-Tm-N3T" firstAttribute="trailing" secondItem="xeb-Ip-XWd" secondAttribute="trailing" id="UTX-Iy-3du"/>
-                            <constraint firstItem="cPi-gU-cAU" firstAttribute="centerX" secondItem="aO0-Ol-dhK" secondAttribute="centerX" id="X8R-Cd-Jx9"/>
-                            <constraint firstItem="cPi-gU-cAU" firstAttribute="trailing" secondItem="0Px-Ed-5wu" secondAttribute="trailing" id="eto-zy-mUM"/>
-                            <constraint firstItem="tqn-Tm-N3T" firstAttribute="leading" secondItem="xeb-Ip-XWd" secondAttribute="leading" id="psS-dH-BmW"/>
-                            <constraint firstItem="tqn-Tm-N3T" firstAttribute="centerX" secondItem="Glq-bt-xfb" secondAttribute="centerX" id="rkb-fs-8EP"/>
-                            <constraint firstItem="tqn-Tm-N3T" firstAttribute="leading" secondItem="Glq-bt-xfb" secondAttribute="leadingMargin" constant="4" id="s8F-dJ-gbe"/>
-                            <constraint firstItem="cPi-gU-cAU" firstAttribute="top" secondItem="aO0-Ol-dhK" secondAttribute="bottom" constant="32" id="tE6-de-Jia"/>
-                            <constraint firstItem="xeb-Ip-XWd" firstAttribute="top" secondItem="tqn-Tm-N3T" secondAttribute="bottom" constant="8" symbolic="YES" id="tef-6A-GDR"/>
-                            <constraint firstItem="tqn-Tm-N3T" firstAttribute="top" secondItem="DAA-Sd-G0Y" secondAttribute="bottom" constant="90" id="ttO-tp-nWG"/>
-                            <constraint firstItem="cPi-gU-cAU" firstAttribute="leading" secondItem="Glq-bt-xfb" secondAttribute="leadingMargin" constant="23" id="uwt-mz-cgH"/>
-                            <constraint firstItem="0Px-Ed-5wu" firstAttribute="top" secondItem="cPi-gU-cAU" secondAttribute="bottom" constant="8" symbolic="YES" id="zul-H6-uJK"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="R0c-oH-WDf">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="aCn-Uf-XmT">
-                            <connections>
-                                <action selector="cancel:" destination="r3S-TD-ILv" id="fUP-MV-2Ql"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="email" destination="xeb-Ip-XWd" id="wQx-LG-5VG"/>
-                        <outlet property="hideMeLabel" destination="0Px-Ed-5wu" id="PAX-Ta-Mb1"/>
-                        <outlet property="responseLabel" destination="cPi-gU-cAU" id="kKR-ph-Yl2"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SRU-UU-gTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2119" y="1739"/>
-        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="skh-3g-b8q">
             <objects>
@@ -3196,25 +3108,6 @@
             </objects>
             <point key="canvasLocation" x="1392" y="1026"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="iVT-U3-ck7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yU4-Zl-uua" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X8O-jA-psR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="r3S-TD-ILv" kind="relationship" relationship="rootViewController" id="get-wQ-nYx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Txg-Nj-XPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2097" y="1727"/>
-        </scene>
         <!--Backup Restore View Controller-->
         <scene sceneID="cxQ-yj-2JN">
             <objects>
@@ -3294,94 +3187,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymU-Hy-VRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-62" y="504"/>
-        </scene>
-        <!--Backup/Restore-->
-        <scene sceneID="hRk-rv-1hY">
-            <objects>
-                <viewController id="iJj-Ph-B8a" customClass="BackupRestoreViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="U63-ID-e3W"/>
-                        <viewControllerLayoutGuide type="bottom" id="49R-kF-smG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="yNu-Gf-NcV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rij-jr-19L">
-                                <rect key="frame" x="16" y="196" width="288" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXI-qt-624">
-                                <rect key="frame" x="228" y="269" width="76" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="2Ii-1y-tMF"/>
-                                </constraints>
-                                <state key="normal" title="Restore">
-                                    <color key="titleColor" red="0.14901960780000001" green="0.59215686270000001" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="RestoreBackupFile:" destination="iJj-Ph-B8a" eventType="touchDragInside" id="FCV-eT-p0K"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKi-Tc-7lh">
-                                <rect key="frame" x="18" y="269" width="76" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="SGn-9y-sFf"/>
-                                </constraints>
-                                <state key="normal" title="Bacup">
-                                    <color key="titleColor" red="0.14901960780000001" green="0.59215686270000001" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="sendMessage" destination="iJj-Ph-B8a" eventType="touchUpInside" id="fCy-b3-Z7S"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="rij-jr-19L" firstAttribute="trailing" secondItem="ZXI-qt-624" secondAttribute="trailing" id="ErE-xh-a9o"/>
-                            <constraint firstItem="rij-jr-19L" firstAttribute="leading" secondItem="yNu-Gf-NcV" secondAttribute="leadingMargin" id="IBF-86-p0c"/>
-                            <constraint firstItem="wKi-Tc-7lh" firstAttribute="centerY" secondItem="yNu-Gf-NcV" secondAttribute="centerY" id="QdC-gg-NIO"/>
-                            <constraint firstItem="wKi-Tc-7lh" firstAttribute="baseline" secondItem="ZXI-qt-624" secondAttribute="baseline" id="WPm-jh-h9Q"/>
-                            <constraint firstItem="wKi-Tc-7lh" firstAttribute="top" secondItem="rij-jr-19L" secondAttribute="bottom" constant="73" id="XY0-Sp-QCl"/>
-                            <constraint firstItem="rij-jr-19L" firstAttribute="centerX" secondItem="yNu-Gf-NcV" secondAttribute="centerX" id="auH-Gq-in6"/>
-                            <constraint firstItem="wKi-Tc-7lh" firstAttribute="leading" secondItem="yNu-Gf-NcV" secondAttribute="leadingMargin" constant="2" id="g9f-xa-80d"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Backup/Restore" id="CSR-gT-kXI"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="backup" destination="wKi-Tc-7lh" id="ldD-QO-0jq"/>
-                        <outlet property="backupFile" destination="rij-jr-19L" id="15w-gm-eN1"/>
-                        <outlet property="restore" destination="ZXI-qt-624" id="lLm-hu-Web"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2mQ-wc-s4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="233" y="453"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n0D-hs-96D">
@@ -3622,7 +3427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yrp-ia-3q6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594" y="-57"/>
+            <point key="canvasLocation" x="608" y="-69"/>
         </scene>
     </scenes>
     <resources>
