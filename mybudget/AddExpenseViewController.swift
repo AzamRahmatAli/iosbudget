@@ -164,10 +164,11 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             
         }
         else {
-            SKPaymentQueue.defaultQueue().addTransactionObserver(self)
-            //SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+            if Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) >= 9 {
             if (SKPaymentQueue.canMakePayments()) {
-                SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
+            SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+            
+            }
             }
              purchased = false
            //print("false")
@@ -623,7 +624,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         
         
     }
-    
+  
     func receivedMessageFromServer() {
         NSNotificationCenter.defaultCenter().postNotificationName("ReceivedData", object: nil)
     }
