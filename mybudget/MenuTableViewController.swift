@@ -32,6 +32,7 @@ class MenuTableViewController: UITableViewController {
     @IBOutlet weak var percentage: UILabel!
     var ExpenceAsPercentage : CGFloat = 0
     
+    @IBOutlet weak var meterView: UIView!
   
     
     
@@ -42,6 +43,14 @@ class MenuTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.view.frame.size.height == 480
+        {
+            percentageText.hidden = true
+            meterView.hidden = true
+        }
+        
+        
         switchColor(1)
         appName.text = StringFor.name["appName"]!
         

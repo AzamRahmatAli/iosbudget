@@ -40,7 +40,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
     var imageView : UIImageView!
     var product_id: String?
     let defaults = NSUserDefaults.standardUserDefaults()
-    var purchased = false
+    
     // Unlock Content. This is button action which will initialize purchase
     
   
@@ -82,7 +82,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                    //print("Product Purchased");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     defaults.setBool(true , forKey: "alreadyPurchased")
-                     purchased = true
+                    
                    FIRAnalytics.setUserPropertyString("Purchased", forName: "app_purchased")
                     
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
@@ -110,12 +110,10 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                 case .Restored:
                    //print("Already Purchased");
                     SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
-                    purchased = true
-                    defaults.setBool(true , forKey: "alreadyPurchased")
                     
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
+                    
                     defaults.setBool(true , forKey: "alreadyPurchased")
-                    purchased = true
                     
                     FIRAnalytics.setUserPropertyString("restored", forName: "app_purchased")
                     
@@ -154,29 +152,24 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         //Check if product is purchased
         
         
-        if (defaults.boolForKey("alreadyPurchased")){
-            
-            // Hide a view or show content depends on your requirement
-           //print("true")
-            purchased = true
-            //overlayView.hidden = true
-            FIRAnalytics.setUserPropertyString("yes", forName: "app_purchased")
-            
-        }
-        else {
+        guard (defaults.boolForKey("alreadyPurchased"))
+          else {
             if Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) >= 9 {
             if (SKPaymentQueue.canMakePayments()) {
             SKPaymentQueue.defaultQueue().addTransactionObserver(self)
             
             }
+                
+                //print("false")
+                FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
+                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                    kFIRParameterItemID : "id-app_purchased" as NSObject,
+                    kFIRParameterContentType: "app_purchased not" as NSObject
+                    ])
             }
-             purchased = false
-           //print("false")
-            FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
-            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                kFIRParameterItemID : "id-app_purchased" as NSObject,
-                kFIRParameterContentType: "not" as NSObject
-                ])
+            
+            return
+          
         }
 
         
@@ -476,7 +469,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
            
         }
             
-        else if  purchased  || Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) < 10
+        else if  defaults.boolForKey("alreadyPurchased")  || Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) < 10
         {
             if let entity = NSEntityDescription.insertNewObjectForEntityForName("ExpenseTable", inManagedObjectContext: managedObjectContext!) as? ExpenseTable
             
