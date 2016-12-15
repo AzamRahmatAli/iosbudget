@@ -236,9 +236,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! MainCollectionViewCell
         //cell.img.image = images[indexPath.row ]
         cell.name.text = ctgNames[indexPath.row]
-        
+
         cell.price.text = ""
         cell.name2.text = ""
+
+        if self.view.frame.size.height == 480
+        {
+            
+            cell.price.font = cell.price.font.fontWithSize(8)
+            cell.name2.font = cell.name2.font.fontWithSize(9)
+            cell.name.font = cell.name.font.fontWithSize(9)
+        }
+
         var request = NSFetchRequest(entityName: "ExpenseTable")
         
         
@@ -481,9 +490,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.contentView.backgroundColor = color
             
         }
-
-        
-        //cell.img?.tintColor = Helper.colors[indexPath.row % 5]
+                   //cell.img?.tintColor = Helper.colors[indexPath.row % 5]
         return cell
     }
     

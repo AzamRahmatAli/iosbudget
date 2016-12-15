@@ -151,28 +151,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         
         //Check if product is purchased
         
-        
-        guard (defaults.boolForKey("alreadyPurchased"))
-          else {
-            if Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) >= 9 {
-            if (SKPaymentQueue.canMakePayments()) {
-            SKPaymentQueue.defaultQueue().addTransactionObserver(self)
-            
-            }
-                
-                //print("false")
-                FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
-                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                    kFIRParameterItemID : "id-app_purchased" as NSObject,
-                    kFIRParameterContentType: "app_purchased not" as NSObject
-                    ])
-            }
-            
-            return
-          
-        }
-
-        
+     
         
         
         category.delegate = self
@@ -214,6 +193,27 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         }
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddExpenseViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        
+        guard (defaults.boolForKey("alreadyPurchased"))
+            else {
+                if Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) >= 9 {
+                    if (SKPaymentQueue.canMakePayments()) {
+                        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+                        
+                    }
+                    
+                    //print("false")
+                    FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
+                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                        kFIRParameterItemID : "id-app_purchased" as NSObject,
+                        kFIRParameterContentType: "app_purchased not" as NSObject
+                        ])
+                }
+                
+                return
+                
+        }
         
         
     }
