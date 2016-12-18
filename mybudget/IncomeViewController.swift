@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Firebase
 
 class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -286,7 +285,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             incomeTotalLabel.text = totalAmount.asLocaleCurrency
         }
         catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
            //print("error : ", error)
         }
         

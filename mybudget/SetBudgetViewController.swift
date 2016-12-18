@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Firebase
 
 class SetBudgetViewController: UIViewController , UITextFieldDelegate{
 
@@ -111,7 +110,7 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
             
         }
         catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
             
         }*/
         
@@ -132,7 +131,7 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
                 // ... Update additional properties with new values
             
         } catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
             // Do something in response to error condition
         }
         
@@ -140,7 +139,7 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
             try self.managedObjectContext!.save()
             navigationController?.popViewControllerAnimated(true)
         } catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
             // Do something in response to error condition
         }
     }

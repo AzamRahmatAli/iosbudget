@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Firebase
 
 class QuickSummaryViewController: UIViewController {
 
@@ -159,7 +158,7 @@ class QuickSummaryViewController: UIViewController {
             
         }
         catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
            //print("error : ", error)
         }
         
@@ -193,7 +192,7 @@ class QuickSummaryViewController: UIViewController {
             
         }
         catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
            //print("error : ", error)
         }
         

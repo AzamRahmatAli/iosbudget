@@ -203,7 +203,7 @@ class BackupRestoreViewController: UITableViewController {
                 
             }
             catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
                //print("error : ", error)
             }
             
@@ -230,7 +230,7 @@ class BackupRestoreViewController: UITableViewController {
                 ])
             
         } catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
            //print("error")
         }
     }
@@ -380,7 +380,7 @@ class BackupRestoreViewController: UITableViewController {
                 self.tableView.reloadData()
             }
             catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
                 
             }
         } else {
@@ -418,7 +418,7 @@ class BackupRestoreViewController: UITableViewController {
                     do {
                         try filemanager.startDownloadingUbiquitousItemAtURL(file)
                     } catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
                        //print("Error while loading Backup File \(error)")
                     }
                 }

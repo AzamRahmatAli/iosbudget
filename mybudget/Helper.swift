@@ -68,6 +68,19 @@ struct  Helper {
         return dateFormatter.stringFromDate(date)
         
     }
+    static func fireBaseSetUserProperty(error : NSError)
+    {
+        if error.localizedDescription.characters.count > 35
+        {
+        let indexa = error.localizedDescription.startIndex
+        let indexb = error.localizedDescription.startIndex.advancedBy(35)
+      FIRAnalytics.setUserPropertyString(error.localizedDescription[indexa...indexb], forName: "catch_error_description")
+        }
+        else
+        {
+           FIRAnalytics.setUserPropertyString(error.localizedDescription, forName: "catch_error_description")
+        }
+    }
     static func saveChanges(context : NSManagedObjectContext, viewController : UIViewController)
     {
         do {
@@ -75,7 +88,7 @@ struct  Helper {
             viewController.navigationController?.popViewControllerAnimated(true)
             
         } catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
            //print("error")
         }
     }

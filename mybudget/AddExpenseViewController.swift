@@ -467,7 +467,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     try self.managedObjectContext!.save()
                     navigationController?.popViewControllerAnimated(true)
                 } catch let nsError as NSError{
-                    FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+                    Helper.fireBaseSetUserProperty(nsError)
                     //print("error")
                 }
             }
@@ -529,7 +529,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                         
                     }
                     catch let nsError as NSError{
-                        FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+                        Helper.fireBaseSetUserProperty(nsError)
                         
                     }
                     

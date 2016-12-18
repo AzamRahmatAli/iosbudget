@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 import Firebase
-
 class CurrencyPickerTableViewController: UITableViewController {
     
     var currency : CurrencyDataSource?

@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import Firebase
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -282,7 +281,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
                //print("error : ", error)
             }
             
@@ -320,7 +319,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
                //print("error : ", error)
             }
             cell.price.text = totalIncome.asLocaleCurrency
@@ -365,7 +364,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         }
                     }
                     catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
                        //print("error : ", error)
                     }
                 }
@@ -373,7 +372,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
                //print("error : ", error)
             }
             cell.price.text = totalBudget.asLocaleCurrency
@@ -428,7 +427,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
                //print("error : ", error)
             }
             cell.price.text = (total - expensesInAccountsTotal + incomeInAccountsTotal).asLocaleCurrency

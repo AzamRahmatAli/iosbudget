@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-import Firebase
 
 struct Backup
 {
@@ -151,7 +150,7 @@ static func doBackup() -> String?
          
          }
          catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")/* error handling here */}
+          Helper.fireBaseSetUserProperty(nsError)/* error handling here */}
          }*/
         
         return cdata
@@ -160,7 +159,7 @@ static func doBackup() -> String?
         
     }
     catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
        //print("error : ", error)
     }
     return nil

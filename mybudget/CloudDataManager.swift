@@ -14,7 +14,8 @@ import Firebase
 class CloudDataManager {
     static var backupNowName : String
     {
-        return String(NSDate()).componentsSeparatedByString(" ").first! + "-backup.txt"
+        let date = String(NSDate())
+        return date[date.startIndex...date.startIndex.advancedBy(9)] + "-backup.txt"
     }
     static let sharedInstance = CloudDataManager() // Singleton
     
@@ -56,7 +57,8 @@ class CloudDataManager {
             return true
            
         } catch let nsError as NSError{
-            FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+            Helper.fireBaseSetUserProperty(nsError)
+            //Helper.fireBaseSetUserProperty(nsError)
            //print("Failed deleting files : \(error)")
         }
         //}
@@ -85,7 +87,7 @@ class CloudDataManager {
             
            return true
         } catch let nsError as NSError{
-            FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+            Helper.fireBaseSetUserProperty(nsError)
            //print("Failed to move file to Cloud : \(error)")
         }
         
@@ -193,7 +195,7 @@ class CloudDataManager {
                 return moveFileToCloud(name)
             }
             catch let nsError as NSError{
-                FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+                Helper.fireBaseSetUserProperty(nsError)
                 
                //print("Error saving to local DIR")
                 
@@ -228,7 +230,7 @@ class CloudDataManager {
     
     }
     catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
    //print("error : ", error)
     }
     
@@ -247,7 +249,7 @@ class CloudDataManager {
             try Helper.managedObjectContext!.save()
             Helper.lastBackupTime = NSDate()
         } catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+          Helper.fireBaseSetUserProperty(nsError)
            //print("error")
         }
   
