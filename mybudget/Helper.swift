@@ -18,6 +18,7 @@ struct  Helper {
     static var lockActivated = false
     static var passwordProtectionOn = false
     static var password = ""
+    static var passwordHint = ""
     static let formatter = NSNumberFormatter()
    
     static var pickedSubCaregory : SubCategoryTable?

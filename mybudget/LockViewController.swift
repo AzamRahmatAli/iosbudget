@@ -34,23 +34,15 @@ class LockViewController: UIViewController , UITextFieldDelegate, MFMailComposeV
     
     @IBAction func sendEmailButtonTapped(sender: AnyObject) {
         
-        self.showSendMailErrorAlert()
+        showPasswordHint()
         
     }
     
     
-    func showSendMailErrorAlert() {
-        let alertController = UIAlertController(title: "Password Hint", message:  "Your password hint is \"\(Helper.password)\" ", preferredStyle: UIAlertControllerStyle.Alert)
+    func showPasswordHint() {
         
         
-        let yesAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-            Restore.fullReset()
-            
-            
-        }
-        
-        alertController.addAction(yesAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+       Helper.alertUser(self, title: "Password Hint", message: "Your password hint is \"\(Helper.passwordHint)\" ")
         
     }
     

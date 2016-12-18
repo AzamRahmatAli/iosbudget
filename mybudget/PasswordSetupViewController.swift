@@ -68,7 +68,7 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                 try Helper.managedObjectContext!.save()
                                 Helper.passwordProtectionOn = true
                                 Helper.password = password.text!
-                                
+                                Helper.passwordHint = passwordHint.text!
                                 FIRAnalytics.setUserPropertyString(Helper.passwordProtectionOn ?  "on" : "off", forName: "lock_status")
                                 
                                 FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [

@@ -374,6 +374,7 @@ struct Restore
                 {
                     Helper.passwordProtectionOn = Bool(isLockOn)
                     Helper.password = queryResult.password ?? ""
+                    Helper.passwordHint = queryResult.passwordHint ?? ""
                     
                 }
                 if let currencyCode = queryResult.currencyCode

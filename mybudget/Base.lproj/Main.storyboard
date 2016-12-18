@@ -2060,15 +2060,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expence Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpF-d3-7w5">
-                                <rect key="frame" x="20" y="72" width="280" height="13"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="13" id="8c9-xJ-kgA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jno-aQ-Juw">
                                 <rect key="frame" x="20" y="93" width="280" height="13"/>
                                 <constraints>
@@ -2087,6 +2078,15 @@
                                     <action selector="changeDatePicker:" destination="Fbh-7Y-0n5" eventType="valueChanged" id="Trx-Nu-ATo"/>
                                 </connections>
                             </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpF-d3-7w5">
+                                <rect key="frame" x="20" y="72" width="280" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="8c9-xJ-kgA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2823,7 +2823,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajl-dh-Dod" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="619" y="1361"/>
+            <point key="canvasLocation" x="614" y="1322"/>
         </scene>
         <!--Password Lock-->
         <scene sceneID="LkK-R5-dmi">
@@ -3077,7 +3077,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Back Up Now" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WLS-dh-fvR">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Back up now" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WLS-dh-fvR">
                                             <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -3397,16 +3397,16 @@
         <image name="prevMonth" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="juH-CN-12F"/>
         <segue reference="IVx-tJ-cid"/>
-        <segue reference="jge-zi-JaC"/>
         <segue reference="fEM-OY-Hyi"/>
         <segue reference="xeI-fx-maV"/>
         <segue reference="Vax-Si-0IU"/>
+        <segue reference="juH-CN-12F"/>
         <segue reference="hsH-l5-Qe9"/>
+        <segue reference="rxT-Kq-Ui6"/>
         <segue reference="JIA-nG-xpd"/>
         <segue reference="oy1-0M-y6T"/>
         <segue reference="uHg-lh-ava"/>
-        <segue reference="rxT-Kq-Ui6"/>
+        <segue reference="d19-hV-0Hs"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -43,7 +43,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
     
     // Unlock Content. This is button action which will initialize purchase
     
-  
+    
     
     //Delegate Methods for IAP
     
@@ -54,36 +54,36 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             _ = response.products
             let validProduct: SKProduct = response.products[0] as SKProduct
             if (validProduct.productIdentifier == self.product_id) {
-               //print(validProduct.localizedTitle)
-               //print(validProduct.localizedDescription)
-               //print(validProduct.price)
+                //print(validProduct.localizedTitle)
+                //print(validProduct.localizedDescription)
+                //print(validProduct.price)
                 buyProduct(validProduct);
             } else {
-               //print(validProduct.productIdentifier)
+                //print(validProduct.productIdentifier)
             }
         } else {
-           //print("nothing")
+            //print("nothing")
         }
     }
     
     
     func request(request: SKRequest, didFailWithError error: NSError) {
-       //print("Error Fetching product information");
+        //print("Error Fetching product information");
         Helper.alertUser(self, title: "In-App Purchase", message: "Something went wrong. Please try later.")
     }
     
     func paymentQueue(queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction])    {
-       //print("Received Payment Transaction Response from Apple");
+        //print("Received Payment Transaction Response from Apple");
         
         for transaction:AnyObject in transactions {
             if let trans:SKPaymentTransaction = transaction as? SKPaymentTransaction{
                 switch trans.transactionState {
                 case .Purchased:
-                   //print("Product Purchased");
+                    //print("Product Purchased");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     defaults.setBool(true , forKey: "alreadyPurchased")
                     
-                   FIRAnalytics.setUserPropertyString("Purchased", forName: "app_purchased")
+                    FIRAnalytics.setUserPropertyString("Purchased", forName: "app_purchased")
                     
                     FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
                         kFIRParameterItemID : "id-app_purchased" as NSObject,
@@ -93,7 +93,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     break;
                     
                 case .Failed:
-                   //print("Purchased Failed");
+                    //print("Purchased Failed");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     
                     FIRAnalytics.setUserPropertyString("Failed", forName: "app_purchased")
@@ -108,7 +108,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     
                     
                 case .Restored:
-                   //print("Already Purchased");
+                    //print("Already Purchased");
                     SKPaymentQueue.defaultQueue().restoreCompletedTransactions()
                     
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
@@ -134,7 +134,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
     
     // Helper Method
     func buyProduct(product: SKProduct){
-       //print("Sending the Payment Request to Apple");
+        //print("Sending the Payment Request to Apple");
         let payment = SKPayment(product: product)
         SKPaymentQueue.defaultQueue().addPayment(payment);
         
@@ -142,8 +142,14 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Helper.performUIUpdatesOnMain{
+            self.viewLoad()
+        }
         
-        
+    }
+    
+    func viewLoad()
+    {
         
         product_id = "com.bltechapps.expensemanager.iap"
         
@@ -151,7 +157,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         
         //Check if product is purchased
         
-     
+        
         
         
         category.delegate = self
@@ -215,7 +221,6 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                 
         }
         
-        
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
@@ -268,7 +273,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
     }
     
     
-
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -371,7 +376,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
             }
             actionSheetControllerIOS8.addAction(cancelActionButton)
             
-           
+            
         }
     }
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
@@ -381,7 +386,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
     {
         scrollV.hidden = true
     }
-
+    
     
     @IBAction func addReciept(sender: UITapGestureRecognizer) {
         //Create the AlertController and add Its action like button in Actionsheet
@@ -416,7 +421,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
     }
     
     
-  
+    
     
     @IBAction func Cancel(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
@@ -462,86 +467,86 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     try self.managedObjectContext!.save()
                     navigationController?.popViewControllerAnimated(true)
                 } catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
-                   //print("error")
+                    FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+                    //print("error")
                 }
             }
-           
+            
         }
             
         else if  defaults.boolForKey("alreadyPurchased")  || Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) < 10
         {
             if let entity = NSEntityDescription.insertNewObjectForEntityForName("ExpenseTable", inManagedObjectContext: managedObjectContext!) as? ExpenseTable
-            
-            
-        {
-            
-            if category.text?.trim() != ""
+                
+                
             {
                 
-                /*if amount.text != ""
-                 {
-                 }else{
-                 missing.text = "Enter Amount"
-                 }*/
-                entity.subCategory = Helper.pickedSubCaregory
-                entity.amount =  (amount.text != "") ? amount.text : "0"
-                
-                entity.createdAt = dateValue
-                
-                if imagePicked
+                if category.text?.trim() != ""
                 {
-                    let image = self.ResizeImage(reciept.image!, targetSize: CGSizeMake(500.0, 500.0))
-                    entity.reciept = UIImageJPEGRepresentation(image, 1.0)//back by UIImage(data: imageData)
-                    imagePicked = false
-                }
-                entity.note = note.text?.trim()
-                //var accountName = ""
-                if let account = Helper.pickedAccountData
-                {
-                    entity.account = account
-                    //accountName = account.name!
-                    Helper.pickedAccountData = nil
-                }
-                
-                
-               //print(entity)
-                do{
-                    try self.managedObjectContext?.save()
                     
-                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "add_expense" as NSObject,
-                        kFIRParameterContentType : "added_expense" as NSObject
-                        ])
+                    /*if amount.text != ""
+                     {
+                     }else{
+                     missing.text = "Enter Amount"
+                     }*/
+                    entity.subCategory = Helper.pickedSubCaregory
+                    entity.amount =  (amount.text != "") ? amount.text : "0"
+                    
+                    entity.createdAt = dateValue
+                    
+                    if imagePicked
+                    {
+                        let image = self.ResizeImage(reciept.image!, targetSize: CGSizeMake(500.0, 500.0))
+                        entity.reciept = UIImageJPEGRepresentation(image, 1.0)//back by UIImage(data: imageData)
+                        imagePicked = false
+                    }
+                    entity.note = note.text?.trim()
+                    //var accountName = ""
+                    if let account = Helper.pickedAccountData
+                    {
+                        entity.account = account
+                        //accountName = account.name!
+                        Helper.pickedAccountData = nil
+                    }
+                    
+                    
+                    //print(entity)
+                    do{
+                        try self.managedObjectContext?.save()
+                        
+                        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                            kFIRParameterItemID : "add_expense" as NSObject,
+                            kFIRParameterContentType : "added_expense" as NSObject
+                            ])
                         
                         /*
-                        kFIRParameterValue : amount.text! as NSObject,
-                        kFIRParameterItemCategory: Helper.pickedSubCaregory!.name! + " > "  + Helper.pickedSubCaregory!.category!.name!  + " account "  + accountName as NSObject,
+                         kFIRParameterValue : amount.text! as NSObject,
+                         kFIRParameterItemCategory: Helper.pickedSubCaregory!.name! + " > "  + Helper.pickedSubCaregory!.category!.name!  + " account "  + accountName as NSObject,
+                         
+                         ])*/
+                        navigationController?.popViewControllerAnimated(true)
+                        //receivedMessageFromServer()
                         
-                        ])*/
-                    navigationController?.popViewControllerAnimated(true)
-                    //receivedMessageFromServer()
+                    }
+                    catch let nsError as NSError{
+                        FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
+                        
+                    }
                     
                 }
-                catch let nsError as NSError{
-          FIRAnalytics.setUserPropertyString(nsError.localizedDescription, forName: "catch_error_description")
-                    
+                else{
+                    missing.text = "Select category"
                 }
                 
+                
             }
-            else{
-                missing.text = "Select category"
-            }
-            
-            
-        }
         }else{
             let alertController = UIAlertController(title: "Thank You for using \(StringFor.name["appName"]!)", message:  "You have reached the limit of adding 10 expenses in this free version. Purchase to remove this limit forever", preferredStyle: UIAlertControllerStyle.Alert)
             
             
             let yesAction = UIAlertAction(title: "Purchase", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
                 FIRAnalytics.setUserPropertyString("Next", forName: "app_purchased")
-               //print("About to fetch the products")
+                //print("About to fetch the products")
                 
                 // We check that we are allow to make the purchase.
                 
@@ -552,9 +557,9 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     let productsRequest:SKProductsRequest = SKProductsRequest(productIdentifiers: productID  );
                     productsRequest.delegate = self;
                     productsRequest.start();
-                   //print("Fetching Products");
+                    //print("Fetching Products");
                 }else{
-                   //print("can't make purchases");
+                    //print("can't make purchases");
                     Helper.alertUser(self, title: "In-App Purchase", message: "Can't make purchase. Please try later.")
                 }
                 
@@ -617,7 +622,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         
         
     }
-  
+    
     func receivedMessageFromServer() {
         NSNotificationCenter.defaultCenter().postNotificationName("ReceivedData", object: nil)
     }
