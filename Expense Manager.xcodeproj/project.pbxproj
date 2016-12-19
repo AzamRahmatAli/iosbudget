@@ -542,7 +542,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "075dd64c-8e00-4132-a2ad-f8d53ead95ca";
+				PROVISIONING_PROFILE = "4c70219f-a68e-4635-9479-be0f8a99a5ea";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -582,7 +582,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "075dd64c-8e00-4132-a2ad-f8d53ead95ca";
+				PROVISIONING_PROFILE = "4c70219f-a68e-4635-9479-be0f8a99a5ea";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -606,7 +606,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bltechapps.expensemanager;
 				PRODUCT_NAME = "Expense Manager";
-				PROVISIONING_PROFILE = "075dd64c-8e00-4132-a2ad-f8d53ead95ca";
+				PROVISIONING_PROFILE = "4c70219f-a68e-4635-9479-be0f8a99a5ea";
 				SWIFT_OBJC_BRIDGING_HEADER = "mybudget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -630,7 +630,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bltechapps.expensemanager;
 				PRODUCT_NAME = "Expense Manager";
-				PROVISIONING_PROFILE = "075dd64c-8e00-4132-a2ad-f8d53ead95ca";
+				PROVISIONING_PROFILE = "4c70219f-a68e-4635-9479-be0f8a99a5ea";
 				SWIFT_OBJC_BRIDGING_HEADER = "mybudget-Bridging-Header.h";
 			};
 			name = Release;

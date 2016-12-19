@@ -62,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             kFIRParameterContentType : "open_app" as NSObject
             ])
         
+        CloudDataManager.checkAndDownloadBackupFile()
         return true
     }
     

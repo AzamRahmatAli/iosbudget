@@ -24,10 +24,16 @@ struct Restore
         //if let dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
         let path = dir.URLByAppendingPathComponent(fileName)
         do {
+            //print(fileName)
             let data = NSData(contentsOfURL : path) as NSData!
+            //print(String(data : data, encoding:  NSUTF8StringEncoding))
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
             if let dic = json as? [String : AnyObject]
             {
+                guard Restore.clearCoreDataStore()
+                else{
+                    return false
+                }
                 if let accountTypes = dic["AccountTypeTable"]
                 {
                     if let names = accountTypes as? [String]

@@ -11,9 +11,9 @@ import CoreData
 import Firebase
 
 class BackupRestoreViewController: UITableViewController {
-   
     
-   
+    
+    
     
     
     var backupFiles : [String] = []
@@ -27,46 +27,40 @@ class BackupRestoreViewController: UITableViewController {
         
         
         let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-           
+            
             FIRAnalytics.setUserPropertyString("not-complete", forName: "backup_restore")
-            if self.checkAndDownloadBackupFile(fileName)
-            {
+            
                 
-                if Restore.clearCoreDataStore()
+                if Restore.restoreBackup(fileName)
                 {
-                    if Restore.restoreBackup(fileName)
-                    {
+                    
+                    Helper.alertUser(self, title: "", message: "Backup restored successfully")
+                    
+                    
+                    
+                    FIRAnalytics.setUserPropertyString("yes", forName: "backup_restore")
+                    
+                    
+                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                        kFIRParameterItemID : "backup_restored" as NSObject,
+                        kFIRParameterContentType : "backup_restored"  as NSObject
                         
-                        Helper.alertUser(self, title: "", message: "Backup restored successfully")
-                        
-                        
-                        
-                        FIRAnalytics.setUserPropertyString("yes", forName: "backup_restore")
-                        
-                        
-                        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                            kFIRParameterItemID : "backup_restored" as NSObject,
-                            kFIRParameterContentType : "backup_restored"  as NSObject
-                            
-                            ])
-                        
-                        
-                        self.tableView.reloadData()
-                    }
-                    else{
-                        Helper.alertUser(self, title: "", message: "Backup failed to restore, please try later")
-                    }
+                        ])
+                    
+                    
+                    self.tableView.reloadData()
                 }
                 else{
                     Helper.alertUser(self, title: "", message: "Backup failed to restore, please try later")
                 }
                 
-            }
+                
+            
             
             
         }
         let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-           //print("no")
+            //print("no")
         }
         alertController.addAction(noAction)
         alertController.addAction(yesAction)
@@ -143,12 +137,12 @@ class BackupRestoreViewController: UITableViewController {
         switch section
         {
         case 0:
-            if let date = Helper.lastBackupTime  where   CloudDataManager.isCloudEnabled() 
+            if let date = Helper.lastBackupTime  where   CloudDataManager.isCloudEnabled()
             {
-            return "Last backup: " + NSDate.timeAgoSinceDate(date, numericDates: false)
+                return "Last backup: " + NSDate.timeAgoSinceDate(date, numericDates: false)
             }
             return ""
-        
+            
         default:
             return ""
         }
@@ -203,8 +197,8 @@ class BackupRestoreViewController: UITableViewController {
                 
             }
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
             
             
@@ -214,8 +208,8 @@ class BackupRestoreViewController: UITableViewController {
         else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
         {
             
-             entity.backupFrequency = frequency.rawValue
-             entity.backupTime = NSDate()
+            entity.backupFrequency = frequency.rawValue
+            entity.backupTime = NSDate()
             
         }
         do {
@@ -230,11 +224,11 @@ class BackupRestoreViewController: UITableViewController {
                 ])
             
         } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error")
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error")
         }
     }
-
+    
     func autoBackupAction()
     {
         let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "", message: "Auto Backup", preferredStyle: .ActionSheet)
@@ -285,47 +279,47 @@ class BackupRestoreViewController: UITableViewController {
         
         if CloudDataManager.isCloudEnabled()
         {
-        if(indexPath.section == 1)
-        {
-            self.action(backupFiles[indexPath.row])
-        }
-        else if(indexPath.row == 0)
-        {
-            FIRAnalytics.setUserPropertyString("not-complete", forName: "manual_backup")
-            
-            let name = CloudDataManager.backupNowName
-            if let value = CloudDataManager.backupNow(name)
+            if(indexPath.section == 1)
             {
-               if !value
-               {
-                Helper.alertUser(self, title: "", message: "Backup failed, please try later")
-                FIRAnalytics.setUserPropertyString("fail", forName: "manual_backup")
+                self.action(backupFiles[indexPath.row])
+            }
+            else if(indexPath.row == 0)
+            {
+                FIRAnalytics.setUserPropertyString("not-complete", forName: "manual_backup")
+                
+                let name = CloudDataManager.backupNowName
+                if let value = CloudDataManager.backupNow(name)
+                {
+                    if !value
+                    {
+                        Helper.alertUser(self, title: "", message: "Backup failed, please try later")
+                        FIRAnalytics.setUserPropertyString("fail", forName: "manual_backup")
+                    }
+                    else
+                    {
+                        Helper.alertUser(self, title: "", message: "Backup complete")
+                        loadFiles()
+                        FIRAnalytics.setUserPropertyString("yes", forName: "manual_backup")
+                        
+                        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+                            kFIRParameterItemID : "id-backup_now" as NSObject,
+                            kFIRParameterContentType : "backup_now complete" as NSObject,
+                            
+                            ])
+                        
+                        
+                    }
                 }
-                else
-               {
-                Helper.alertUser(self, title: "", message: "Backup complete")
-                loadFiles()
-                FIRAnalytics.setUserPropertyString("yes", forName: "manual_backup")
                 
-                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                    kFIRParameterItemID : "id-backup_now" as NSObject,
-                    kFIRParameterContentType : "backup_now complete" as NSObject,
-                    
-                    ])
+            }
+            else  if(indexPath.row == 1)
+            {
                 
-                
-                }
+                autoBackupAction()
             }
             
         }
-        else  if(indexPath.row == 1)
-        {
             
-            autoBackupAction()
-            }
-            
-        }
-        
         else{
             Helper.alertUser(self, title: "", message: "You need to be signed into iCloud and have \"iCloud Drive\" set to ON. To chnge your settings, go to iPhone Setting > iCloud")
         }
@@ -333,12 +327,12 @@ class BackupRestoreViewController: UITableViewController {
     
     
     
-
-   
     
- 
     
-  
+    
+    
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         if !CloudDataManager.isCloudEnabled()
@@ -348,7 +342,7 @@ class BackupRestoreViewController: UITableViewController {
     }
     
     
-
+    
     
     
     func loadFiles()
@@ -365,8 +359,9 @@ class BackupRestoreViewController: UITableViewController {
                 
                 
                 for s in fileList {
-                   //print(s)
-                    if String(s).rangeOfString("-backup.txt") != nil
+                     let str = String(s)
+                   
+                    if str.rangeOfString("-backup.txt") != nil && str.rangeOfString("-backup.txt.icloud") == nil
                     {
                         
                         backupFiles.insert(s.asFileName, atIndex: 0)//append(s.asFileName)
@@ -380,7 +375,7 @@ class BackupRestoreViewController: UITableViewController {
                 self.tableView.reloadData()
             }
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
+                Helper.fireBaseSetUserProperty(nsError)
                 
             }
         } else {
@@ -393,6 +388,7 @@ class BackupRestoreViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        CloudDataManager.checkAndDownloadBackupFile()
         self.title = "Backup/Restore"
         loadFiles()
         
@@ -402,34 +398,7 @@ class BackupRestoreViewController: UITableViewController {
     
     
     
-    func checkAndDownloadBackupFile(name : String) -> Bool{
-        let iCloudDocumentsURL = CloudDataManager.DocumentsDirectory.iCloudDocumentsURL
-        if(iCloudDocumentsURL != nil){
-            let file = iCloudDocumentsURL!.URLByAppendingPathComponent(name)
-            let filemanager = NSFileManager.defaultManager();
-            
-            if !filemanager.fileExistsAtPath(file.path!){
-                
-                if filemanager.isUbiquitousItemAtURL(file) {
-                    
-                    Helper.alertUser(self, title: "", message: "iCloud is currently busy syncing the backup files. Please try again in a few minutes")
-                    
-                    
-                    do {
-                        try filemanager.startDownloadingUbiquitousItemAtURL(file)
-                    } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                       //print("Error while loading Backup File \(error)")
-                    }
-                }
-                return false
-            } else{
-                return true
-            }
-        }
-        return true
-    }
-    
+        
     
     
 }
@@ -437,10 +406,11 @@ class BackupRestoreViewController: UITableViewController {
 extension NSURL
 {
     var asFileName:String {
-        let indexa = String(self).endIndex.advancedBy(-21)
-        let indexb = String(self).endIndex
-        
-        return String(self)[indexa..<indexb]
+        /*let indexa = String(self).endIndex.advancedBy(-21)
+         let indexb = String(self).endIndex
+         
+         return String(self)[indexa..<indexb]*/
+        return self.lastPathComponent!
     }
 }
 extension String
@@ -450,6 +420,7 @@ extension String
         let indexb = String(self).endIndex.advancedBy(-12)
         
         return String(self)[indexa...indexb]
+        
     }
 }
 
@@ -499,7 +470,7 @@ extension String
  {
  
  
-//print("Error saving to local DIR")
+ //print("Error saving to local DIR")
  
  }
  
@@ -515,7 +486,7 @@ extension String
  }
  catch let error as NSError
  {
-//print(error.localizedDescription);
+ //print(error.localizedDescription);
  }
  }
  do{
@@ -528,7 +499,7 @@ extension String
  }
  catch let error as NSError
  {
-//print(error.localizedDescription);
+ //print(error.localizedDescription);
  }
  
  
@@ -558,8 +529,8 @@ extension String
  // To do in a background thread
  
  func getDocumentDiretoryURL() -> NSURL {
-//print(DocumentsDirectory.iCloudDocumentsURL)
-//print(DocumentsDirectory.localDocumentsURL)
+ //print(DocumentsDirectory.iCloudDocumentsURL)
+ //print(DocumentsDirectory.localDocumentsURL)
  return DocumentsDirectory.localDocumentsURL!//DocumentsDirectory.iCloudDocumentsURL!
  
  }
@@ -580,9 +551,9 @@ extension String
  
  do {
  try fileManager.removeItemAtURL(url!.URLByAppendingPathComponent(file))
-//print("Files deleted")
+ //print("Files deleted")
  } catch let error as NSError {
-//print("Failed deleting files : \(error)")
+ //print("Failed deleting files : \(error)")
  }
  }
  }
@@ -602,9 +573,9 @@ extension String
  try fileManager.setUbiquitous(true,
  itemAtURL: DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(file),
  destinationURL: DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(file))
-//print("Moved to iCloud")
+ //print("Moved to iCloud")
  } catch let error as NSError {
-//print("Failed to move file to Cloud : \(error)")
+ //print("Failed to move file to Cloud : \(error)")
  }
  }
  }
@@ -625,9 +596,9 @@ extension String
  try fileManager.setUbiquitous(false,
  itemAtURL: DocumentsDirectory.iCloudDocumentsURL!.URLByAppendingPathComponent(file),
  destinationURL: DocumentsDirectory.localDocumentsURL!.URLByAppendingPathComponent(file))
-//print("Moved to local dir")
+ //print("Moved to local dir")
  } catch let error as NSError {
-//print("Failed to move file to local dir : \(error)")
+ //print("Failed to move file to local dir : \(error)")
  }
  }
  }
