@@ -17,7 +17,7 @@ struct Currency {
     init?(code: String?) {
         if let code = code,
             displayName = NSLocale.currentLocale().displayNameForKey(NSLocaleCurrencyCode, value:code) {
-           
+            
             self.code = code
             self.displayName = displayName
         } else {
@@ -28,7 +28,7 @@ struct Currency {
     static func saveCurrencyCodeAndSymbol()
     {
         let request = NSFetchRequest(entityName: "Other")
-       
+        
         
         if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
         {
@@ -43,8 +43,8 @@ struct Currency {
                 
             }
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
             
             
@@ -63,11 +63,11 @@ struct Currency {
             
             
         } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error")
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error")
         }
     }
-
+    
 }
 
 struct CurrencyDataSource {

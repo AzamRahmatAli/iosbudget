@@ -10,8 +10,8 @@ import UIKit
 import CoreData
 
 class QuickSummaryViewController: UIViewController {
-
-
+    
+    
     var timePeriod : [String] = []
     var incomeTotal : [Float] = []
     var expenseTotal : [Float] = []
@@ -24,31 +24,31 @@ class QuickSummaryViewController: UIViewController {
         {
             Helper.addMenuButton(self)
         }
-
-       for index in 0...3
-            {
-                expenseTotal.append(getExpenses(index))
-                incomeTotal.append(getIncome(index))
-                timePeriod.append(getDateSting(index))
-                
+        
+        for index in 0...3
+        {
+            expenseTotal.append(getExpenses(index))
+            incomeTotal.append(getIncome(index))
+            timePeriod.append(getDateSting(index))
+            
         }
     }
     
     func dismis()
     {
         self.dismissViewControllerAnimated(true, completion: nil)
-    
+        
     }
- 
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-            return timePeriod.count
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return timePeriod.count
     }
     
     func getDatesOfRange(index : Int) -> (startDate : NSDate, endDate : NSDate)
     {
-       
+        
         if index == 0
         {
             return NSDate().getDatesOfRange(.Day)
@@ -62,8 +62,8 @@ class QuickSummaryViewController: UIViewController {
         else if index == 2
         {
             return NSDate().getDatesOfRange(.Month)
-           
-          
+            
+            
         }
         else if index == 3
         {
@@ -132,7 +132,7 @@ class QuickSummaryViewController: UIViewController {
     }
     func getIncome(index : Int) -> Float
     {
-     
+        
         var income : Float = 0.0
         
         let (startDate, endDate) = getDatesOfRange(index)
@@ -158,13 +158,13 @@ class QuickSummaryViewController: UIViewController {
             
         }
         catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error : ", error)
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error : ", error)
         }
         
         
         return income
-
+        
     }
     
     func getExpenses(index : Int) -> Float
@@ -192,24 +192,24 @@ class QuickSummaryViewController: UIViewController {
             
         }
         catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error : ", error)
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error : ", error)
         }
         
         
         return expenses
         
     }
-
+    
     
     override func viewWillAppear(animated: Bool) {
         if addMenu
         {
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
     
-        
+    
 }
 
 

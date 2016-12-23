@@ -9,7 +9,7 @@
 import UIKit
 
 class TableSectionHeader: UITableViewHeaderFooterView {
-
+    
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var catg: UILabel!
     @IBOutlet weak var price: UILabel!
@@ -20,11 +20,11 @@ class TableSectionHeader: UITableViewHeaderFooterView {
     
     
     /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+     // Only override drawRect: if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func drawRect(rect: CGRect) {
+     // Drawing code
+     }
+     */
+    
 }

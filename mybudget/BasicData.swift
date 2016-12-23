@@ -76,14 +76,14 @@ struct BasicData
                             
                         }
                         catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                           //print("error")
+                            Helper.fireBaseSetUserProperty(nsError)
+                            //print("error")
                         }
                         
                         
                     }
                     else{
-                       //print("fail insert")
+                        //print("fail insert")
                     }
                     
                 }

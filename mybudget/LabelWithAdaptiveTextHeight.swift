@@ -61,5 +61,5 @@ class LabelWithAdaptiveTextHeight: UILabel {
             }
         }
         return font.fontWithSize(fontSizeAverage)
-}
+    }
 }

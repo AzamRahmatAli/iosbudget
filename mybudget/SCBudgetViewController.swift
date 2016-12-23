@@ -70,8 +70,8 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
             budgetTotalLabel.text = totalAmount.asLocaleCurrency
         }
         catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error : ", error)
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error : ", error)
         }
         
         tableView.reloadData()
@@ -82,7 +82,7 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-       //print(subCategories.count)
+        //print(subCategories.count)
         return subCategories.count
         
     }
@@ -95,9 +95,9 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
         let expenseArray = subCategories[row].expense?.allObjects as? [ExpenseTable]
         let filteredExpenses : [ExpenseTable]? = expenseArray!.filter{ expense in
             let (startDate , endDate) =  NSDate().getDatesOfRange(.Month)
-        
+            
             return  expense.createdAt!.compare(startDate) == .OrderedDescending && expense.createdAt!.compare(endDate) == .OrderedAscending
-           
+            
             
         }
         if let expenses = filteredExpenses
@@ -136,9 +136,9 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     /*func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        return 48.0
-    }*/
+     
+     return 48.0
+     }*/
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -308,8 +308,8 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
                         
                         
                     } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                       //print("error")
+                        Helper.fireBaseSetUserProperty(nsError)
+                        //print("error")
                     }
                     subCategories.removeAtIndex(indexPath.row)
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -321,7 +321,7 @@ class SCBudgetViewController: UIViewController, UITableViewDelegate, UITableView
                     
                     
                     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                       //print("OK")
+                        //print("OK")
                     }
                     
                     alertController.addAction(okAction)

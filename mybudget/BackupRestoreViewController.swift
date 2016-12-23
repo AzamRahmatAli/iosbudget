@@ -30,28 +30,28 @@ class BackupRestoreViewController: UITableViewController {
             
             FIRAnalytics.setUserPropertyString("not-complete", forName: "backup_restore")
             
+            
+            if Restore.restoreBackup(fileName)
+            {
                 
-                if Restore.restoreBackup(fileName)
-                {
-                    
-                    Helper.alertUser(self, title: "", message: "Backup restored successfully")
-                    
-                    
-                    
-                    FIRAnalytics.setUserPropertyString("yes", forName: "backup_restore")
-                    
-                    Helper.FIRAnalyticsLogEvent("backup_restored", value: "backup_restored")
-                   
-                   
-                    
-                    
-                    self.tableView.reloadData()
-                }
-                else{
-                    Helper.alertUser(self, title: "", message: "Backup failed to restore, please try later")
-                }
+                Helper.alertUser(self, title: "", message: "Backup restored successfully")
                 
                 
+                
+                FIRAnalytics.setUserPropertyString("yes", forName: "backup_restore")
+                
+                Helper.FIRAnalyticsLogEvent("backup_restored", value: "backup_restored")
+                
+                
+                
+                
+                self.tableView.reloadData()
+            }
+            else{
+                Helper.alertUser(self, title: "", message: "Backup failed to restore, please try later")
+            }
+            
+            
             
             
             
@@ -352,8 +352,8 @@ class BackupRestoreViewController: UITableViewController {
                 
                 
                 for s in fileList {
-                     let str = String(s)
-                   
+                    let str = String(s)
+                    
                     if str.rangeOfString("-backup.txt") != nil && str.rangeOfString("-backup.txt.icloud") == nil
                     {
                         
@@ -391,7 +391,7 @@ class BackupRestoreViewController: UITableViewController {
     
     
     
-        
+    
     
     
 }

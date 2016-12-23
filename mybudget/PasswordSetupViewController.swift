@@ -30,60 +30,60 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                         error.text = "Hint required"
                     }
                     else{
-                       
+                        
+                        
+                        let request = NSFetchRequest(entityName: "Other")
+                        
+                        
+                        
+                        if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
+                        {
                             
-                            let request = NSFetchRequest(entityName: "Other")
-                            
-                            
-                            
-                            if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
-                            {
-                                
-                                do{
-                                    
-                                    
-                                    let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
-                                    queryResult.lockOn = NSNumber(bool: lockSwitch.on)
-                                    queryResult.passwordHint = passwordHint.text //using for hint
-                                    queryResult.password =  password.text
-                                    
-                                }
-                                catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                                   //print("error : ", error)
-                                }
+                            do{
                                 
                                 
+                                let queryResult = try Helper.managedObjectContext?.executeFetchRequest(request).first as! Other
+                                queryResult.lockOn = NSNumber(bool: lockSwitch.on)
+                                queryResult.passwordHint = passwordHint.text //using for hint
+                                queryResult.password =  password.text
                                 
                             }
-                                
-                            else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
-                            {
-                                entity.lockOn = NSNumber(bool: lockSwitch.on)
-                                entity.passwordHint =  passwordHint.text  //if else condition //using for hint
-                                entity.password =  password.text
-                                
+                            catch let nsError as NSError{
+                                Helper.fireBaseSetUserProperty(nsError)
+                                //print("error : ", error)
                             }
-                            do {
-                                try Helper.managedObjectContext!.save()
-                                Helper.passwordProtectionOn = true
-                                Helper.password = password.text!
-                                Helper.passwordHint = passwordHint.text!
-                                FIRAnalytics.setUserPropertyString(Helper.passwordProtectionOn ?  "on" : "off", forName: "lock_status")
-                                
-                                
-                                Helper.FIRAnalyticsLogEvent("app_lock_enabled", value: "app_lock_enabled")
-                                
-                                
-                                
-                                navigationController?.popViewControllerAnimated(true)
-                            } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                               //print("error")
-                            }
-
                             
-                          
+                            
+                            
+                        }
+                            
+                        else if let entity = NSEntityDescription.insertNewObjectForEntityForName("Other", inManagedObjectContext: Helper.managedObjectContext!) as? Other
+                        {
+                            entity.lockOn = NSNumber(bool: lockSwitch.on)
+                            entity.passwordHint =  passwordHint.text  //if else condition //using for hint
+                            entity.password =  password.text
+                            
+                        }
+                        do {
+                            try Helper.managedObjectContext!.save()
+                            Helper.passwordProtectionOn = true
+                            Helper.password = password.text!
+                            Helper.passwordHint = passwordHint.text!
+                            FIRAnalytics.setUserPropertyString(Helper.passwordProtectionOn ?  "on" : "off", forName: "lock_status")
+                            
+                            
+                            Helper.FIRAnalyticsLogEvent("app_lock_enabled", value: "app_lock_enabled")
+                            
+                            
+                            
+                            navigationController?.popViewControllerAnimated(true)
+                        } catch let nsError as NSError{
+                            Helper.fireBaseSetUserProperty(nsError)
+                            //print("error")
+                        }
+                        
+                        
+                        
                     }
                 }else{
                     error.text = "Confirm password does not match"
@@ -117,16 +117,16 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                             Helper.passwordProtectionOn = false
                             navigationController?.popViewControllerAnimated(true)
                         } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                           //print("error")
+                            Helper.fireBaseSetUserProperty(nsError)
+                            //print("error")
                         }
                     }
                     
                     
                 }
                 catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                   //print("error : ", error)
+                    Helper.fireBaseSetUserProperty(nsError)
+                    //print("error : ", error)
                 }
                 
                 
@@ -136,9 +136,9 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
         }
     }
     /*func validateEmail(candidate: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluateWithObject(candidate)
-    }*/
+     let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+     return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluateWithObject(candidate)
+     }*/
     override func viewDidLoad() {
         super.viewDidLoad()
         password.delegate  = self
@@ -197,8 +197,8 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                 
             }
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
             
             

@@ -9,12 +9,12 @@
 import UIKit
 
 class MainCollectionViewCell: UICollectionViewCell {
-   
+    
     
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var name: UILabel!
-
+    
     @IBOutlet weak var name2: UILabel!
     
 }

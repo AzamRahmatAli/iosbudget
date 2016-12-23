@@ -28,7 +28,7 @@ class ParentTableViewCell: UITableViewCell{
     
     @IBOutlet weak var rightDown: UILabel!
     @IBOutlet weak var rightUp: UILabel!
-
+    
     @IBOutlet weak var img: UIImageView!
     
     

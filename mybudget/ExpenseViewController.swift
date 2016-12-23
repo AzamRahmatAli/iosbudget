@@ -114,7 +114,7 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if  Helper.expandedAndCollapsedSectionsExpense[section]
         {
-           // header.image.image = UIImage(named: "arrowDown")
+            // header.image.image = UIImage(named: "arrowDown")
             header.separator.hidden = true
         }
         else{
@@ -148,7 +148,7 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
         //do it before table reload
         //change the value of section to expandable or not expandable
         Helper.expandedAndCollapsedSectionsExpense[section] = !Helper.expandedAndCollapsedSectionsExpense[section]
-       //print(Helper.expandedAndCollapsedSectionsExpense[section], section)
+        //print(Helper.expandedAndCollapsedSectionsExpense[section], section)
         
         
         // Get the section
@@ -165,7 +165,7 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             let array = expenseData!.values[index]
             expenseDataForSection = array as? [ExpenseTable]
-           //print(array.count)
+            //print(array.count)
             return array.count
         }
         else
@@ -309,8 +309,8 @@ class ExpenseViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         }
         catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error : ", error)
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error : ", error)
         }
         
         //append array if section increase

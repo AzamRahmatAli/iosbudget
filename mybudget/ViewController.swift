@@ -12,26 +12,26 @@ import CoreData
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
-        
+    
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-   
+    
     @IBOutlet weak var currentMonth: UILabel!
     @IBOutlet weak var navTitle: UILabel!
     
     
     
     
- 
+    
     let ctgNames : [String] = ["Expenses","Income", "Budget", "Accounts", "Currency", "Transfer", "Quick", "Search"]
     
     var expensesInAccountsTotal : Float = 0.0
     var incomeInAccountsTotal : Float = 0.0
     var totalExpenses : Float = 0.0
         {
-            willSet
-            {
-                Helper.totalExpenses = newValue
+        willSet
+        {
+            Helper.totalExpenses = newValue
         }
     }
     var totalIncome : Float = 0.0
@@ -45,7 +45,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         {
         willSet
         {
-        Helper.totalBudget = newValue
+            Helper.totalBudget = newValue
         }
     }
     var ExpenceAsPercentage : CGFloat = 0.0
@@ -68,7 +68,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // Callback:
     func applicationDidBecomeActiveNotification() {
         // Handle application will resign notification event.
-       //print("active")
+        //print("active")
         
     }
     override func viewDidDisappear(animated: Bool) {
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         formatter.numberStyle = .CurrencyStyle
         
         formatter.locale = NSLocale.currentLocale()
-       //print(formatter.currencyCode, formatter.currencySymbol)
+        //print(formatter.currencyCode, formatter.currencySymbol)
         
         
         navTitle.text = StringFor.name["appName"]!
@@ -111,7 +111,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         currentMonth.text = dateFormatter.stringFromDate(NSDate())
         
         
-
+        
         
         /*menuButton.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside)
          
@@ -127,7 +127,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
      }
      */
     @IBOutlet weak var collectionView: UICollectionView!
- 
+    
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
@@ -170,7 +170,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     
-  
+    
     /*
      
      func collectionView(collectionView : UICollectionView,layout collectionViewLayout:UICollectionViewLayout,sizeForItemAtIndexPath indexPath:NSIndexPath) -> CGSize
@@ -235,18 +235,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! MainCollectionViewCell
         //cell.img.image = images[indexPath.row ]
         cell.name.text = ctgNames[indexPath.row]
-
+        
         cell.price.text = ""
         cell.name2.text = ""
-
+        
         /*if self.view.frame.size.height == 480
-        {
-            
-            cell.price.font = cell.price.font.fontWithSize(8)
-            cell.name2.font = cell.name2.font.fontWithSize(9)
-            cell.name.font = cell.name.font.fontWithSize(9)
-        }*/
-
+         {
+         
+         cell.price.font = cell.price.font.fontWithSize(8)
+         cell.name2.font = cell.name2.font.fontWithSize(9)
+         cell.name.font = cell.name.font.fontWithSize(9)
+         }*/
+        
         var request = NSFetchRequest(entityName: "ExpenseTable")
         
         
@@ -281,8 +281,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
             
             cell.price.text = totalExpenses.asLocaleCurrency
@@ -319,8 +319,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
             cell.price.text = totalIncome.asLocaleCurrency
             
@@ -364,16 +364,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         }
                     }
                     catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                       //print("error : ", error)
+                        Helper.fireBaseSetUserProperty(nsError)
+                        //print("error : ", error)
                     }
                 }
             }
                 
                 
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
             cell.price.text = totalBudget.asLocaleCurrency
             
@@ -427,8 +427,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
                 
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
             cell.price.text = (total - expensesInAccountsTotal + incomeInAccountsTotal).asLocaleCurrency
             
@@ -447,7 +447,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             
             
-             cell.name2.text = "Transactions"
+            cell.name2.text = "Transactions"
             let color = UIColor(red: 206/255, green: 193/255, blue: 99/255, alpha: 1)
             //cell.price.textColor = color
             cell.img.image = UIImage(named: "search")
@@ -459,7 +459,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         else if indexPath.row == 6
         {
             
-        
+            
             cell.name2.text = "Summary"
             let color = UIColor(red: 0/255, green: 113/255, blue: 139/255, alpha: 1)
             //cell.price.textColor = color
@@ -480,7 +480,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
         }else if indexPath.row == 4
         {
-           
+            
             cell.name2.text = Helper.formatter.currencyCode
             let color = UIColor(red: 136/255, green:78/255, blue: 160/255, alpha: 1)
             //cell.price.textColor = color
@@ -489,7 +489,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             cell.contentView.backgroundColor = color
             
         }
-                   //cell.img?.tintColor = Helper.colors[indexPath.row % 5]
+        //cell.img?.tintColor = Helper.colors[indexPath.row % 5]
         return cell
     }
     

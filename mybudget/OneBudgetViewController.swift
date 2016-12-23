@@ -30,8 +30,8 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
                 oneBudget.text = queryResult.oneBudget
             }
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
         }
         
@@ -68,7 +68,7 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
         
         
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-           //print("OK")
+            //print("OK")
         }
         
         alertController.addAction(okAction)
@@ -94,8 +94,8 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
                 
             }
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
             
             
@@ -115,8 +115,8 @@ class OneBudgetViewController: UIViewController , UITextFieldDelegate{
             FIRAnalytics.setUserPropertyString("yes", forName: "set_one_budget")
             navigationController?.popViewControllerAnimated(true)
         } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error")
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error")
         }
     }
     

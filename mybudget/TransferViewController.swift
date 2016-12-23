@@ -12,7 +12,7 @@ import Firebase
 
 class TransferViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var date: UITextField!
-
+    
     @IBOutlet weak var doThisBefore: UILabel!
     @IBOutlet weak var amount: UITextField!
     @IBOutlet weak var toAccount: UITextField!
@@ -45,7 +45,7 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
- 
+    
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         // Constants.Picker.chooseSubCategory = true
         if textField == date
@@ -61,10 +61,10 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
             return true
         }
         else if textField  ==    fromAccount
-
+            
         {
             from = true
-             Helper.pickAccount = true
+            Helper.pickAccount = true
             self.performSegueWithIdentifier("pickAccount", sender: nil)
             
         }
@@ -73,7 +73,7 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
             to = true
             Helper.pickAccount = true
             self.performSegueWithIdentifier("pickAccount", sender: nil)
-           
+            
         }
         return false
     }
@@ -108,64 +108,64 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
         view.endEditing(true) //hide keyboard to show msg
         if Float(amount.text ?? "0") ?? 0 > 0
         {
-        if AccountFrom != nil && Accountto != nil{
-             if AccountFrom != Accountto
-             {
-        if let entity = NSEntityDescription.insertNewObjectForEntityForName("TransferTable", inManagedObjectContext: Helper.managedObjectContext!) as? TransferTable
-        {
-            
-            
-            entity.transferAt = transferDate
-            entity.amount = (amount.text != "") ? amount.text : "0"
-            //entity.account = account.text
-          
-            
-            if let account = AccountFrom
-            {
-            entity.fromAccount = account
+            if AccountFrom != nil && Accountto != nil{
+                if AccountFrom != Accountto
+                {
+                    if let entity = NSEntityDescription.insertNewObjectForEntityForName("TransferTable", inManagedObjectContext: Helper.managedObjectContext!) as? TransferTable
+                    {
+                        
+                        
+                        entity.transferAt = transferDate
+                        entity.amount = (amount.text != "") ? amount.text : "0"
+                        //entity.account = account.text
+                        
+                        
+                        if let account = AccountFrom
+                        {
+                            entity.fromAccount = account
+                        }
+                        if let account = Accountto
+                        {
+                            entity.toAccount = account
+                        }
+                        
+                        //print(expense)
+                        do{
+                            try Helper.managedObjectContext?.save()
+                            
+                            Helper.FIRAnalyticsLogEvent("transfer_account", value: "transfered account")
+                            
+                            /*
+                             kFIRParameterValue : amount.text! as NSObject,
+                             kFIRParameterItemCategory: "from " + AccountFrom!.name! + " to " + Accountto!.name! as NSObject,
+                             ])*/
+                            navigationController?.popViewControllerAnimated(true)
+                            //receivedMessageFromServer()
+                            
+                        }
+                        catch let nsError as NSError{
+                            Helper.fireBaseSetUserProperty(nsError)
+                            
+                        }
+                        
+                    }
+                }
+                else{
+                    doThisBefore.text = "From and To accounts are same"
+                }
             }
-            if let account = Accountto
-            {
-            entity.toAccount = account
+            else{
+                doThisBefore.text = "Select account"
             }
-            
-            //print(expense)
-            do{
-                try Helper.managedObjectContext?.save()
-                
-                 Helper.FIRAnalyticsLogEvent("transfer_account", value: "transfered account")
-                
-                    /*
-                    kFIRParameterValue : amount.text! as NSObject,
-                    kFIRParameterItemCategory: "from " + AccountFrom!.name! + " to " + Accountto!.name! as NSObject,
-                    ])*/
-                navigationController?.popViewControllerAnimated(true)
-                //receivedMessageFromServer()
-                
-            }
-            catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                
-            }
-            
-        }
-            }
-             else{
-                doThisBefore.text = "From and To accounts are same"
-            }
-        }
-        else{
-            doThisBefore.text = "Select account"
-        }
         }else{
             doThisBefore.text = "Amount cannot be 0"
         }
-       
         
-        }
+        
+    }
     override func viewWillAppear(animated: Bool) {
         
-       
+        
         
         if from
         {
@@ -191,7 +191,7 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
                 Accountto = account
                 Helper.pickedAccountData = nil
             }
-           to = false
+            to = false
             
         }
             
@@ -202,19 +202,19 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
             
             
         }
- 
+        
         date.text = Helper.getFormattedDate(transferDate)
         
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

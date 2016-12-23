@@ -16,38 +16,38 @@ class CurrencyPickerTableViewController: UITableViewController, UISearchResultsU
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         //currency = CurrencyDataSource().currencies
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-            searchController.searchResultsUpdater = self
-            //searchController.hidesNavigationBarDuringPresentation = false
-            searchController.dimsBackgroundDuringPresentation = false
-            searchController.searchBar.sizeToFit()
-            self.tableView.tableHeaderView = searchController.searchBar
+        searchController.searchResultsUpdater = self
+        //searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.sizeToFit()
+        self.tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
         
         
-        }
+    }
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let lowerCaseText = searchController.searchBar.text!.lowercaseString
         if lowerCaseText != ""
         {
             currencies = currencies.filter{ currency in
-            
-        
-            
-            
-            return (
-                currency.displayName.lowercaseString.containsString(lowerCaseText) ||
-                currency.code.lowercaseString.containsString(lowerCaseText)
                 
-            )
-            
-        }
+                
+                
+                
+                return (
+                    currency.displayName.lowercaseString.containsString(lowerCaseText) ||
+                        currency.code.lowercaseString.containsString(lowerCaseText)
+                    
+                )
+                
+            }
         }
         else{
             currencies = CurrencyDataSource().currencies
@@ -61,7 +61,7 @@ class CurrencyPickerTableViewController: UITableViewController, UISearchResultsU
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-   
+    
     // MARK: - Table view data source
     
     /*override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -11,8 +11,8 @@ import CoreData
 
 
 class AccountTable: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
+    
+    // Insert code here to add functionality to your managed object subclass
     class func account(name : String , type : String, inManagedObjectContext context: NSManagedObjectContext) -> AccountTable?
         
     {

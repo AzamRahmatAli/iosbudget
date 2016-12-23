@@ -116,7 +116,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             header.separator.hidden = true
         }
         else{
-           // header.image.image = UIImage(named: "arrowRight")
+            // header.image.image = UIImage(named: "arrowRight")
             header.separator.hidden = false
         }
         header.headerCellSection = section
@@ -141,26 +141,26 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //do it before table reload
         //change the value of section to expandable or not expandable
         Helper.expandedAndCollapsedSectionsIncome[section] = !Helper.expandedAndCollapsedSectionsIncome[section]
-       //print(Helper.expandedAndCollapsedSectionsIncome[section], section)
+        //print(Helper.expandedAndCollapsedSectionsIncome[section], section)
         
         
         // Get the section
         sectionTapped  = section
         
-     
+        
         
     }
     
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       //print(Helper.expandedAndCollapsedSectionsIncome[section], section)
+        //print(Helper.expandedAndCollapsedSectionsIncome[section], section)
         if Helper.expandedAndCollapsedSectionsIncome[section]
         {
             let index = expenseData!.values.startIndex.advancedBy(section)
             
             let array = expenseData!.values[index]
-           
+            
             
             return array.count
         }
@@ -183,7 +183,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     
-
+    
     
     
     
@@ -224,7 +224,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let dvc = segue.destinationViewController as! AddIncomeViewController
             let index = expenseData!.values.startIndex.advancedBy(indexPath.section)
             
-           
+            
             dvc.incomeData = expenseData!.values[index][indexPath.row]
             dvc.updateIncome = true
             
@@ -242,7 +242,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func updateMonthlyExpenseView(incomeMonthDate : NSDate)
     {
-     
+        
         let dayTimePeriodFormatter = NSDateFormatter()
         dayTimePeriodFormatter.dateFormat = "MMM YYYY"
         
@@ -261,7 +261,7 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             request.predicate = NSPredicate(format: "createdAt >= %@ AND createdAt <= %@", startDate, endDate)
             
-           //print(startDate ,  endDate)
+            //print(startDate ,  endDate)
             let queryResult = try managedObjectContext?.executeFetchRequest(request) as! [IncomeTable]
             var totalAmount : Float = 0
             for element in queryResult
@@ -285,22 +285,22 @@ class IncomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             incomeTotalLabel.text = totalAmount.asLocaleCurrency
         }
         catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error : ", error)
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error : ", error)
         }
         
         //append array if section increase
         if Helper.expandedAndCollapsedSectionsIncome.count < expenseData!.count
         {
             let newSections = expenseData!.count - Helper.expandedAndCollapsedSectionsIncome.count
-           
             
-                //to make first section expanded at launch
+            
+            //to make first section expanded at launch
             if Helper.expandedAndCollapsedSectionsIncome.count == 0
             {
                 Helper.expandedAndCollapsedSectionsIncome.append(true)
             }
-        
+            
             // expandedAndCollapsedSectionsIncome array can be greater then sections
             Helper.expandedAndCollapsedSectionsIncome += [Bool](count: newSections, repeatedValue: false)
             

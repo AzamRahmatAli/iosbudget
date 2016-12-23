@@ -102,8 +102,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
                 }
                 catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                   //print("error : ", error)
+                    Helper.fireBaseSetUserProperty(nsError)
+                    //print("error : ", error)
                 }
             }
             budgetTotalLabel.text = totalAmount.asLocaleCurrency
@@ -111,8 +111,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
         catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error : ", error)
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error : ", error)
         }
         
         tableView.reloadData()
@@ -157,7 +157,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     
                 }
                 if let expenses = filteredExpenses
-                
+                    
                 {
                     for expense in expenses
                     {
@@ -325,8 +325,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
              
              
              } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-            //print("error")
+             Helper.fireBaseSetUserProperty(nsError)
+             //print("error")
              }
              
              expenseData!.removeAtIndex(indexPath.row)
@@ -344,8 +344,8 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         
                         
                     } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                       //print("error")
+                        Helper.fireBaseSetUserProperty(nsError)
+                        //print("error")
                     }
                     expenseData!.removeAtIndex(indexPath.row)
                     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -355,7 +355,7 @@ class BudgetViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     
                     
                     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-                       //print("OK")
+                        //print("OK")
                     }
                     
                     alertController.addAction(okAction)

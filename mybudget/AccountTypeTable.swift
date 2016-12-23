@@ -11,8 +11,8 @@ import CoreData
 
 
 class AccountTypeTable: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
+    
+    // Insert code here to add functionality to your managed object subclass
     
     class func accontType(accountType : String, inManagedObjectContext context: NSManagedObjectContext) -> AccountTypeTable?
         
@@ -33,5 +33,5 @@ class AccountTypeTable: NSManagedObject {
         
         return nil
     }
-
+    
 }

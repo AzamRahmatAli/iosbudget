@@ -54,7 +54,7 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
         return true
     }
     
-
+    
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
@@ -116,16 +116,16 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField  == amount
         {
-        let aSet = NSCharacterSet(charactersInString:"0123456789.").invertedSet
-        let compSepByCharInSet = string.componentsSeparatedByCharactersInSet(aSet)
-        let numberFiltered = compSepByCharInSet.joinWithSeparator("")
-        let countdots = textField.text!.componentsSeparatedByString(".").count - 1
-        
-        if countdots > 0 && string == "."
-        {
-            return false
-        }
-        return string == numberFiltered
+            let aSet = NSCharacterSet(charactersInString:"0123456789.").invertedSet
+            let compSepByCharInSet = string.componentsSeparatedByCharactersInSet(aSet)
+            let numberFiltered = compSepByCharInSet.joinWithSeparator("")
+            let countdots = textField.text!.componentsSeparatedByString(".").count - 1
+            
+            if countdots > 0 && string == "."
+            {
+                return false
+            }
+            return string == numberFiltered
         }
         else{
             return true
@@ -175,8 +175,8 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
                     try self.managedObjectContext!.save()
                     navigationController?.popViewControllerAnimated(true)
                 } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                   //print("error")
+                    Helper.fireBaseSetUserProperty(nsError)
+                    //print("error")
                 }
             }
             
@@ -207,20 +207,20 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
                 try self.managedObjectContext?.save()
                 Helper.FIRAnalyticsLogEvent("add_income", value: "added_income")
                 
-                    
-                    /*
-                    kFIRParameterItemName: category.text! as NSObject,
-                    kFIRParameterValue : amount.text! as NSObject,
-                    kFIRParameterItemCategory: "account "  + accountName  as NSObject,
-                   
-                    ])*/
+                
+                /*
+                 kFIRParameterItemName: category.text! as NSObject,
+                 kFIRParameterValue : amount.text! as NSObject,
+                 kFIRParameterItemCategory: "account "  + accountName  as NSObject,
+                 
+                 ])*/
                 
                 navigationController?.popViewControllerAnimated(true)
                 //receivedMessageFromServer()
                 
             }
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
+                Helper.fireBaseSetUserProperty(nsError)
                 
             }
             

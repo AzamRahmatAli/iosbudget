@@ -20,7 +20,7 @@ struct  Helper {
     static var password = ""
     static var passwordHint = ""
     static let formatter = NSNumberFormatter()
-   
+    
     static var pickedSubCaregory : SubCategoryTable?
     static var expandedAndCollapsedSectionsIncome  : [Bool] = []
     static var expandedAndCollapsedSectionsAccount : [Bool] = []
@@ -35,7 +35,7 @@ struct  Helper {
     
     static var pickedAccountData : AccountTable?
     static var bankIcon = "bank"
-  
+    
     
     
     static var totalExpenses : Float = 0.0
@@ -52,12 +52,12 @@ struct  Helper {
     {
         let alertController = UIAlertController(title: title, message:  message, preferredStyle: UIAlertControllerStyle.Alert)
         
-    
+        
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-           //print("OK")
+            //print("OK")
         }
         alertController.addAction(okAction)
-       
+        
         controller.presentViewController(alertController, animated: true, completion: nil)
     }
     
@@ -72,13 +72,13 @@ struct  Helper {
     {
         if error.localizedDescription.characters.count > 35
         {
-        let indexa = error.localizedDescription.startIndex
-        let indexb = error.localizedDescription.startIndex.advancedBy(35)
-      FIRAnalytics.setUserPropertyString(error.localizedDescription[indexa...indexb], forName: "catch_error_description")
+            let indexa = error.localizedDescription.startIndex
+            let indexb = error.localizedDescription.startIndex.advancedBy(35)
+            FIRAnalytics.setUserPropertyString(error.localizedDescription[indexa...indexb], forName: "catch_error_description")
         }
         else
         {
-           FIRAnalytics.setUserPropertyString(error.localizedDescription, forName: "catch_error_description")
+            FIRAnalytics.setUserPropertyString(error.localizedDescription, forName: "catch_error_description")
         }
     }
     static func saveChanges(context : NSManagedObjectContext, viewController : UIViewController)
@@ -88,8 +88,8 @@ struct  Helper {
             viewController.navigationController?.popViewControllerAnimated(true)
             
         } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-           //print("error")
+            Helper.fireBaseSetUserProperty(nsError)
+            //print("error")
         }
     }
     
@@ -100,10 +100,10 @@ struct  Helper {
             let locale = NSLocale(localeIdentifier: localeID as String)
             let code = locale.objectForKey(NSLocaleCurrencyCode) as? String
             if code == currencyCode{
-               //print(currencyCode, localeID)
+                //print(currencyCode, localeID)
                 
                 let symbol = locale.objectForKey(NSLocaleCurrencySymbol) as? String
-               //print(symbol)
+                //print(symbol)
                 return symbol!
                 
             }
@@ -121,31 +121,31 @@ struct  Helper {
     }
     static func addMenuButton(controller : UIViewController)
     {
-    if  controller.revealViewController() != nil {
-    //  menuButton.target = self.revealViewController()
-    //  menuButton.action = "rightRevealToggle:"
-    
-    
-    let myBtn: UIButton = UIButton()
-    myBtn.setImage(UIImage(named: "menu"), forState: .Normal)
-    myBtn.frame = CGRectMake(0, 0, 50, 50)
-    myBtn.backgroundColor = UIColor.clearColor()
-    // myBtn.addTarget(self, action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
-    myBtn.addTarget(controller.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-    controller.navigationItem.setLeftBarButtonItem(UIBarButtonItem(customView: myBtn), animated: true)
-    myBtn.tintColor =  Helper.colors[0]
-    
-  
-    }
-
+        if  controller.revealViewController() != nil {
+            //  menuButton.target = self.revealViewController()
+            //  menuButton.action = "rightRevealToggle:"
+            
+            
+            let myBtn: UIButton = UIButton()
+            myBtn.setImage(UIImage(named: "menu"), forState: .Normal)
+            myBtn.frame = CGRectMake(0, 0, 50, 50)
+            myBtn.backgroundColor = UIColor.clearColor()
+            // myBtn.addTarget(self, action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
+            myBtn.addTarget(controller.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            controller.navigationItem.setLeftBarButtonItem(UIBarButtonItem(customView: myBtn), animated: true)
+            myBtn.tintColor =  Helper.colors[0]
+            
+            
+        }
+        
     }
     
     static func FIRAnalyticsLogEvent(id : String , value : String)
     {
-    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-    kFIRParameterItemID : id as NSObject,
-    kFIRParameterContentType : value as NSObject
-    ])
+        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+            kFIRParameterItemID : id as NSObject,
+            kFIRParameterContentType : value as NSObject
+            ])
     }
     
 }

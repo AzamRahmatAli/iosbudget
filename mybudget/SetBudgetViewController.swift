@@ -10,13 +10,13 @@ import UIKit
 import CoreData
 
 class SetBudgetViewController: UIViewController , UITextFieldDelegate{
-
-   
-
+    
+    
+    
     @IBOutlet weak var amount: UITextField!
     
     @IBOutlet weak var category: UILabel!
-
+    
     @IBOutlet weak var subCategory: UILabel!
     
     var managedObjectContext: NSManagedObjectContext? = (UIApplication.sharedApplication().delegate as? AppDelegate)?.managedObjectContext
@@ -26,7 +26,7 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
     var crntSubCategory = ""
     var crntAmount = ""
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         category.text = crntCategory
@@ -37,7 +37,7 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SetBudgetViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-       
+        
     }
     
     func dismissKeyboard() {
@@ -51,7 +51,7 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
         {
             if amount.text == "0"
             {
-            amount.text = ""
+                amount.text = ""
             }
             return true
         }
@@ -84,35 +84,35 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
     @IBAction func addExpense(sender: AnyObject) {
         
         /*if let expense = NSEntityDescription.insertNewObjectForEntityForName("BudgetTable", inManagedObjectContext: managedObjectContext!) as? BudgetTable
-        {
-            expense.category = category.text
-            expense.expenses = Int(amount.text!)
-            expense.subCategory = subCategory.text
-            expense.createdAt = NSDate()
-            
-            expense.icon = "home"
-            
-            
-           //print(expense)
-            
-            
-        }
-        else{
-           //print("fail insert")
-        }
-        
-        
-        
-        do{
-            try self.managedObjectContext?.save()
-            navigationController?.popViewControllerAnimated(true)
-            //receivedMessageFromServer()
-            
-        }
-        catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-            
-        }*/
+         {
+         expense.category = category.text
+         expense.expenses = Int(amount.text!)
+         expense.subCategory = subCategory.text
+         expense.createdAt = NSDate()
+         
+         expense.icon = "home"
+         
+         
+         //print(expense)
+         
+         
+         }
+         else{
+         //print("fail insert")
+         }
+         
+         
+         
+         do{
+         try self.managedObjectContext?.save()
+         navigationController?.popViewControllerAnimated(true)
+         //receivedMessageFromServer()
+         
+         }
+         catch let nsError as NSError{
+         Helper.fireBaseSetUserProperty(nsError)
+         
+         }*/
         
         
         let predicate = NSPredicate(format: "category.name == %@ AND name == %@", crntCategory, crntSubCategory)
@@ -124,14 +124,14 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
             let entity = try self.managedObjectContext!.executeFetchRequest(fetchRequest) as! [SubCategoryTable]
             
             
-                //entity.first?.category = crntCategory
-                
-                //entity.first?.subCategory = crntSubCategory
+            //entity.first?.category = crntCategory
+            
+            //entity.first?.subCategory = crntSubCategory
             entity.first?.amount = amount.text
-                // ... Update additional properties with new values
+            // ... Update additional properties with new values
             
         } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
+            Helper.fireBaseSetUserProperty(nsError)
             // Do something in response to error condition
         }
         
@@ -139,9 +139,9 @@ class SetBudgetViewController: UIViewController , UITextFieldDelegate{
             try self.managedObjectContext!.save()
             navigationController?.popViewControllerAnimated(true)
         } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
+            Helper.fireBaseSetUserProperty(nsError)
             // Do something in response to error condition
         }
     }
-
+    
 }

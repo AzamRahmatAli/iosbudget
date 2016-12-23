@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
         {
-          
+            
         }
         else
         {
@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // topController should now be your topmost view controller
         }
         
-       
+        
         
     }
     

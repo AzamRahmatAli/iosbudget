@@ -40,7 +40,7 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
         
         
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (result : UIAlertAction) -> Void in
-           //print("OK")
+            //print("OK")
         }
         
         alertController.addAction(okAction)
@@ -140,10 +140,10 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
             if let total = Float(accountData!.amount!)
             {
                 asOfAccount.text = "As of " + String(accountData!.createdAt!).componentsSeparatedByString(" ").first!
-            reconciledAmount.text = total.asLocaleCurrency
-            currentAmount.text = remaining.asLocaleCurrency
-            fundsIn.text = fundIn.asLocaleCurrency
-            fundsout.text = fundOut.asLocaleCurrency
+                reconciledAmount.text = total.asLocaleCurrency
+                currentAmount.text = remaining.asLocaleCurrency
+                fundsIn.text = fundIn.asLocaleCurrency
+                fundsout.text = fundOut.asLocaleCurrency
             }
         }
         else
@@ -171,22 +171,22 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         // Constants.Picker.chooseSubCategory = true
         /*if textField == dateValue
-        {
-            self.performSegueWithIdentifier("pickDate", sender: nil)
-        }else*/ if textField  == amount
-        {
+         {
+         self.performSegueWithIdentifier("pickDate", sender: nil)
+         }else*/ if textField  == amount
+         {
             if amount.text == "0"
             {
                 amount.text = ""
             }
             return true
             
-        }
-        else if  textField  == category ||  textField  == subCategory
-        {
+         }
+         else if  textField  == category ||  textField  == subCategory
+         {
             return true
-        }
-        else  {
+         }
+         else  {
             Helper.pickCategory = true
             self.performSegueWithIdentifier("pickCategory", sender: nil)
         }
@@ -201,23 +201,23 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField  == amount
         {
-        let aSet = NSCharacterSet(charactersInString:"0123456789.").invertedSet
-        let compSepByCharInSet = string.componentsSeparatedByCharactersInSet(aSet)
-        let numberFiltered = compSepByCharInSet.joinWithSeparator("")
-        let countdots = textField.text!.componentsSeparatedByString(".").count - 1
-        
-        if countdots > 0 && string == "."
-        {
-            return false
-        }
-        return string == numberFiltered
+            let aSet = NSCharacterSet(charactersInString:"0123456789.").invertedSet
+            let compSepByCharInSet = string.componentsSeparatedByCharactersInSet(aSet)
+            let numberFiltered = compSepByCharInSet.joinWithSeparator("")
+            let countdots = textField.text!.componentsSeparatedByString(".").count - 1
+            
+            if countdots > 0 && string == "."
+            {
+                return false
+            }
+            return string == numberFiltered
         }
         else{
             return true
         }
     }
-
-
+    
+    
     @IBAction func Cancel(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
     }
@@ -315,16 +315,16 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                     entity.createdAt = accountDate
                     entity.accountType = AccountTypeTable.accontType(category.text!.trim(), inManagedObjectContext: managedObjectContext!)
                     
-                   //print(entity)
+                    //print(entity)
                     
                     Helper.FIRAnalyticsLogEvent("add_account", value: "added_account")
                     
-                        /*
-                        kFIRParameterItemName: subCategory.text! as NSObject,
-                        kFIRParameterValue : amount.text! as NSObject,
-                        kFIRParameterItemCategory: "account-type "  + category.text! + " \(Helper.bankIcon)" as NSObject,
-                        ])*/
-
+                    /*
+                     kFIRParameterItemName: subCategory.text! as NSObject,
+                     kFIRParameterValue : amount.text! as NSObject,
+                     kFIRParameterItemCategory: "account-type "  + category.text! + " \(Helper.bankIcon)" as NSObject,
+                     ])*/
+                    
                     Helper.saveChanges(managedObjectContext!, viewController : self )
                 }
             }

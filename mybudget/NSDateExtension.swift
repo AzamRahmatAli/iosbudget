@@ -11,7 +11,7 @@ import Foundation
 
 extension NSDate {
     
- 
+    
     func getDatesOfRange(calendarUnit : NSCalendarUnit ) -> (startDate : NSDate, endDate : NSDate)
     {
         let cal = NSCalendar.currentCalendar()
@@ -25,7 +25,7 @@ extension NSDate {
             
             cal.firstWeekday = 2
         }
-                
+        
         if let date = cal.dateByAddingComponents(components, toDate: self, options: NSCalendarOptions(rawValue: 0)) {
             var duration = NSTimeInterval()
             if cal.rangeOfUnit(calendarUnit, startDate: &beginning, interval: &duration, forDate: date) {

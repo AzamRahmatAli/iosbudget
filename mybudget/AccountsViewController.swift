@@ -21,7 +21,7 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
     
     
     
-  
+    
     
     var accountData : [AccountTypeTable] = []
     var calculatedAmount = [[Float]]()
@@ -56,13 +56,13 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
         tableView.registerNib(nib, forHeaderFooterViewReuseIdentifier: "TableSectionHeader")
         if Helper.pickAccount
         {
-        transferView.hidden = true
+            transferView.hidden = true
         }
     }
     
     
     
-
+    
     
     
     
@@ -113,7 +113,7 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
         return header
     }
     
-   
+    
     
     
     
@@ -134,11 +134,11 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
         //do it before table reload
         //change the value of section to expandable or not expandable
         Helper.expandedAndCollapsedSectionsAccount[section] = !Helper.expandedAndCollapsedSectionsAccount[section]
-       //print(Helper.expandedAndCollapsedSectionsAccount[section], section)
+        //print(Helper.expandedAndCollapsedSectionsAccount[section], section)
         
         // Get the section
         sectionTapped  = section
-       
+        
         
     }
     
@@ -147,13 +147,13 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if  Helper.expandedAndCollapsedSectionsAccount[section]
         {
-         
             
-             dataForSection = accountData[section].account!.allObjects as! [AccountTable]
+            
+            dataForSection = accountData[section].account!.allObjects as! [AccountTable]
             
             
             return dataForSection.count
-        
+            
         }
         else
         {
@@ -164,7 +164,7 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-       //print("accountData.count= ", accountData.count)
+        //print("accountData.count= ", accountData.count)
         return accountData.count
         
     }
@@ -206,7 +206,7 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
             {
                 if element.transferAt?.compare(NSDate()) == .OrderedAscending
                 {
-                total -= Float(element.amount ?? "0") ?? 0.0
+                    total -= Float(element.amount ?? "0") ?? 0.0
                 }
             }
         }
@@ -216,7 +216,7 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
             {
                 if element.transferAt?.compare(NSDate()) == .OrderedAscending
                 {
-                total += Float(element.amount ?? "0") ?? 0.0
+                    total += Float(element.amount ?? "0") ?? 0.0
                 }
             }
         }
@@ -233,7 +233,7 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cellparent", forIndexPath: indexPath) as! ParentTableViewCell
         
-         dataForSection = accountData[indexPath.section].account!.allObjects as! [AccountTable]
+        dataForSection = accountData[indexPath.section].account!.allObjects as! [AccountTable]
         
         cell.subCatg.text = dataForSection[indexPath.row].name
         cell.leftDown.text = "Reconciled: " + Float(dataForSection[indexPath.row].amount ?? "0")!.asLocaleCurrency
@@ -250,8 +250,8 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
         
         if let image = dataForSection[indexPath.row].icon
         {
-        cell.img.image = UIImage(named: image)
-        cell.img?.tintColor = Helper.colors[(indexPath.row +  indexPath.section ) % 5]
+            cell.img.image = UIImage(named: image)
+            cell.img?.tintColor = Helper.colors[(indexPath.row +  indexPath.section ) % 5]
         }
         
         return cell
@@ -263,12 +263,12 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         if segue.identifier == "updateAccount"
         {
-        let indexPath = self.tableView.indexPathForSelectedRow!
-        dataForSection = accountData[indexPath.section].account!.allObjects as! [AccountTable]
-        let dvc = segue.destinationViewController as! AddAccountViewController
-        
-        dvc.accountData = dataForSection[indexPath.row]
-        dvc.updateAccount = true
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            dataForSection = accountData[indexPath.section].account!.allObjects as! [AccountTable]
+            let dvc = segue.destinationViewController as! AddAccountViewController
+            
+            dvc.accountData = dataForSection[indexPath.row]
+            dvc.updateAccount = true
         }
         
     }
@@ -290,23 +290,23 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
             for element in accountData
             {
                 if let accounts = element.account?.allObjects as? [AccountTable]
-                    {
-                           dataForSection = accounts //using in calculateCurrentAmountAfterExpenses
-                        for account in accounts{
-                         
-                            if let amount = calculateCurrentAmountAfterExpenses(Float(account.amount ?? "0") ?? 0.0, row:  j)
-                            {
+                {
+                    dataForSection = accounts //using in calculateCurrentAmountAfterExpenses
+                    for account in accounts{
+                        
+                        if let amount = calculateCurrentAmountAfterExpenses(Float(account.amount ?? "0") ?? 0.0, row:  j)
+                        {
                             calculatedAmount[i].append(amount)
-                                totalAmount += amount
+                            totalAmount += amount
                         }
-                            j += 1
-                        }
-                        j = 0
+                        j += 1
+                    }
+                    j = 0
                 }
                 i += 1
             }
             accountTotalLabel.text = totalAmount.asLocaleCurrency
-         
+            
             
             
             //append array if section increase
@@ -329,12 +329,12 @@ class AccountsViewController: UIViewController , UITableViewDelegate, UITableVie
             }
             
             
-           
+            
         }
             
             
         catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
+            Helper.fireBaseSetUserProperty(nsError)
         }
         
         tableView.reloadData()

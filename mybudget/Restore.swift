@@ -31,8 +31,8 @@ struct Restore
             if let dic = json as? [String : AnyObject]
             {
                 guard Restore.clearCoreDataStore()
-                else{
-                    return false
+                    else{
+                        return false
                 }
                 if let accountTypes = dic["AccountTypeTable"]
                 {
@@ -64,7 +64,7 @@ struct Restore
                                 
                                 //        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
                                 let dateObj = dateFormatter.dateFromString(dateString!)
-                               //print(dateObj)
+                                //print(dateObj)
                                 entity.createdAt = dateObj
                                 entity.accountType = AccountTypeTable.accontType(account["accounttype"]!, inManagedObjectContext: Helper.managedObjectContext!)
                                 
@@ -288,19 +288,19 @@ struct Restore
                     return true
                     
                 } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                   //print("error")
+                    Helper.fireBaseSetUserProperty(nsError)
+                    //print("error")
                 }
                 
                 
             }
-           //print(json)
+            //print(json)
             
             
             
         }
         catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)/* error handling here */}
+            Helper.fireBaseSetUserProperty(nsError)/* error handling here */}
         return false
     }
     
@@ -316,8 +316,8 @@ struct Restore
                 try Helper.managedObjectContext!.executeRequest(deleteReqest)
                 
             } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print(error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print(error)
                 return false
             }
             
@@ -335,8 +335,8 @@ struct Restore
                 
                 
             } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error")
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error")
             }
         }
         return false
@@ -354,8 +354,8 @@ struct Restore
                 setStaticValuesFromCoreData()
                 return true
             } catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error")
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error")
             }
         }
         return false
@@ -366,7 +366,7 @@ struct Restore
         let request = NSFetchRequest(entityName: "Other")
         
         
-       //print("setStaticValuesFromCoreData")
+        //print("setStaticValuesFromCoreData")
         
         if Helper.managedObjectContext!.countForFetchRequest( request , error: nil) > 0
         {
@@ -398,8 +398,8 @@ struct Restore
                 
             }
             catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-               //print("error : ", error)
+                Helper.fireBaseSetUserProperty(nsError)
+                //print("error : ", error)
             }
             
             

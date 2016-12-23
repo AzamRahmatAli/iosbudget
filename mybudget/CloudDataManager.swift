@@ -32,46 +32,46 @@ class CloudDataManager {
                     {
                         
                         /*let indexa = str.endIndex.advancedBy(-28)
-                        let indexb = str.endIndex.advancedBy(-8)
+                         let indexb = str.endIndex.advancedBy(-8)
+                         
+                         let fileName = str[indexa...indexb]
+                         let file = iCloudDocumentsURL!.URLByAppendingPathComponent(fileName)
+                         print(s)
+                         print(file)
+                         print(fileName)
+                         print(file.path!)
+                         if !filemanager.fileExistsAtPath(s.path!){
+                         
+                         if filemanager.isUbiquitousItemAtURL(s) {
+                         
+                         Helper.alertUser(self, title: "", message: "iCloud is currently busy syncing the backup files. Please try again in a few minutes")*/
+                        FIRAnalytics.setUserPropertyString("backup download request", forName: "backup_restore")
                         
-                        let fileName = str[indexa...indexb]
-                        let file = iCloudDocumentsURL!.URLByAppendingPathComponent(fileName)
-                        print(s)
-                        print(file)
-                        print(fileName)
-                        print(file.path!)
-                        if !filemanager.fileExistsAtPath(s.path!){
-                            
-                            if filemanager.isUbiquitousItemAtURL(s) {
-                                
-                                Helper.alertUser(self, title: "", message: "iCloud is currently busy syncing the backup files. Please try again in a few minutes")*/
-                                FIRAnalytics.setUserPropertyString("backup download request", forName: "backup_restore")
-                                
-                                do {
-                                    try filemanager.startDownloadingUbiquitousItemAtURL(s)
-                                } catch let nsError as NSError{
-                                    Helper.fireBaseSetUserProperty(nsError)
-                                    //print("Error while loading Backup File \(error)")
-                                }/*
-                            }
-                            return false
-                        } else{
-                            return true
-                        }
+                        do {
+                            try filemanager.startDownloadingUbiquitousItemAtURL(s)
+                        } catch let nsError as NSError{
+                            Helper.fireBaseSetUserProperty(nsError)
+                            //print("Error while loading Backup File \(error)")
+                        }/*
+                         }
+                         return false
+                         } else{
+                         return true
+                         }
+                         
+                         
+                         
+                         }
+                         }
+                         }
+                         
+                         catch let nsError as NSError{
+                         Helper.fireBaseSetUserProperty(nsError)
+                         
+                         }
+                         }
+                         return true*/
                         
-                        
-                        
-                    }
-                }
-            }
-                
-            catch let nsError as NSError{
-                Helper.fireBaseSetUserProperty(nsError)
-                
-            }
-        }
-        return true*/
- 
                     }
                 }
             }
@@ -217,7 +217,7 @@ class CloudDataManager {
             }
             Helper.FIRAnalyticsLogEvent("id-auto_backup", value: "auto_backup")
             
-           
+            
         }
         
         

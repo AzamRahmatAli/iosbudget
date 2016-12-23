@@ -86,7 +86,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     FIRAnalytics.setUserPropertyString("app-Purchased", forName: "app_purchased")
                     
                     Helper.FIRAnalyticsLogEvent("id-app_purchased", value: "app-purchased")
-                
+                    
                     break;
                     
                 case .Failed:
@@ -96,7 +96,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     FIRAnalytics.setUserPropertyString("app-Purchased-Failed", forName: "app_purchased")
                     
                     Helper.FIRAnalyticsLogEvent("id-app_purchased", value: "app-Purchased-failed")
-                   
+                    
                     
                     break;
                     
@@ -113,7 +113,7 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     FIRAnalytics.setUserPropertyString("restored", forName: "app_purchased")
                     
                     Helper.FIRAnalyticsLogEvent("id-app_purchased", value: "app_purchased-restored")
-               
+                    
                     
                     
                 default:

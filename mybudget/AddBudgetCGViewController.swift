@@ -65,77 +65,77 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
         {
             if selectedImage != ""
             {
-            if addSubCategory
-            {
-                
-                // if let budget = NSEntityDescription.insertNewObjectForEntityForName("SubCategoryTable", inManagedObjectContext: managedObjectContext!) as? SubCategoryTable
-                if update{
-                    if let subCtg = SubCategoryTable.subCategory(subcategory!.name!, categoryName : category!.name!,inManagedObjectContext: managedObjectContext!)
-                    {
-                        subCtg.name = name.text!.trim()
-                        subCtg.icon = selectedImage
-                    }
-                }
-                else
-                {
-                    let _ = SubCategoryTable.subcategory(name.text!, image: selectedImage, categoryName: category!.name!, inManagedObjectContext: managedObjectContext!)
-                }
-                
-            }
-            else if addCategory  {
-                
-                
-                
-                //if let budget = NSEntityDescription.insertNewObjectForEntityForName("CategoryTable", inManagedObjectContext: managedObjectContext!) as? CategoryTable
-                
-                if update {
-                    if let ctg = CategoryTable.categoryByOnlyName(category!.name!, inManagedObjectContext: managedObjectContext!)
-                    {
-                        ctg.name = name.text
-                        ctg.icon = selectedImage
-                    }
-                }
-                else
+                if addSubCategory
                 {
                     
-                    let _ = CategoryTable.category(name.text!.trim(), image: selectedImage, inManagedObjectContext: managedObjectContext!)
+                    // if let budget = NSEntityDescription.insertNewObjectForEntityForName("SubCategoryTable", inManagedObjectContext: managedObjectContext!) as? SubCategoryTable
+                    if update{
+                        if let subCtg = SubCategoryTable.subCategory(subcategory!.name!, categoryName : category!.name!,inManagedObjectContext: managedObjectContext!)
+                        {
+                            subCtg.name = name.text!.trim()
+                            subCtg.icon = selectedImage
+                        }
+                    }
+                    else
+                    {
+                        let _ = SubCategoryTable.subcategory(name.text!, image: selectedImage, categoryName: category!.name!, inManagedObjectContext: managedObjectContext!)
+                    }
+                    
+                }
+                else if addCategory  {
+                    
+                    
+                    
+                    //if let budget = NSEntityDescription.insertNewObjectForEntityForName("CategoryTable", inManagedObjectContext: managedObjectContext!) as? CategoryTable
+                    
+                    if update {
+                        if let ctg = CategoryTable.categoryByOnlyName(category!.name!, inManagedObjectContext: managedObjectContext!)
+                        {
+                            ctg.name = name.text
+                            ctg.icon = selectedImage
+                        }
+                    }
+                    else
+                    {
+                        
+                        let _ = CategoryTable.category(name.text!.trim(), image: selectedImage, inManagedObjectContext: managedObjectContext!)
+                    }
+                }
+                
+                
+                
+                do{
+                    try self.managedObjectContext?.save()
+                    
+                    if !update
+                    {
+                        // let info = (addCategory ? name.text!  : category!.name! + " > " + name.text!) + " \( selectedImage)"
+                        Helper.FIRAnalyticsLogEvent("id-budget_category_subcategory", value: "added " + (addCategory ? "category " : "subcategory ") + name.text!)
+                        
+                        /*
+                         kFIRParameterItemName: "added " + (addCategory ? "category " : "subcategory ") + info as NSObject
+                         ])*/
+                    }
+                    /*
+                     kFIRParameterContentType: update ? "update" : "new" as NSObject,
+                     kFIRParameterValue : (addCategory ? name.text!  : category!.name! + " > " + name.text!) + " \( selectedImage)" as NSObject
+                     ])*/
+                    
+                    navigationController?.popViewControllerAnimated(true)
+                    //receivedMessageFromServer()
+                    
+                }
+                catch let nsError as NSError{
+                    Helper.fireBaseSetUserProperty(nsError)
+                    
                 }
             }
-            
-            
-            
-            do{
-                try self.managedObjectContext?.save()
-               
-               if !update
-               {
-               // let info = (addCategory ? name.text!  : category!.name! + " > " + name.text!) + " \( selectedImage)"
-                Helper.FIRAnalyticsLogEvent("id-budget_category_subcategory", value: "added " + (addCategory ? "category " : "subcategory ") + name.text!)
-                
-                    /*
-                    kFIRParameterItemName: "added " + (addCategory ? "category " : "subcategory ") + info as NSObject
-                    ])*/
-                }
-                    /*
-                    kFIRParameterContentType: update ? "update" : "new" as NSObject,
-                    kFIRParameterValue : (addCategory ? name.text!  : category!.name! + " > " + name.text!) + " \( selectedImage)" as NSObject
-                    ])*/
-                
-                navigationController?.popViewControllerAnimated(true)
-                //receivedMessageFromServer()
-                
-            }
-            catch let nsError as NSError{
-          Helper.fireBaseSetUserProperty(nsError)
-                
-            }
-        }
             else
             {
                 Helper.alertUser(self, title: "", message: "Select icon")
             }
         }
-       
+        
     }
     @IBAction func cancel(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)

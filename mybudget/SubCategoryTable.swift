@@ -11,9 +11,9 @@ import CoreData
 
 
 class SubCategoryTable: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
-   
+    
+    // Insert code here to add functionality to your managed object subclass
+    
     class func subCategory(name : String , categoryName : String, inManagedObjectContext context: NSManagedObjectContext) -> SubCategoryTable?
         
     {
@@ -36,7 +36,7 @@ class SubCategoryTable: NSManagedObject {
         request.predicate = NSPredicate(format: "name = %@ AND category.name == %@", name, categoryName)
         if let category = (try? context.executeFetchRequest(request))?.first as? SubCategoryTable
         {
-             //if user add same subcategory name
+            //if user add same subcategory name
             return category
             
         }else if let category = NSEntityDescription.insertNewObjectForEntityForName("SubCategoryTable", inManagedObjectContext: context) as? SubCategoryTable
