@@ -239,13 +239,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.price.text = ""
         cell.name2.text = ""
 
-        if self.view.frame.size.height == 480
+        /*if self.view.frame.size.height == 480
         {
             
             cell.price.font = cell.price.font.fontWithSize(8)
             cell.name2.font = cell.name2.font.fontWithSize(9)
             cell.name.font = cell.name.font.fontWithSize(9)
-        }
+        }*/
 
         var request = NSFetchRequest(entityName: "ExpenseTable")
         

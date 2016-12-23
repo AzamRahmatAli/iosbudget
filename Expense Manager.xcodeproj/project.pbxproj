@@ -67,6 +67,7 @@
 		F770B57C1DD3437400013B87 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F770B57B1DD3437400013B87 /* Info.plist */; };
 		F770B5821DD3449300013B87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F770B5811DD3449300013B87 /* LaunchScreen.storyboard */; };
 		F770B58A1DD345EB00013B87 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770B5891DD345EB00013B87 /* SWRevealViewController.m */; };
+		F77FD7181E0CF7E000630C90 /* LabelWithAdaptiveTextHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77FD7171E0CF7E000630C90 /* LabelWithAdaptiveTextHeight.swift */; };
 		F7B9E3811DF1809E00F8CAD7 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37B1DF1809E00F8CAD7 /* FirebaseAnalytics.framework */; };
 		F7B9E3821DF1809E00F8CAD7 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37C1DF1809E00F8CAD7 /* FirebaseCore.framework */; };
 		F7B9E3831DF1809E00F8CAD7 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7B9E37D1DF1809E00F8CAD7 /* FirebaseInstanceID.framework */; };
@@ -141,6 +142,7 @@
 		F770B5881DD345EB00013B87 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F770B5891DD345EB00013B87 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F770B58B1DD3462300013B87 /* mybudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mybudget-Bridging-Header.h"; sourceTree = "<group>"; };
+		F77FD7171E0CF7E000630C90 /* LabelWithAdaptiveTextHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithAdaptiveTextHeight.swift; sourceTree = "<group>"; };
 		F7B9E37B1DF1809E00F8CAD7 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		F7B9E37C1DF1809E00F8CAD7 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = "<group>"; };
 		F7B9E37D1DF1809E00F8CAD7 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				F770B51B1DD33D8F00013B87 /* Restore.swift */,
 				F770B5201DD33D8F00013B87 /* Strings.swift */,
 				F71882FF1DDB0E9400AEE6F2 /* CloudDataManager.swift */,
+				F77FD7171E0CF7E000630C90 /* LabelWithAdaptiveTextHeight.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				F770B5401DD33D8F00013B87 /* CurrencyPickerTableViewController.swift in Sources */,
 				F770B55F1DD33D8F00013B87 /* SubCategoryTable.swift in Sources */,
 				F770B5321DD33D8F00013B87 /* AddExpenseViewController.swift in Sources */,
+				F77FD7181E0CF7E000630C90 /* LabelWithAdaptiveTextHeight.swift in Sources */,
 				F770B5431DD33D8F00013B87 /* datePickerViewController.swift in Sources */,
 				F770B5601DD33D8F00013B87 /* SubCategoryTable+CoreDataProperties.swift in Sources */,
 				F770B5651DD33D8F00013B87 /* TransferTable+CoreDataProperties.swift in Sources */,
@@ -519,8 +523,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -542,7 +546,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "4c70219f-a68e-4635-9479-be0f8a99a5ea";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -566,8 +570,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -582,7 +586,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "4c70219f-a68e-4635-9479-be0f8a99a5ea";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -594,19 +598,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = mybudget/mybudget.entitlements;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Analytics",
 				);
 				INFOPLIST_FILE = mybudget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bltechapps.expensemanager;
 				PRODUCT_NAME = "Expense Manager";
-				PROVISIONING_PROFILE = "4c70219f-a68e-4635-9479-be0f8a99a5ea";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "mybudget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -618,19 +623,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = mybudget/mybudget.entitlements;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Analytics",
 				);
 				INFOPLIST_FILE = mybudget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bltechapps.expensemanager;
 				PRODUCT_NAME = "Expense Manager";
-				PROVISIONING_PROFILE = "4c70219f-a68e-4635-9479-be0f8a99a5ea";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "mybudget-Bridging-Header.h";
 			};
 			name = Release;

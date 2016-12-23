@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kz8-pC-rL9">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -46,20 +45,20 @@
                                                         <constraint firstAttribute="width" secondItem="KVg-cX-yJx" secondAttribute="height" multiplier="1:1" id="iXq-l2-tPX"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7DA-9l-CPi">
-                                                    <rect key="frame" x="8" y="51" width="132" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7DA-9l-CPi" customClass="LabelWithAdaptiveTextHeight" customModule="Expense_Manager" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="51" width="132" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="PuJ-tV-a3v">
-                                                    <rect key="frame" x="8" y="75" width="132" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="PuJ-tV-a3v" customClass="LabelWithAdaptiveTextHeight" customModule="Expense_Manager" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="79" width="132" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RS19,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="uOT-UC-9yF">
-                                                    <rect key="frame" x="8" y="110" width="132" height="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RS19,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="uOT-UC-9yF" customClass="LabelWithAdaptiveTextHeight" customModule="Expense_Manager" customModuleProvider="target">
+                                                    <rect key="frame" x="8" y="106" width="132" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -79,7 +78,7 @@
                                             <constraint firstAttribute="leadingMargin" secondItem="PuJ-tV-a3v" secondAttribute="leading" id="oGT-xe-Dbb"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="KVg-cX-yJx" secondAttribute="leading" id="oha-DM-wNF"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="uOT-UC-9yF" secondAttribute="bottom" id="qhG-Sg-NlF"/>
-                                            <constraint firstItem="uOT-UC-9yF" firstAttribute="top" secondItem="PuJ-tV-a3v" secondAttribute="bottom" constant="12" id="sdd-t8-JQT"/>
+                                            <constraint firstItem="uOT-UC-9yF" firstAttribute="top" secondItem="PuJ-tV-a3v" secondAttribute="bottom" id="sdd-t8-JQT"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="uOT-UC-9yF" secondAttribute="leading" id="te9-8P-Afj"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="7DA-9l-CPi" secondAttribute="trailing" id="w1T-Xa-Lqf"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="PuJ-tV-a3v" secondAttribute="trailing" id="yhx-nM-bmS"/>
@@ -3397,16 +3396,16 @@
         <image name="prevMonth" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IVx-tJ-cid"/>
-        <segue reference="fEM-OY-Hyi"/>
-        <segue reference="xeI-fx-maV"/>
-        <segue reference="Vax-Si-0IU"/>
-        <segue reference="juH-CN-12F"/>
-        <segue reference="hsH-l5-Qe9"/>
-        <segue reference="rxT-Kq-Ui6"/>
         <segue reference="JIA-nG-xpd"/>
+        <segue reference="Vax-Si-0IU"/>
+        <segue reference="IVx-tJ-cid"/>
+        <segue reference="juH-CN-12F"/>
+        <segue reference="fEM-OY-Hyi"/>
+        <segue reference="jge-zi-JaC"/>
+        <segue reference="xeI-fx-maV"/>
+        <segue reference="hsH-l5-Qe9"/>
         <segue reference="oy1-0M-y6T"/>
         <segue reference="uHg-lh-ava"/>
-        <segue reference="d19-hV-0Hs"/>
+        <segue reference="rxT-Kq-Ui6"/>
     </inferredMetricsTieBreakers>
 </document>
