@@ -33,6 +33,9 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if update{
+            self.title = "Update"
+        }
         name.delegate = self
         if update && addCategory{
             name.text = category!.name!
@@ -57,9 +60,11 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     @IBAction func save(sender: AnyObject) {
-        
-        if name.text?.trim() != "" && selectedImage != ""
+        dismissKeyboard()
+        if name.text?.trim() != ""
         {
+            if selectedImage != ""
+            {
             if addSubCategory
             {
                 
@@ -125,6 +130,11 @@ class AddBudgetCGViewController: UIViewController, UICollectionViewDelegate, UIC
             catch let nsError as NSError{
           Helper.fireBaseSetUserProperty(nsError)
                 
+            }
+        }
+            else
+            {
+                Helper.alertUser(self, title: "", message: "Select icon")
             }
         }
        

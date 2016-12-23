@@ -72,9 +72,9 @@
                                             <constraint firstAttribute="topMargin" secondItem="KVg-cX-yJx" secondAttribute="top" id="2bH-tL-Ybg"/>
                                             <constraint firstItem="7DA-9l-CPi" firstAttribute="top" secondItem="KVg-cX-yJx" secondAttribute="bottom" constant="8" id="B1T-ae-gtN"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="7DA-9l-CPi" secondAttribute="leading" id="BLT-3X-sTj"/>
-                                            <constraint firstItem="PuJ-tV-a3v" firstAttribute="height" secondItem="7DA-9l-CPi" secondAttribute="height" id="Lw6-L8-As9"/>
+                                            <constraint firstItem="PuJ-tV-a3v" firstAttribute="height" secondItem="7DA-9l-CPi" secondAttribute="height" id="Ihf-7g-4Nb"/>
+                                            <constraint firstItem="uOT-UC-9yF" firstAttribute="height" secondItem="PuJ-tV-a3v" secondAttribute="height" id="ao7-91-wtQ"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="uOT-UC-9yF" secondAttribute="trailing" id="g1u-Na-ern"/>
-                                            <constraint firstItem="uOT-UC-9yF" firstAttribute="height" secondItem="7DA-9l-CPi" secondAttribute="height" id="l6O-fj-YjF"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="PuJ-tV-a3v" secondAttribute="leading" id="oGT-xe-Dbb"/>
                                             <constraint firstAttribute="leadingMargin" secondItem="KVg-cX-yJx" secondAttribute="leading" id="oha-DM-wNF"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="uOT-UC-9yF" secondAttribute="bottom" id="qhG-Sg-NlF"/>
@@ -166,7 +166,7 @@
         <scene sceneID="Ci0-Wn-Sya">
             <objects>
                 <tableViewController id="2WY-QU-TFA" customClass="SearchTableViewController" customModule="Expense_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="k0q-8S-ydG">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="k0q-8S-ydG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -729,17 +729,8 @@
                             <outlet property="delegate" destination="2DP-20-DNW" id="VuH-M1-pIo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Currency" id="hYj-W8-5i0">
-                        <barButtonItem key="rightBarButtonItem" title="Select" id="f13-4V-0Lp">
-                            <connections>
-                                <action selector="Select:" destination="2DP-20-DNW" id="ITg-xn-J98"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Select Currency" id="hYj-W8-5i0"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="selectButton" destination="f13-4V-0Lp" id="GGK-UA-Co6"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NiP-Ad-Ha4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3396,16 +3387,16 @@
         <image name="prevMonth" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JIA-nG-xpd"/>
         <segue reference="Vax-Si-0IU"/>
         <segue reference="IVx-tJ-cid"/>
+        <segue reference="xeI-fx-maV"/>
+        <segue reference="jge-zi-JaC"/>
         <segue reference="juH-CN-12F"/>
         <segue reference="fEM-OY-Hyi"/>
-        <segue reference="jge-zi-JaC"/>
-        <segue reference="xeI-fx-maV"/>
         <segue reference="hsH-l5-Qe9"/>
-        <segue reference="oy1-0M-y6T"/>
+        <segue reference="Z4r-al-0ds"/>
         <segue reference="uHg-lh-ava"/>
         <segue reference="rxT-Kq-Ui6"/>
+        <segue reference="uKc-4G-tJG"/>
     </inferredMetricsTieBreakers>
 </document>

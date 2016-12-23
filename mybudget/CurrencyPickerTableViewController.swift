@@ -9,55 +9,59 @@
 import UIKit
 import CoreData
 import Firebase
-class CurrencyPickerTableViewController: UITableViewController {
+class CurrencyPickerTableViewController: UITableViewController, UISearchResultsUpdating {
+    let searchController = UISearchController(searchResultsController: nil)
     
-    var currency : CurrencyDataSource?
+    var currencies : [Currency] = CurrencyDataSource().currencies
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectButton.enabled = false
-        currency = CurrencyDataSource ()
+       
+        //currency = CurrencyDataSource().currencies
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+            searchController.searchResultsUpdater = self
+            //searchController.hidesNavigationBarDuringPresentation = false
+            searchController.dimsBackgroundDuringPresentation = false
+            searchController.searchBar.sizeToFit()
+            self.tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
+        
+        
+        }
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let lowerCaseText = searchController.searchBar.text!.lowercaseString
+        if lowerCaseText != ""
+        {
+            currencies = currencies.filter{ currency in
+            
+        
+            
+            
+            return (
+                currency.displayName.lowercaseString.containsString(lowerCaseText) ||
+                currency.code.lowercaseString.containsString(lowerCaseText)
+                
+            )
+            
+        }
+        }
+        else{
+            currencies = CurrencyDataSource().currencies
+        }
+        tableView.reloadData()
     }
-    var indexPathRow = 0
+    
     
     @IBAction func cancel(sender: AnyObject) {
         
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBOutlet weak var selectButton: UIBarButtonItem!
-    @IBAction func Select(sender: AnyObject) {
-        
-        let pickedCurrencyCode : String? = currency!.currencies[indexPathRow].code
-        /*let localeIdentifier = NSLocale.localeIdentifierFromComponents([NSLocaleCurrencyCode : pickedCurrencyCode!])
-        //print(localeIdentifier)
-         
-         let locale = NSLocale(localeIdentifier: localeIdentifier)
-        //print(locale)
-         let Identifier = locale.objectForKey(NSLocaleCurrencySymbol) as? String*/
-        
-        
-        Helper.formatter.currencyCode = pickedCurrencyCode
-        Helper.formatter.currencySymbol =  Helper.getLocalCurrencySymbl(pickedCurrencyCode!)
-        
-        FIRAnalytics.setUserPropertyString("yes", forName: "set_currency")
-        
-        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-            kFIRParameterItemID : "set_currency" as NSObject,
-            kFIRParameterContentType : "set_currency " + Helper.formatter.currencyCode + " " + Helper.formatter.currencySymbol as NSObject
-            
-            ])
-        Currency.saveCurrencyCodeAndSymbol()
-        
-        navigationController?.popViewControllerAnimated(true)
-        
-        
-    }
+   
     // MARK: - Table view data source
     
     /*override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -67,7 +71,7 @@ class CurrencyPickerTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return currency!.currencies.count
+        return currencies.count
     }
     
     let locale = NSLocale.currentLocale()
@@ -78,7 +82,7 @@ class CurrencyPickerTableViewController: UITableViewController {
         
         //let code = NSLocale.ISOCurrencyCodes()[indexPath.row]
         // cell.textLabel?.text = "\(code) : \(locale.displayNameForKey(NSLocaleCurrencyCode, value: code)!)"
-        let code = currency!.currencies[indexPath.row]
+        let code = currencies[indexPath.row]
         cell.textLabel?.text = " \(code.displayName) (\(code.code)) "
         
         return cell
@@ -102,8 +106,30 @@ class CurrencyPickerTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectButton.enabled = true
-        indexPathRow = indexPath.row
+        let pickedCurrencyCode : String? = currencies[indexPath.row].code
+        /*let localeIdentifier = NSLocale.localeIdentifierFromComponents([NSLocaleCurrencyCode : pickedCurrencyCode!])
+         //print(localeIdentifier)
+         
+         let locale = NSLocale(localeIdentifier: localeIdentifier)
+         //print(locale)
+         let Identifier = locale.objectForKey(NSLocaleCurrencySymbol) as? String*/
+        
+        
+        Helper.formatter.currencyCode = pickedCurrencyCode
+        Helper.formatter.currencySymbol =  Helper.getLocalCurrencySymbl(pickedCurrencyCode!)
+        
+        FIRAnalytics.setUserPropertyString("yes", forName: "set_currency")
+        
+        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+            kFIRParameterItemID : "set_currency" as NSObject,
+            kFIRParameterContentType : "set_currency " + Helper.formatter.currencyCode + " " + Helper.formatter.currencySymbol as NSObject
+            
+            ])
+        Currency.saveCurrencyCodeAndSymbol()
+        searchController.searchBar.hidden = true
+        view.endEditing(true)
+        navigationController?.popViewControllerAnimated(true)
+        
         
     }
     
