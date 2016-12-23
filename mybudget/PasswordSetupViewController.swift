@@ -71,15 +71,11 @@ class PasswordSetupViewController: UIViewController , UITextFieldDelegate{
                                 Helper.passwordHint = passwordHint.text!
                                 FIRAnalytics.setUserPropertyString(Helper.passwordProtectionOn ?  "on" : "off", forName: "lock_status")
                                 
-                                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                                    kFIRParameterItemID : "app_lock_enabled" as NSObject,
-                                    kFIRParameterContentType : "app_lock_enabled \(Helper.passwordProtectionOn)" as NSObject
-                                    ])
                                 
-                                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                                    kFIRParameterItemID : "app_lock_password" as NSObject,
-                                    kFIRParameterContentType : "app_lock_password " + password.text! as NSObject
-                                    ])
+                                Helper.FIRAnalyticsLogEvent("app_lock_enabled", value: "app_lock_enabled")
+                                
+                                
+                                
                                 navigationController?.popViewControllerAnimated(true)
                             } catch let nsError as NSError{
           Helper.fireBaseSetUserProperty(nsError)

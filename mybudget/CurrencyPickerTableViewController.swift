@@ -120,11 +120,9 @@ class CurrencyPickerTableViewController: UITableViewController, UISearchResultsU
         
         FIRAnalytics.setUserPropertyString("yes", forName: "set_currency")
         
-        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-            kFIRParameterItemID : "set_currency" as NSObject,
-            kFIRParameterContentType : "set_currency " + Helper.formatter.currencyCode + " " + Helper.formatter.currencySymbol as NSObject
-            
-            ])
+        Helper.FIRAnalyticsLogEvent("set_currency", value: "set_currency " + Helper.formatter.currencyCode + " " + Helper.formatter.currencySymbol )
+        
+        
         Currency.saveCurrencyCodeAndSymbol()
         searchController.searchBar.hidden = true
         view.endEditing(true)

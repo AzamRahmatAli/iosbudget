@@ -317,10 +317,8 @@ class AddAccountViewController: UIViewController , UITextFieldDelegate {
                     
                    //print(entity)
                     
-                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "add_account" as NSObject,
-                        kFIRParameterContentType : "added_account" as NSObject
-                        ])
+                    Helper.FIRAnalyticsLogEvent("add_account", value: "added_account")
+                    
                         /*
                         kFIRParameterItemName: subCategory.text! as NSObject,
                         kFIRParameterValue : amount.text! as NSObject,

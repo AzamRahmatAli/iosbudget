@@ -205,11 +205,8 @@ class AddIncomeViewController: UIViewController , UITextFieldDelegate{
             //print(expense)
             do{
                 try self.managedObjectContext?.save()
+                Helper.FIRAnalyticsLogEvent("add_income", value: "added_income")
                 
-                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                    kFIRParameterItemID : "add_income" as NSObject,
-                    kFIRParameterContentType : "added_income" as NSObject
-                    ])
                     
                     /*
                     kFIRParameterItemName: category.text! as NSObject,

@@ -40,12 +40,9 @@ class BackupRestoreViewController: UITableViewController {
                     
                     FIRAnalytics.setUserPropertyString("yes", forName: "backup_restore")
                     
-                    
-                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "backup_restored" as NSObject,
-                        kFIRParameterContentType : "backup_restored"  as NSObject
-                        
-                        ])
+                    Helper.FIRAnalyticsLogEvent("backup_restored", value: "backup_restored")
+                   
+                   
                     
                     
                     self.tableView.reloadData()
@@ -215,13 +212,10 @@ class BackupRestoreViewController: UITableViewController {
         do {
             try Helper.managedObjectContext!.save()
             Helper.backupFrequency = frequency
+            Helper.FIRAnalyticsLogEvent("auto-backup_frequency", value: "backup_frequency \(frequency.rawValue)")
             
             FIRAnalytics.setUserPropertyString(frequency.rawValue, forName: "backup_enabled")
-            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                kFIRParameterItemID : "auto-backup_frequency" as NSObject,
-                kFIRParameterContentType : "backup_frequency \(frequency.rawValue)" as NSObject,
-                
-                ])
+            
             
         } catch let nsError as NSError{
             Helper.fireBaseSetUserProperty(nsError)
@@ -301,11 +295,10 @@ class BackupRestoreViewController: UITableViewController {
                         loadFiles()
                         FIRAnalytics.setUserPropertyString("yes", forName: "manual_backup")
                         
-                        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                            kFIRParameterItemID : "id-backup_now" as NSObject,
-                            kFIRParameterContentType : "backup_now complete" as NSObject,
-                            
-                            ])
+                        
+                        Helper.FIRAnalyticsLogEvent("id-backup_now", value: "backup_now complete")
+                        
+                        
                         
                         
                     }

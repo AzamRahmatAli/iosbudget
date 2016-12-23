@@ -52,11 +52,10 @@ class SettingTableViewController: UITableViewController {
                 Helper.alertUser(self, title: "", message: "Full reset complete")
                     
                     FIRAnalytics.setUserPropertyString("complete", forName: "full_reset")
+                   
                     
-                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "full_reset" as NSObject,
-                        kFIRParameterContentType : "reset complete" as NSObject,
-                        ])
+                    Helper.FIRAnalyticsLogEvent("full_reset", value: "reset complete")
+                    
                 }
            
                 

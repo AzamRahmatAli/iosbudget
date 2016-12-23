@@ -83,25 +83,20 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     defaults.setBool(true , forKey: "alreadyPurchased")
                     
-                    FIRAnalytics.setUserPropertyString("Purchased", forName: "app_purchased")
+                    FIRAnalytics.setUserPropertyString("app-Purchased", forName: "app_purchased")
                     
-                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "id-app_purchased" as NSObject,
-                        kFIRParameterContentType: "purchased" as NSObject,
-                        
-                        ])
+                    Helper.FIRAnalyticsLogEvent("id-app_purchased", value: "app-purchased")
+                
                     break;
                     
                 case .Failed:
                     //print("Purchased Failed");
                     SKPaymentQueue.defaultQueue().finishTransaction(transaction as! SKPaymentTransaction)
                     
-                    FIRAnalytics.setUserPropertyString("Failed", forName: "app_purchased")
+                    FIRAnalytics.setUserPropertyString("app-Purchased-Failed", forName: "app_purchased")
                     
-                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "id-app_purchased" as NSObject,
-                        kFIRParameterContentType : "failed" as NSObject
-                        ])
+                    Helper.FIRAnalyticsLogEvent("id-app_purchased", value: "app-Purchased-failed")
+                   
                     
                     break;
                     
@@ -117,10 +112,8 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     
                     FIRAnalytics.setUserPropertyString("restored", forName: "app_purchased")
                     
-                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "id-app_purchased" as NSObject,
-                        kFIRParameterContentType : "restored" as NSObject
-                        ])
+                    Helper.FIRAnalyticsLogEvent("id-app_purchased", value: "app_purchased-restored")
+               
                     
                     
                 default:
@@ -204,17 +197,17 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
         guard (defaults.boolForKey("alreadyPurchased"))
             else {
                 if Helper.managedObjectContext!.countForFetchRequest( NSFetchRequest(entityName: "ExpenseTable") , error: nil) >= 9 {
+                    Helper.FIRAnalyticsLogEvent("app_purchased", value: "app_purchased-not")
+                    
+                    FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
                     if (SKPaymentQueue.canMakePayments()) {
                         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
                         
                     }
                     
                     //print("false")
-                    FIRAnalytics.setUserPropertyString("not", forName: "app_purchased")
-                    FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                        kFIRParameterItemID : "id-app_purchased" as NSObject,
-                        kFIRParameterContentType: "app_purchased not" as NSObject
-                        ])
+                    
+                    
                 }
                 
                 return
@@ -513,11 +506,9 @@ class AddExpenseViewController: UIViewController, UITextFieldDelegate,UIActionSh
                     //print(entity)
                     do{
                         try self.managedObjectContext?.save()
+                        Helper.FIRAnalyticsLogEvent("add_expense", value: "added_expense")
                         
-                        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                            kFIRParameterItemID : "add_expense" as NSObject,
-                            kFIRParameterContentType : "added_expense" as NSObject
-                            ])
+                        
                         
                         /*
                          kFIRParameterValue : amount.text! as NSObject,

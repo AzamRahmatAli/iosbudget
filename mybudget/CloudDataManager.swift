@@ -215,12 +215,9 @@ class CloudDataManager {
                 //print("time = ",NSDate(timeIntervalSinceReferenceDate: 0 ))
                 timeAgoSinceDate(NSDate(timeIntervalSinceReferenceDate: 0 ))
             }
+            Helper.FIRAnalyticsLogEvent("id-auto_backup", value: "auto_backup")
             
-            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                kFIRParameterItemID : "id-auto_backup" as NSObject,
-                kFIRParameterContentType : "auto_backup" as NSObject,
-                ])
-            
+           
         }
         
         

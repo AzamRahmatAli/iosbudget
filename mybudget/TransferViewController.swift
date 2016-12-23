@@ -133,11 +133,8 @@ class TransferViewController: UIViewController , UITextFieldDelegate{
             do{
                 try Helper.managedObjectContext?.save()
                 
+                 Helper.FIRAnalyticsLogEvent("transfer_account", value: "transfered account")
                 
-                FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                    kFIRParameterItemID : "transfer_account" as NSObject,
-                    kFIRParameterContentType : "transfered account" as NSObject
-                    ])
                     /*
                     kFIRParameterValue : amount.text! as NSObject,
                     kFIRParameterItemCategory: "from " + AccountFrom!.name! + " to " + Accountto!.name! as NSObject,

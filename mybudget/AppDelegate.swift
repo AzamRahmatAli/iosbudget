@@ -24,19 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
         {
-            // app already launched
+          
         }
         else
         {
             // This is the first launch ever
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
             NSUserDefaults.standardUserDefaults().synchronize()
+            Helper.FIRAnalyticsLogEvent("local_currency", value: "local_currency " + Helper.formatter.currencyCode + " - " + Helper.formatter.currencySymbol)
             
-            FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-                kFIRParameterItemID : "local_currency" as NSObject,
-                kFIRParameterContentType : "local_currency " + Helper.formatter.currencyCode + " - " + Helper.formatter.currencySymbol as NSObject
-                
-                ])
+            
+            
             //let Category = ["Utilities", "Food"]
             
             BasicData.addBasicData()
@@ -56,11 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }
+        Helper.FIRAnalyticsLogEvent("open_app", value: "start_app")
         
-        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-            kFIRParameterItemID : "open_app" as NSObject,
-            kFIRParameterContentType : "open_app" as NSObject
-            ])
         
         CloudDataManager.checkAndDownloadBackupFile()
         return true
